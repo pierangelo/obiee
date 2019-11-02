@@ -1,1 +1,22 @@
 /* Add application styles & imports to this file! */
+
+@import "styles-variables.scss";
+
+/*bootstrap import*/
+@import "../node_modules/bootstrap/dist/css/bootstrap.css";
+
+@import "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
+p {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, sans-serif;
+}
+
+*:focus {
+  outline: none !important;
+  outline: 0;
+}
