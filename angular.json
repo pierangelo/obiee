@@ -19,20 +19,11 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": [
-              "src/styles.css",
-              "../node_modules/bootstrap/dist/css/bootstrap.css"
-            ],
+            "styles": ["src/styles.css"],
             "scripts": []
           },
           "configurations": {
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -69,10 +60,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
-            "styles": [
-              "src/styles.css",
-              "../node_modules/bootstrap/dist/css/bootstrap.css"
-            ],
+            "styles": ["src/styles.css"],
             "scripts": [],
             "assets": ["src/favicon.ico", "src/assets"]
           }
