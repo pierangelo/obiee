@@ -1,3 +1,18 @@
-<p>
-  <a routerLink="/">to dashboard</a> | <a routerLink="/test">to test page</a>
-</p>
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <a routerLink="/">to dashboard</a> | <a routerLink="/test">to test page</a> |
+  <span><mat-icon>mood</mat-icon></span>
+
+  <span class="middle">Fabiooooooooo, Material in Angular 2!</span>
+
+  <button mat-icon-button [mat-menu-trigger-for]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-menu x-position="before" #menu="matMenu">
+  <button mat-menu-item>Option 1</button>
+  <button mat-menu-item>Option 2</button>
+</mat-menu>

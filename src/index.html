@@ -6,6 +6,16 @@
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head>
+
+  <div id="global-spinner" class="spinner">
+    <div class="blob blob-0"></div>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="blob blob-4"></div>
+    <div class="blob blob-5"></div>
+  </div>
+
   <body>
     <app-main>loading...</app-main>
 
@@ -88,13 +98,30 @@
         animation: spin 1.5s linear infinite;
       }
     </style>
-    <div id="fs-global-spinner" class="spinner">
-      <div class="blob blob-0"></div>
-      <div class="blob blob-1"></div>
-      <div class="blob blob-2"></div>
-      <div class="blob blob-3"></div>
-      <div class="blob blob-4"></div>
-      <div class="blob blob-5"></div>
-    </div>
+
+    <!-- firebase support-->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyCCdPlrhtsA-_hajBbvTvRoMClcdTLri4g",
+        authDomain: "angular-obiee.firebaseapp.com",
+        databaseURL: "https://angular-obiee.firebaseio.com",
+        projectId: "angular-obiee",
+        storageBucket: "angular-obiee.appspot.com",
+        messagingSenderId: "313221572978",
+        appId: "1:313221572978:web:3f9311b9565b0a7b5455eb",
+        measurementId: "G-7Q2RKR5ZWL"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
   </body>
 </html>

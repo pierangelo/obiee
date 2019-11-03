@@ -1,28 +1,15 @@
 <mat-sidenav-container class="example-container">
   <!-- menu laterale-->
   <mat-sidenav #sidenav [mode]="mode.value" class="sidenav">
-    <label><p style="">Qui va il menu:</p></label>
+    <label><p>Qui va il menu: tiè</p></label>
 
-    <button mat-icon-button (click)="sidenav.toggle()">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <p>
-      <mat-radio-group class="example-radio-group" [formControl]="mode">
-        <label>Mode:</label>
-        <mat-radio-button value="over">Over</mat-radio-button>
-        <mat-radio-button value="side">Side</mat-radio-button>
-        <mat-radio-button value="push">Push</mat-radio-button>
-      </mat-radio-group>
-    </p>
+    <!-- elementi del menu -->
   </mat-sidenav>
 
   <mat-sidenav-content>
     <!-- header -->
-    <p><button mat-button (click)="sidenav.toggle()">Toggle</button></p>
-
-    <app-header></app-header>
+    <app-header [sidenav]="sidenav"></app-header>
     <!-- // header-->
-
     <router-outlet></router-outlet>
     <!-- pages -->
   </mat-sidenav-content>
