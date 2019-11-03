@@ -5,5 +5,6 @@ import { TestComponent } from "./pages/test/test.component";
 
 export const AppRoutes: Routes = [
   { path: "", component: DashboardComponent },
-  { path: "test", component: TestComponent }
+  { path: "test", component: TestComponent },
+  { path: "**", component: DashboardComponent }
 ];
