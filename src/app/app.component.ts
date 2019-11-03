@@ -1,5 +1,7 @@
 import { Component } from "@angular/core";
+import { Router } from "@angular/router";
 
+declare var $;
 @Component({
   selector: "app-main",
   templateUrl: "./app.component.html",
@@ -8,6 +10,15 @@ import { Component } from "@angular/core";
 export class AppComponent {
   name = "Angular";
 
-  constructor() {}
   onResize(event) {}
+
+  constructor(router: Router) {
+    //landing page...
+    router.navigate(["/"]);
+
+    //low level code :)
+    $("#fs-global-spinner").fadeOut("", () => {
+      $("#fs-global-spinner").remove();
+    });
+  }
 }

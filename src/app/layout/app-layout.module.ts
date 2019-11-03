@@ -3,9 +3,11 @@ import { SidebarComponent } from "./sidebar/sidebar.component";
 import { HeaderComponent } from "./header/header.component";
 
 @NgModule({
-  exports: [HeaderComponent, SidebarComponent]
+  declarations: [],
+  exports: []
 })
-export class LayoutModule {
+export class AppLayoutModule {
+  static COMPONENTS = [HeaderComponent, SidebarComponent];
   constructor() {
     //low level code :)
   }
