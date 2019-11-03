@@ -1,7 +1,5 @@
 /* Add application styles & imports to this file! */
 
-@import "styles-variables.scss";
-
 /*bootstrap import*/
 @import "bootstrap/dist/css/bootstrap.css";
 
@@ -19,4 +17,31 @@ body {
 *:focus {
   outline: none !important;
   outline: 0;
+}
+
+mat-card {
+  margin: 10px 0;
+}
+mat-card {
+  max-width: 80%;
+  margin: 2em auto;
+  text-align: center;
+}
+
+mat-toolbar-row {
+  justify-content: space-between;
+}
+
+.done {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: white;
+}
+
+.middle {
+  /* This fills the remaining space, by using flexbox. 
+           Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+  text-align: center;
 }
