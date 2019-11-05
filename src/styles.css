@@ -3,6 +3,7 @@
 /*bootstrap import*/
 @import "bootstrap/dist/css/bootstrap.css";
 
+/**test css*/
 @import "@angular/material/prebuilt-themes/indigo-pink.css";
 p {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",

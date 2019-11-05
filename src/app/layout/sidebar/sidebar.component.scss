@@ -1,3 +1,5 @@
+@import "../../../styles-variables.scss";
+
 .example-container {
   position: absolute;
   top: 0;
@@ -71,19 +73,22 @@ a i {
 }
 
 ul li.active > a {
-  background: #796aee;
+  //background: #796aee;
+  background: $color-blue;
   color: #fff;
   border-left: 4px solid #3b25e6;
 }
 
 ul li > a.active {
-  background: #796aee;
+  //background: #796aee;
+  background: $color-blue;
   color: #fff;
   border-left: 4px solid #3b25e6;
 }
 
 ul li a:hover {
-  background: #796aee;
+  //background: #796aee;
+  background: $color-blue;
   border-left: 4px solid #3b25e6;
   color: #fff;
 }

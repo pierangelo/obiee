@@ -1,0 +1,27 @@
+.fadedfx {
+  background-color: #fe5652;
+  visibility: hidden;
+}
+
+#Content {
+  text-align: center;
+}
+
+#loginContent,
+#signupContent {
+  display: inline-block;
+}
+
+#signupContent {
+  padding: 20px;
+}
+
+#loginContent > img,
+#histogrammaMaschiFemmine {
+  //width: 200px;
+}
+
+.total-text {
+  font-size: 34px;
+  font-weight: bold;
+}

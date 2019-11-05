@@ -1,21 +1,48 @@
-<div>
-  <mat-card>
-    <button mat-button>All</button>
-    <button mat-raised-button>Of</button>
-    <button mat-raised-button color="primary">The</button>
-    <button mat-raised-button color="accent">Buttons</button>
-  </mat-card>
+<div class="container">
+  <!-- riga1-->
+  <div class="row">
+    <!--col -->
+    <div class="col-sm  ">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <!--avatar 
+          <div mat-card-avatar class="example-header-image"></div>
+          -->
+          <mat-card-title>Dipendenti in forza</mat-card-title>
+          <!-- 
+               
+          -->
+        </mat-card-header>
 
-  <mat-card>
-    <mat-form-field>
-      <input matInput [matDatepicker]="picker" placeholder="Choose a date" />
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-  </mat-card>
-  <span class="done">
-    <button mat-fab>
-      <mat-icon>check circle</mat-icon>
-    </button>
-  </span>
+        <mat-card-content>
+          <div id="Content">
+            <div id="signupContent"><p class="total-text">31</p></div>
+            
+            <div id="loginContent">
+              <!--
+                
+              <img
+                _ngcontent-yrv-c9=""
+                class="fadeIn"
+                src="https://unsplash.it/400/300?image=503"
+              />
+              -->
+              <div id="histogrammaMaschiFemmine" fxFlex="25"></div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!--col-->
+    <div class="col-sm col-md-6">
+      <div id="svganchor"></div>
+    </div>
+  </div>
+  <!--riga2-->
+  <div class="row">
+    <div class="col-sm"></div>
+    <div class="col-sm"></div>
+    <div class="col-sm"></div>
+  </div>
 </div>
