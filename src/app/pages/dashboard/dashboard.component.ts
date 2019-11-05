@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl } from "@angular/forms";
 
+declare var d3;
+declare var ApexCharts;
 @Component({
   selector: "app-dashboard",
   templateUrl: "./dashboard.component.html",
@@ -123,7 +125,7 @@ export class DashboardComponent implements OnInit {
 
 var myVar = {groups: [{name: "Donne", value: 23, total: "23%"}, {name: "Uomini", value: 77, total: "77%"}]};
 
-	var totalData = [{
+	      var totalData = [{
 						criterion: "Distribuzione di Genere",
 						description: "Maschi vs Femmine",
 						groups: [{
@@ -133,7 +135,8 @@ var myVar = {groups: [{name: "Donne", value: 23, total: "23%"}, {name: "Uomini",
 							name: "Femmine",
 							value: 49.57
 						}]
-					}];
+          }];
+          
 					for(var i = 0, len = myVar.groups.length; i < len; i++){	
 					let d = (myVar.groups[i]);					 
 						if(d.name== "F") d.name = "Donne";
@@ -158,7 +161,7 @@ var myVar = {groups: [{name: "Donne", value: 23, total: "23%"}, {name: "Uomini",
 
 					criterionList.text(d => d);
 
-					var width = 550, height = 550;
+					var width =400, height = 450;
 
 					var svg = d3.select("#svganchor")
 						.append("svg")
@@ -280,7 +283,7 @@ var myVar = {groups: [{name: "Donne", value: 23, total: "23%"}, {name: "Uomini",
 
 							var filteredData = totalData.filter(d => d.criterion === criterion);
 
-							chartSubTitle.text(filteredData[0].description);
+							//chartSubTitle.text(filteredData[0].description);
 
 							xScale.domain(filteredData[0].groups.map(d => d.name));
 
