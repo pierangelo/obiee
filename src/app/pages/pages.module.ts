@@ -5,6 +5,7 @@ import { MaterialModule } from "../material.module";
 import { ReactiveFormsModule } from "@angular/forms";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { TestComponent } from "./test/test.component";
+import { ComponentiComponent } from "./componenti/componenti.component";
 
 @NgModule({
   imports: [CommonModule, ReactiveFormsModule, MaterialModule],
@@ -13,5 +14,5 @@ import { TestComponent } from "./test/test.component";
 })
 export class PagesModule {
   //add pages here :)
-  static PAGES = [DashboardComponent, TestComponent];
+  static PAGES = [DashboardComponent, TestComponent, ComponentiComponent];
 }

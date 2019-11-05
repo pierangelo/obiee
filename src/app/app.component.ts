@@ -20,12 +20,11 @@ export class AppComponent {
     const appRootRef = this.myElement; // Necesarry because after setTimeout, 'this' becomes window
     //landing page...
     router.navigate(["/"]);
-    appRootRef.nativeElement.previousElementSibling.remove();
+    //appRootRef.nativeElement.previousElementSibling.remove();
     //low level code :)
-    /*
-    $("#fs-global-spinner").fadeOut("", () => {
-      $("#fs-global-spinner").remove();
+
+    $("#global-spinner").fadeOut("", () => {
+      $("#global-spinner").remove();
     });
-    */
   }
 }

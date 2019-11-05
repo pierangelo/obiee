@@ -1,9 +1,59 @@
 <mat-sidenav-container class="example-container">
   <!-- menu laterale-->
   <mat-sidenav #sidenav [mode]="mode.value" class="sidenav">
-    <label><p>Qui va il menu: tiè</p></label>
+    <div class="sidebar-header align-items-center">
+      <div class="avatar">
+        <img
+          src="../../../assets/soprasteria_logo.jpg"
+          alt="..."
+          class="img-fluid rounded-circle"
+        />
+      </div>
+      <!-- 
+      <div class="title">
+        <h1 class="h4">Mark Stephen</h1>
+        <p>Web Designer</p>
+      </div>
+    --></div>
 
     <!-- elementi del menu -->
+
+    <ul class="list-unstyled menu-sin" #menu>
+      <li>
+        <a routerLink="/" class="active" (click)="clickMenu($event)">
+          <i class="material-icons">accessible_forward</i>Dashboard</a
+        >
+      </li>
+      <li>
+        <a routerLink="/test" (click)="clickMenu($event)">
+          <i class="material-icons">bookmark </i>People</a
+        >
+      </li>
+      <li>
+        <a routerLink="/componenti" (click)="clickMenu($event)">
+          <i class="material-icons">language</i>Componenti
+        </a>
+      </li>
+      <li>
+        <a routerLink="/test3" (click)="clickMenu($event)" disabled>
+          <i class="material-icons">add_to_queue</i>Forms</a
+        >
+      </li>
+
+      <li>
+        <a
+          href="#exampledropdownDropdown"
+          aria-expanded="false"
+          data-toggle="collapse"
+          class="collapsed disabled"
+          (click)="clickMenu($event)"
+        >
+          <i class="material-icons">snooze</i>Example</a
+        >
+      </li>
+    </ul>
+
+    <div class="version">{{ name }} v{{ version }}</div>
   </mat-sidenav>
 
   <mat-sidenav-content>
