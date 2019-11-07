@@ -1,5 +1,59 @@
 @import "../../../styles-variables.scss";
 
 .mat-toolbar {
-  background: $color-blue;
+  background: $menu-color-border-selected;
+}
+
+.utente {
+  font-size: 12px;
+  margin-right: 6px;
+}
+
+img.img30_30 {
+  width: 30px;
+  height: 30px;
+}
+
+.btn-filter {
+  cursor: pointer;
+}
+
+.header-command {
+  margin-left: 15px;
+  margin-right: 9px;
+}
+.fa-user-circle {
+  margin-top: 5px;
+}
+.btn-screenshot {
+  cursor: pointer;
+  margin-left: 15px;
+}
+img {
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
+  border-radius: 100%;
+}
+
+.menu-user-btn,
+.menu-user {
+  cursor: pointer;
+  display: flex;
+}
+
+.menu-user-btn-icon {
+  margin-top: 4px;
+  margin-right: 4px;
+}
+
+.menu-icon {
+  font-size: 17px;
+  margin-top: 7px;
+  margin-right: 0;
+}
+
+.menu-icon-logout {
+  color: red;
 }

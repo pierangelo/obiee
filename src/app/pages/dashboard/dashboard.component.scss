@@ -1,27 +1,117 @@
-.fadedfx {
-  background-color: #fe5652;
-  visibility: hidden;
+.panel {
+  // padding: 40px;
+  background-color: #f0f0f0;
 }
 
-#Content {
+.panel {
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.panel {
+  margin-bottom: 20px;
+  // background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+.panel-profile .panel-heading {
+  border-bottom: 2px solid #009688;
+  background: center/cover;
+  position: relative;
+}
+
+.panel .panel-heading {
+  background: #ff5252;
+  color: #fff;
+  text-transform: none;
+  font-size: 14px;
+  font-weight: 400;
+}
+.panel-heading {
+  padding: 20px;
+  border-bottom: 1px solid transparent;
+}
+.bg-info,
+a.bg-info,
+a.bg-info:hover {
+  background-color: #619bf2;
+  color: #fff;
+}
+
+.panel-profile .panel-heading .overlay_prof {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 0;
+}
+
+.panel-profile .panel-heading .profile_info {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.panel-profile .panel-heading .profile_info {
+  z-index: 1;
+  position: relative;
+}
+
+.panel-profile .list-justified-container {
+  padding: 15px 0;
+}
+
+.panel-profile ul.list-justified {
+  display: table;
+  width: 100%;
+  list-style: none;
+  padding: 0;
+}
+
+.panel-profile ul.list-justified > li {
+  float: none;
+  display: table-cell;
+  padding: 10px;
+  width: 1%;
+  border-right: 1px solid #eee;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.img-container {
+  position: relative;
   text-align: center;
+  color: white;
 }
 
-#loginContent,
-#signupContent {
-  display: inline-block;
+.callout-elem-info {
+  background-color: #f4f8fa;
+  border-color: #619bf2;
 }
 
-#signupContent {
+.callout-elem-blue {
+  p {
+    font-family: Enav !important;
+  }
+
+  border-left: 6px solid #619bf2;
+  margin: 20px 0;
   padding: 20px;
 }
 
-#loginContent > img,
-#histogrammaMaschiFemmine {
-  //width: 200px;
-}
+.callout-elem-other {
+  p {
+    font-family: Enav !important;
+  }
 
-.total-text {
-  font-size: 34px;
-  font-weight: bold;
+  border-left: 6px solid #2ec58b;
+  margin: 20px 0;
+  padding: 20px;
 }

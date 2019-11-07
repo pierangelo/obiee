@@ -2,11 +2,11 @@
   <!-- menu laterale-->
   <mat-sidenav #sidenav [mode]="mode.value" class="sidenav">
     <div class="sidebar-header align-items-center">
-      <div class="avatar">
+      <div class="logo" routerLink="/">
         <img
-          src="../../../assets/soprasteria_logo.jpg"
+          src="../../../assets/logo-horizon.png"
           alt="..."
-          class="img-fluid rounded-circle"
+          class="img-fluid"
         />
       </div>
       <!-- 
@@ -20,26 +20,40 @@
 
     <ul class="list-unstyled menu-sin" #menu>
       <li>
-        <a routerLink="/" class="active" (click)="clickMenu($event)">
-          <i class="material-icons">accessible_forward</i>Dashboard</a
+        <a routerLink="/overview" class="overview" (click)="clickMenu($event)">
+          <!--<i class="material-icons">accessible_forward</i>-->
+          <img src="../../../assets/menu_overview.png" />
+          Overview</a
         >
       </li>
       <li>
-        <a routerLink="/test" (click)="clickMenu($event)">
-          <i class="material-icons">bookmark </i>People</a
-        >
-      </li>
-      <li>
-        <a routerLink="/componenti" (click)="clickMenu($event)">
-          <i class="material-icons">language</i>Componenti
-        </a>
-      </li>
-      <li>
-        <a routerLink="/test3" (click)="clickMenu($event)" disabled>
-          <i class="material-icons">add_to_queue</i>Forms</a
+        <a routerLink="/people" (click)="clickMenu($event)">
+          <img src="../../../assets/clienti.svg" />People</a
         >
       </li>
 
+      <li>
+        <a routerLink="/workforce" (click)="clickMenu($event)">
+          <img src="../../../assets/clienti.svg" />WorkForce</a
+        >
+      </li>
+
+      <li>
+        <a routerLink="/test3" (click)="clickMenu($event)" disabled>
+          <img src="../../../assets/Job Perf.svg" />Job Performance</a
+        >
+      </li>
+
+      <li>
+        <a
+          routerLink="/componenti"
+          (click)="clickMenu($event)"
+          class="collapsed disabled"
+        >
+          <i class="material-icons">apps</i>Componenti
+        </a>
+      </li>
+      <!--
       <li>
         <a
           href="#exampledropdownDropdown"
@@ -51,7 +65,7 @@
           <i class="material-icons">snooze</i>Example</a
         >
       </li>
-    </ul>
+    --></ul>
 
     <div class="version">{{ name }} v{{ version }}</div>
   </mat-sidenav>
@@ -60,7 +74,9 @@
     <!-- header -->
     <app-header [sidenav]="sidenav"></app-header>
     <!-- // header-->
-    <router-outlet></router-outlet>
+    <div class="container-reponsive">
+      <router-outlet></router-outlet>
+    </div>
     <!-- pages -->
   </mat-sidenav-content>
 </mat-sidenav-container>

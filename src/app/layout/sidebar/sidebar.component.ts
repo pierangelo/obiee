@@ -63,6 +63,7 @@ export class SidebarComponent implements OnInit {
     // low level code
     if ($(event.currentTarget).hasClass("disabled")) {
       console.log("disabled");
+
       return;
     }
 

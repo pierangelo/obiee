@@ -15,12 +15,25 @@
   padding: 10px;
 }
 
+mat-sidenav-content {
+  background-color: $app-background-color;
+}
+
+.mat-drawer-side {
+  border-right: solid 0px !important;
+}
+.container-reponsive {
+  background-color: $app-background-color;
+  margin-left: 15px;
+  margin-right: 15px;
+}
 .sidenav {
-  width: 140px;
+  width: 120px;
 }
 
 .sidebar-header {
-  padding: 30px 15px;
+  padding: 20px 15px;
+  padding-left: 21px;
 }
 
 .d-flex {
@@ -28,9 +41,14 @@
   display: flex !important;
 }
 
-.avatar {
+.logo {
   //width: 55px;
   //height: 55px;
+  cursor: pointer;
+  text-align: center;
+  img {
+    width: 70px;
+  }
 }
 
 .title {
@@ -38,7 +56,7 @@
 }
 
 .rounded-circle {
-  border-radius: 50% !important;
+  //border-radius: 50% !important;
 }
 
 .img-fluid {
@@ -55,9 +73,11 @@ ul li a {
   padding: 3px 6px;
   text-decoration: none;
   display: grid;
-  font-weight: 300;
   border-left: 4px solid transparent;
   text-align: center;
+  font-weight: bold;
+  font-size: 13px;
+  color: $menu-color-border-selected;
 }
 a {
   color: inherit;
@@ -72,25 +92,45 @@ a i {
   padding: 10px;
 }
 
+a > img {
+  display: flex;
+  left: 30%;
+  width: 45px;
+  position: relative;
+}
+
 ul li.active > a {
   //background: #796aee;
   background: $color-blue;
-  color: #fff;
-  border-left: 4px solid #3b25e6;
+  color: $menu-color-border-selected; //#fff;
+  //border-left: 4px solid #3b25e6;
+  border-left: 4px solid $menu-color-border-selected;
 }
 
 ul li > a.active {
   //background: #796aee;
-  background: $color-blue;
-  color: #fff;
-  border-left: 4px solid #3b25e6;
+  background: #e7e7e7; //$color-blue;
+  color: $menu-color-border-selected; // #fff;
+  //border-left: 4px solid #3b25e6;
+  border-left: 4px solid $menu-color-border-selected;
 }
 
 ul li a:hover {
   //background: #796aee;
   background: $color-blue;
-  border-left: 4px solid #3b25e6;
-  color: #fff;
+  //border-left: 4px solid #3b25e6;
+  border-left: 4px solid $menu-color-border-selected;
+  color: $menu-color-border-selected; // #fff;
+}
+
+.overview {
+  padding-top: 15px !important;
+}
+
+a {
+  //padding-top: 10px !important;
+  padding-top: 15px !important;
+  padding-bottom: 10px !important;
 }
 
 .version {
@@ -104,6 +144,9 @@ ul li a:hover {
 }
 
 .disabled {
+  //what a trick:  block noluse events like click,over...
+  pointer-events: none;
+  //end
   background: #fff !important;
   border-left: 0px solid #b8b8b8 !important;
   color: #b8b8b8 !important;

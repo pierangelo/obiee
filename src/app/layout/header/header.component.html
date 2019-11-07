@@ -3,15 +3,42 @@
     <mat-icon>menu</mat-icon>
   </button>
 
-  <span><mat-icon>mood</mat-icon></span>
+  <span class="btn-filter" class="header-command">
+    <i class="fa fa-filter"></i>
+  </span>
+  <span class="btn-screenshot" matTooltip="effttua uno screenshot della pagina"
+    ><i class="fa fa-camera" aria-hidden="true"></i
+  ></span>
 
-  <span class="middle"></span>
+  <span class=" middle"> </span>
 
-  <button mat-icon-button [mat-menu-trigger-for]="menu">
-    <mat-icon>more_vert</mat-icon>
-  </button>
+  <span
+    class="menu-user-btn"
+    mat-icon-button
+    [mat-menu-trigger-for]="menu_header"
+  >
+    <mat-icon class="menu-user-btn-icon"> keyboard_arrow_down </mat-icon>
+    <span class="utente">Benvenuto Utente1</span>
+    <!--
+    <img src="../../../assets/italy_flag.png" alt="" class="img30_30" />
+    -->
+    <i class="fa fa-user-circle" aria-hidden="true"></i>
+    <!--
+    <button mat-icon-button [mat-menu-trigger-for]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+  -->
+  </span>
 </mat-toolbar>
-<mat-menu x-position="before" #menu="matMenu">
-  <button mat-menu-item>Option 1</button>
-  <button mat-menu-item>Option 2</button>
+<mat-menu xPosition="before" #menu_header="matMenu" class="menu-user">
+  <button mat-menu-item>
+    <mat-icon class="menu-icon">assignment_ind</mat-icon>Contatti
+  </button>
+  <button mat-menu-item>
+    <mat-icon class="menu-icon">build</mat-icon>Preferenze
+  </button>
+  <hr />
+  <button mat-menu-item class="">
+    <mat-icon class="menu-icon menu-icon-logout">input</mat-icon>Logout
+  </button>
 </mat-menu>

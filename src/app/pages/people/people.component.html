@@ -1,0 +1,143 @@
+<!-- riga1-->
+<div class="row">
+    <!--col -->
+    <div class="col-sm">
+      <!-- dati complessivi-->
+      <mat-card class="example-card">
+        <mat-card-header>
+          <!--avatar 
+                <div mat-card-avatar class="example-header-image"></div>
+                -->
+          <mat-card-title class="header-text">Dati Complessivi</mat-card-title>
+          <mat-card-actions>
+            <span class="btn-actions" matTooltip="informazioni sul grafico" matTooltipShowDelay="1000">
+              <i class="fa fa-info-circle" aria-hidden="true"></i>
+            </span>
+  
+            <span class="btn-actions" matTooltip="visualizza dettaglio"  matTooltipShowDelay="1000">
+              <i class="fa fa-bar-chart" aria-hidden="true"></i>
+            </span>
+  
+            <button mat-icon-button [mat-menu-trigger-for]="menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card-header>
+  
+        <mat-menu x-position="before" #menu="matMenu">
+          <button mat-menu-item>salva come .png</button>
+          <button mat-menu-item>salva come .xls</button>
+        </mat-menu>
+  
+        <mat-card-content>
+          <div id="Content">
+            <div class="dati-complessivi">
+              <table class="table-c">
+                <tr>
+                  <td><span class="field">ICAO CODE:</span></td>
+                  <td><span class="value">LIBC</span></td>
+                </tr>
+                <tr>
+                  <td><span class="field">Traffic Permitted:</span></td>
+                  <td><span class="value">IFR/VFR</span></td>
+                </tr>
+                <tr>
+                  <td><span class="field">ATS Service:</span></td>
+                  <td><span class="value">AFIS</span></td>
+                </tr>
+                <tr>
+                  <td><span class="field">ATS Operational Hours:</span></td>
+                  <td><span class="value">07:00-19:00 (06:00-18:00)</span></td>
+                </tr>
+                <tr>
+                  <td><span class="field">APP Service:</span></td>
+                  <td><span class="value">LAMEZIA TERME</span></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+  
+      <mat-card class="example-card">
+        <mat-card-header>
+          <!--avatar 
+            <div mat-card-avatar class="example-header-image"></div>
+            -->
+          <mat-card-title class="header-text">Dipendenti in forza</mat-card-title>
+          <mat-card-actions>
+              <span class="btn-actions" matTooltip="informazioni sul grafico" matTooltipShowDelay="1000">
+                  <i class="fa fa-info-circle" aria-hidden="true"></i>
+                </span>
+      
+                <span class="btn-actions" matTooltip="visualizza dettaglio"  matTooltipShowDelay="1000">
+                  <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                </span>
+      
+            <button mat-icon-button [mat-menu-trigger-for]="menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card-header>
+  
+        <mat-menu x-position="before" #menu="matMenu">
+          <button mat-menu-item>salva come .png</button>
+          <button mat-menu-item>salva come .xls</button>
+        </mat-menu>
+  
+        <mat-card-content>
+          <div id="Content">
+            <div id="signupContent"><p class="total-text">31</p></div>
+  
+            <div id="loginContent">
+              <!--
+                  
+                <img
+                  _ngcontent-yrv-c9=""
+                  class="fadeIn"
+                  src="https://unsplash.it/400/300?image=503"
+                />
+                -->
+              <div id="histogrammaMaschiFemmine" fxFlex="25"></div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  
+    <!--col-->
+    <div class="col-sm ">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <!--avatar 
+              <div mat-card-avatar class="example-header-image"></div>
+              -->
+          <mat-card-title class="header-text">Dipendenti in forza</mat-card-title>
+          <mat-card-actions>
+              <span class="btn-actions" matTooltip="informazioni sul grafico" matTooltipShowDelay="1000">
+                  <i class="fa fa-info-circle" aria-hidden="true"></i>
+                </span>
+      
+                <span class="btn-actions" matTooltip="visualizza dettaglio"  matTooltipShowDelay="1000">
+                  <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                </span>
+      
+            <button mat-icon-button [mat-menu-trigger-for]="menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card-header>
+  
+        <mat-card-content>
+          <div id="svganchor"></div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <!--riga2-->
+  <div class="row">
+    <div class="col-sm"></div>
+    <div class="col-sm"></div>
+    <div class="col-sm"></div>
+  </div>
+  
