@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MaterialModule } from "./material.module";
 import { RouterModule, Router } from "@angular/router";
-import { MatNativeDateModule } from "@angular/material";
+import { MatNativeDateModule, MatDialogModule } from "@angular/material";
 
 import { AppComponent } from "./app.component";
 
@@ -14,6 +14,8 @@ import { AppRoutes } from "./app.routes";
 import { PagesModule } from "./pages/pages.module";
 import { APP_BASE_HREF } from "@angular/common";
 import { AppLayoutModule } from "./layout/app-layout.module";
+import { DialogComponent } from "./pages/componenti/dialog/dialog.component";
+import { FilterComponent } from "./pages/componenti/filter/filter.component";
 
 declare var $;
 
@@ -24,6 +26,7 @@ declare var $;
     FormsModule,
     BrowserAnimationsModule,
     MaterialModule,
+    MatDialogModule,
     MatNativeDateModule,
     ReactiveFormsModule,
     AppLayoutModule,
@@ -37,6 +40,8 @@ declare var $;
   ],
 
   providers: [{ provide: APP_BASE_HREF, useValue: "/" }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  //for runtime component
+  entryComponents: [DialogComponent, FilterComponent]
 })
 export class AppModule {}

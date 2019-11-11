@@ -63,3 +63,15 @@ p {
 .header-text {
   font-family: Enav;
 }
+
+.row {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+@media (max-width: 599px) {
+  .row {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}

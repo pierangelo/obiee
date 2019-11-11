@@ -1,0 +1,19 @@
+@import "../../../styles-variables.scss";
+
+.breadcrumb {
+  padding: 13px;
+  background-color: transparent;
+}
+.breadcrumb-img {
+  width: 22px;
+  margin-right: 10px;
+}
+.breadcrumb-text {
+  padding: 8px;
+}
+.indietro {
+  button {
+    background-color: $menu-color-border-selected;
+    color: #fff;
+  }
+}

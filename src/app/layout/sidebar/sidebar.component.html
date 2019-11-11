@@ -2,7 +2,7 @@
   <!-- menu laterale-->
   <mat-sidenav #sidenav [mode]="mode.value" class="sidenav">
     <div class="sidebar-header align-items-center">
-      <div class="logo" routerLink="/">
+      <div class="logo" routerLink="/home" (click)="clickMenu($event)">
         <img
           src="../../../assets/logo-horizon.png"
           alt="..."
@@ -74,8 +74,8 @@
     <!-- header -->
     <app-header [sidenav]="sidenav"></app-header>
     <!-- // header-->
-    <div class="container-reponsive">
-      <router-outlet></router-outlet>
+    <div class="container-reponsive" [@fadeInOutAnimation]="prepare(outlet)">
+      <router-outlet #outlet="outlet"></router-outlet>
     </div>
     <!-- pages -->
   </mat-sidenav-content>

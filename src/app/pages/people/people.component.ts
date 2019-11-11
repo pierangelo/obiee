@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from "@angular/forms";
+import { MatDialog } from '@angular/material';
+import { DialogComponent } from '../componenti/dialog/dialog.component';
 
 declare var d3;
 declare var ApexCharts;
@@ -10,7 +12,24 @@ declare var ApexCharts;
 })
 export class PeopleComponent implements OnInit {
   mode = new FormControl("over");
-  constructor() {}
+  name="";
+  animal="";
+  constructor(public dialog: MatDialog) {}
+
+
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogComponent, {
+      width: '550px',
+      data: {name:this.name, animal: this.animal}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+  }
+
 
   ngOnInit() {
 

@@ -6,7 +6,7 @@ import {
   transition
 } from "@angular/animations";
 
-export const fadeInOutAnimation = trigger("fadeInOut", [
+export const fadeInOutAnimation = trigger("routeAnimations", [
   transition(":enter", [
     // :enter is alias to 'void => *'
     style({ opacity: 0 }),

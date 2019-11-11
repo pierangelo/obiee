@@ -8,6 +8,10 @@ import { TestComponent } from "./test/test.component";
 import { ComponentiComponent } from "./componenti/componenti.component";
 import { OverviewComponent } from "./overview/overview.component";
 import { PeopleComponent } from "./people/people.component";
+import { Page403Component } from "./page403/page403.component";
+import { DialogComponent } from "./componenti/dialog/dialog.component";
+import { DettaglioComponent } from "./dettaglio/dettaglio.component";
+import { FilterComponent } from "./componenti/filter/filter.component";
 
 @NgModule({
   imports: [CommonModule, ReactiveFormsModule, MaterialModule],
@@ -21,6 +25,10 @@ export class PagesModule {
     TestComponent,
     ComponentiComponent,
     OverviewComponent,
-    PeopleComponent
+    PeopleComponent,
+    Page403Component,
+    DettaglioComponent,
+    FilterComponent,
+    DialogComponent
   ];
 }

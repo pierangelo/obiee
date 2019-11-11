@@ -1,0 +1,16 @@
+[debug] [2019-11-11T12:03:14.496Z] ----------------------------------------------------------------------
+[debug] [2019-11-11T12:03:14.500Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\pmancusi\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2019-11-11T12:03:14.500Z] CLI Version:   7.6.2
+[debug] [2019-11-11T12:03:14.500Z] Platform:      win32
+[debug] [2019-11-11T12:03:14.501Z] Node Version:  v10.16.0
+[debug] [2019-11-11T12:03:14.506Z] Time:          Mon Nov 11 2019 13:03:14 GMT+0100 (GMT+01:00)
+[debug] [2019-11-11T12:03:14.506Z] ----------------------------------------------------------------------
+[debug] [2019-11-11T12:03:14.506Z] 
+[debug] [2019-11-11T12:03:14.529Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-11T12:03:14.531Z] > authorizing via signed-in user
+[debug] [2019-11-11T12:03:14.532Z] [iam] checking project angular-obiee for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2019-11-11T12:03:14.537Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/angular-obiee:testIamPermissions  
+
+[debug] [2019-11-11T12:03:17.063Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-11T12:03:17.069Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/angular-obiee  
+ 

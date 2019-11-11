@@ -19,7 +19,7 @@ export class AppComponent {
   constructor(router: Router, private myElement: ElementRef) {
     const appRootRef = this.myElement; // Necesarry because after setTimeout, 'this' becomes window
     //landing page...
-    router.navigate(["/"]);
+    router.navigate(["/home"]);
     //appRootRef.nativeElement.previousElementSibling.remove();
     //low level code :)
 

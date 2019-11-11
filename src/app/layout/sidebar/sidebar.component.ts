@@ -8,6 +8,7 @@ import {
 import { environment } from "../../../enviroments/environment.";
 import { ViewChild, Component, OnInit, Renderer2 } from "@angular/core";
 import { findLast } from "@angular/compiler/src/directive_resolver";
+import { RouterOutlet } from "@angular/router";
 
 declare var $;
 @Component({
@@ -57,19 +58,28 @@ export class SidebarComponent implements OnInit {
       });
   }
 
+  prepare(outlet: RouterOutlet) {
+    return (
+      outlet &&
+      outlet.activatedRouteData &&
+      outlet.activatedRouteData["routeAnimations"]
+    );
+  }
   clickMenu(event: MouseEvent) {
     console.log(event.currentTarget);
 
     // low level code
     if ($(event.currentTarget).hasClass("disabled")) {
       console.log("disabled");
-
       return;
     }
 
     $(".menu-sin")
       .find("a")
       .removeClass("active");
+
     $(event.currentTarget).addClass("active");
+
+    this.sidebar.close();
   }
 }
