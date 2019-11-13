@@ -135,7 +135,7 @@ a {
 
 .botton-side {
   width: 100%;
-  bottom: 0;
+  bottom: 5px;
   position: absolute;
   div {
     text-align: center;
@@ -161,4 +161,9 @@ a {
   border-left: 0px solid #b8b8b8 !important;
   color: #b8b8b8 !important;
   cursor: default;
+}
+
+.menu-sin {
+  overflow: auto;
+  //max-height: 410px;
 }

@@ -30,17 +30,36 @@ export class DettaglioComponent implements OnInit {
       title: {
         text: ""
       },
+      grid: {
+        width: "90%",
+        left: "4%",
+        right: "1%",
+        bottom: "4%",
+        containLabel: true
+      },
       tooltip: {},
       legend: {
         show: false,
-        data: ["Sales"]
+        data: [""]
       },
       xAxis: {
-        // type: 'value'
+        splitLine: {
+          show: false
+        },
+        axisLine: {
+          lineStyle: {
+            width: 1
+          }
+        },
+        axisTick: {
+          show: true,
+          alignWithLabel: true,
+          lineStyle: {
+            width: 0
+          }
+        }
       },
       yAxis: {
-        //    type: 'category',
-        //data: [''],
         data: ["CAT1", "CAT2", "CAT3", "CAT4"]
       },
       /*
@@ -52,7 +71,7 @@ export class DettaglioComponent implements OnInit {
       */
       series: [
         {
-          name: "Sales",
+          name: "",
           type: "bar",
           itemStyle: {
             color: "#5fd3e6"
@@ -101,8 +120,9 @@ export class DettaglioComponent implements OnInit {
         data: ["2013", "2014", "2015", "2016", "2017", "2018", "2019"]
       },
       grid: {
-        left: "2%",
-        right: "4%",
+        width: "90%",
+        left: "4%",
+        right: "1%",
         bottom: "4%",
         containLabel: true
       },
@@ -137,7 +157,7 @@ export class DettaglioComponent implements OnInit {
           animationDuration: 2000,
           itemStyle: {
             normal: {
-              color: "#007bff"
+              color: "#01579b"
             }
           },
           lineStyle: {
@@ -156,12 +176,12 @@ export class DettaglioComponent implements OnInit {
           animationDuration: 2000,
           itemStyle: {
             normal: {
-              color: "#ffc107"
+              color: "#9b0157"
             }
           },
           lineStyle: {
             normal: {
-              color: "#ffc107",
+              color: "#9b0157",
               width: 3
             }
           },
@@ -173,7 +193,7 @@ export class DettaglioComponent implements OnInit {
     option.series[0].data = [10, 2, 16, 9];
     this.myChart2.setOption(option);
 
-    option.series[0].itemStyle.color = "#e3f166";
+    option.series[0].itemStyle.color = "#f2b53f";
     option.series[0].data = [3, 22, 7, 14];
     this.myChart3.setOption(option);
 

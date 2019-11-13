@@ -554,6 +554,12 @@ export class PeopleComponent implements OnInit {
       title: {
         text: ""
       },
+      grid: {
+        left: "3%",
+        right: "4%",
+        bottom: "3%",
+        containLabel: true
+      },
       tooltip: {},
       legend: {
         show: false,
@@ -569,7 +575,7 @@ export class PeopleComponent implements OnInit {
           name: "Sales",
           type: "bar",
           itemStyle: {
-            color: "#640595"
+            color: "#26a0fc"
           },
           data: [5, 20, 36, 10, 10]
         }
@@ -608,33 +614,33 @@ export class PeopleComponent implements OnInit {
               formatter: function(d) {
                 return "Uomini: " + d.value;
               },
-              fontSize: "20",
+              fontSize: "12",
               show: true,
               position: "insideRight"
             }
           },
-          data: [136],
+          data: [14],
           itemStyle: {
-            color: "#6495ED"
+            color: "#01579b"
           }
         },
         {
           name: "Donne",
           type: "bar",
           itemStyle: {
-            color: "#FFB621"
+            color: "#9b0157"
           },
           label: {
             normal: {
               formatter: function(d) {
                 return "Donne: " + d.value;
               },
-              fontSize: "20",
+              fontSize: "12",
               show: true,
               position: "insideRight"
             }
           },
-          data: [80]
+          data: [6]
         }
       ]
     };
