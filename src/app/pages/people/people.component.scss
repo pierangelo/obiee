@@ -13,7 +13,7 @@
 }
 
 #signupContent {
-  padding: 20px;
+  //padding: 20px;
 }
 
 #loginContent > img,
@@ -24,16 +24,23 @@
 .total-text {
   font-size: 34px;
   font-weight: bold;
+  position: relative;
+  top: 22%;
+  /* left: 50%; */
+  /* transform: translate(-50%, -50%); */
+  /* left: 50%; */
+  margin: 20px;
 }
 
 .field {
   padding: 10px;
-  color: crimson;
+  color: #000;
 }
 .dati-complessivi {
   text-align: left;
   margin-left: 40px;
   margin-top: 20px;
+  min-height: 155px;
 }
 
 p {
@@ -46,11 +53,32 @@ p {
   font-size: 14px;
   border-collapse: separate;
   border-spacing: 0 10px;
+  height: 150px;
   tr {
     padding: 10px;
   }
 }
+.table-b {
+  table-layout: auto;
+  width: 100%;
+  font-size: 14px;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  height: 150px;
+  tr {
+    padding: 10px;
+  }
+}
+.text-dex {
+  margin: 0;
+  position: relative;
+  top: 50%;
 
+  font-size: 30px;
+}
+.dip-forza {
+  //height: 260px;
+}
 .btn-actions {
   cursor: pointer;
   margin-left: 15px;
@@ -69,6 +97,107 @@ p {
   padding-left: 15px;
 }
 
+.mat-content-body {
+  background-color: #fff;
+  color: #000;
+  padding: 15px;
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+    0 1px 3px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+}
+
+.circle-icon {
+  width: 50px;
+  height: 50px;
+  font-size: 16px;
+  line-height: 50px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  display: block;
+  text-align: center;
+  mat-icon {
+    margin-top: 4px;
+    height: 35px;
+    width: 35px;
+  }
+}
+
+.Content {
+  //display: flex;
+}
+.color-white {
+  color: #fff;
+}
+.card-text-header {
+  font-size: 1.4rem;
+}
+.svg-content-responsive {
+  display: inline-block;
+  position: absolute;
+  top: 10px;
+  left: 0;
+}
+.card-box-icon {
+  font-size: 40px;
+  margin-top: 3px;
+}
+.color-pensione {
+  background-color: #793ab3;
+}
+
+.mat-card-actions {
+  font-size: 16px;
+}
+.mat-card-custom {
+  padding: 0;
+}
+.color-warning {
+  background-color: rgb(190, 202, 20);
+}
+.card-box {
+  text-align: left;
+  margin-top: 18px;
+  margin-left: 21px;
+}
+.bg-primary,
+a.bg-primary,
+a.bg-primary:hover {
+  background-color: #009688;
+  color: #fff;
+}
+
+.callout-elem-blue {
+  p {
+    font-family: Enav !important;
+  }
+
+  border-left: 6px solid #0b3766;
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #d0dbea;
+  color: #000;
+}
+
+ul.list-justified {
+  display: table;
+  width: 100%;
+  list-style: none;
+  padding: 0;
+}
+.text-center {
+  text-align: center;
+}
+
+ul.list-justified > li {
+  float: none;
+  display: table-cell;
+  padding: 10px;
+  width: 1%;
+  border-right: 1px solid #eee;
+}
 @media (max-width: 599px) {
   .row {
     padding-right: 0;

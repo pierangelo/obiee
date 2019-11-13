@@ -21,3 +21,47 @@
 .mat-typography {
   max-height: 100% !important;
 }
+
+.orgchart {
+  background-image: none !important;
+  display: block;
+}
+.label-orgChart {
+  margin-top: 5px;
+}
+#chart-container {
+  border: 2px dotted #c5c5c5;
+  height: 300px;
+  position: relative;
+  overflow: auto !important;
+
+  text-align: justify;
+  .orgchart {
+    position: relative !important;
+    background: transparent !important;
+  }
+}
+.orgchart-bk {
+  background: #fff !important;
+}
+.l2r {
+  position: relative !important;
+}
+
+.mat-typography {
+  max-height: 100%;
+  overflow-y: hidden;
+}
+
+.mat-dialog-actions {
+  padding: 8px 0;
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 52px;
+  align-items: center;
+  top: 99%;
+  position: sticky;
+}
+.btn-ok {
+  background-color: #07fb00;
+}

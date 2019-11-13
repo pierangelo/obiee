@@ -133,14 +133,24 @@ a {
   padding-bottom: 10px !important;
 }
 
-.version {
+.botton-side {
+  width: 100%;
   bottom: 0;
   position: absolute;
+  div {
+    text-align: center;
+  }
+}
+.logo-enav-group {
+  width: 80px;
+}
+.version {
   text-align: center;
   color: #858583;
   font-size: 10px;
   width: 100%;
   padding: 10px;
+  font-family: Enav;
 }
 
 .disabled {

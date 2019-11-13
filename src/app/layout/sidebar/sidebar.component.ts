@@ -23,6 +23,7 @@ export class SidebarComponent implements OnInit {
   mode = new FormControl("side");
   version: any;
   name: any;
+  isMobile: any;
   @ViewChild("sidenav", { static: true }) sidebar;
 
   constructor(
@@ -47,10 +48,12 @@ export class SidebarComponent implements OnInit {
       .subscribe((state: BreakpointState) => {
         console.log(state);
         if (state.matches) {
+          this.isMobile = true;
           console.log("sidebar: push!");
           this.mode = new FormControl("push");
           this.sidebar.close();
         } else {
+          this.isMobile = false;
           console.log("sidebar: side!");
           this.mode = new FormControl("side");
           this.sidebar.open();
@@ -80,6 +83,7 @@ export class SidebarComponent implements OnInit {
 
     $(event.currentTarget).addClass("active");
 
-    this.sidebar.close();
+    //mobile check for sidebar behaviuor
+    this.isMobile ? this.sidebar.close() : "";
   }
 }

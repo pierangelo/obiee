@@ -21,10 +21,12 @@ export class AppComponent {
     //landing page...
     router.navigate(["/home"]);
     //appRootRef.nativeElement.previousElementSibling.remove();
-    //low level code :)
 
-    $("#global-spinner").fadeOut("", () => {
-      $("#global-spinner").remove();
-    });
+    //low level code :)
+    setTimeout(function() {
+      $("#global-spinner").fadeOut("", () => {
+        $("#global-spinner").remove();
+      });
+    }, 2000);
   }
 }

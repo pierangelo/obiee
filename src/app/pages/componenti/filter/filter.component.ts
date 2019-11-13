@@ -38,51 +38,36 @@ export class FilterComponent implements OnInit {
   ngOnInit() {
     $(function() {
       var ds = {
-        name: "Lao Lao",
+        name: "ENAV S.P.A.",
         title: "general manager",
         children: [
-          { name: "Bo Miao", title: "department manager" },
+          { name: "FTerritoriale1", title: "department manager" },
+          { name: "FTerritoriale0", title: "department manager" },
           {
-            name: "Su Miao",
+            name: "FTerritoriale2",
             title: "department manager",
             children: [
-              { name: "Tie Hua", title: "senior engineer" },
+              { name: "FTerritoriale3", title: "senior engineer" },
               {
-                name: "Hei Hei",
+                name: "FTerritoriale",
                 title: "senior engineer",
                 children: [
-                  { name: "Pang Pang", title: "engineer" },
+                  { name: "FTerritoriale5", title: "engineer" },
                   {
-                    name: "Xiang Xiang",
+                    name: "FTerritoriale6",
                     title: "UE engineer",
                     children: [
-                      { name: "Dan Dan", title: "engineer" },
+                      { name: "FTerritoriale7", title: "engineer" },
                       {
-                        name: "Er Dan",
+                        name: "FTerritoriale8",
                         title: "engineer",
                         children: [
-                          { name: "Xuan Xuan", title: "intern" },
-                          { name: "Er Xuan", title: "intern" }
+                          { name: "FTerritoriale9", title: "intern" },
+                          { name: "FTerritoriale10", title: "intern" }
                         ]
                       }
                     ]
                   }
-                ]
-              }
-            ]
-          },
-          { name: "Hong Miao", title: "department manager" },
-          {
-            name: "Chun Miao",
-            title: "department manager",
-            children: [
-              { name: "Bing Qin", title: "senior engineer" },
-              {
-                name: "Yue Yue",
-                title: "senior engineer",
-                children: [
-                  { name: "Er Yue", title: "engineer" },
-                  { name: "San Yue", title: "UE engineer" }
                 ]
               }
             ]
@@ -94,8 +79,11 @@ export class FilterComponent implements OnInit {
         data: ds,
         nodeContent: "title",
         verticalLevel: 3,
-        visibleLevel: 4,
-        exportButton: false
+        visibleLevel: 3,
+        exportButton: false,
+        direction: "l2r",
+        pan: true,
+        zoom: true
       });
 
       $("#chart-container")
@@ -104,6 +92,7 @@ export class FilterComponent implements OnInit {
           //alert(JSON.stringify($(this).data("nodeData")));
           console.log(JSON.stringify($(this).data("nodeData")));
         });
+      $(".orgchart").css("background", "#fff");
     });
   }
 }
