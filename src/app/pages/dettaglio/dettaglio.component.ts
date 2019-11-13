@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { MatDialog } from "@angular/material";
+import { DialogComponent } from "./../componenti/dialog/dialog.component";
 
 declare var echarts;
 
@@ -9,7 +11,7 @@ declare var $;
   styleUrls: ["./dettaglio.component.scss"]
 })
 export class DettaglioComponent implements OnInit {
-  constructor() {}
+  constructor(public dialog: MatDialog) {}
 
   myChart: any;
   myChart2: any;
@@ -197,6 +199,16 @@ export class DettaglioComponent implements OnInit {
       this.myChart2.resize();
       this.myChart3.resize();
       this.myChart4.resize();
+    });
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogComponent, {
+      width: "550px"
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log("The dialog was closed");
     });
   }
 }
