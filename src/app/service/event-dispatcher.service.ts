@@ -2,7 +2,9 @@ import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
 import { ApplicationEvent } from "./../utils/application-event";
 
-@Injectable()
+@Injectable({
+  providedIn: "root"
+})
 export class EventDispatcherService {
   private _broadcastListener: Subject<any> = new Subject<any>();
   broadcastListener = this._broadcastListener.asObservable();

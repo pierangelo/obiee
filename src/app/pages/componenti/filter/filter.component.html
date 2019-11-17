@@ -23,8 +23,16 @@
   <div id="chart-container"></div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Annulla</button>
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial class="btn-ok">
+  <button mat-button mat-dialog-close (click)="onNoClick($event)">
+    Annulla
+  </button>
+  <button
+    mat-button
+    [mat-dialog-close]="true"
+    cdkFocusInitial
+    class="btn-ok"
+    (click)="onSaveClick($event)"
+  >
     OK
   </button>
 </mat-dialog-actions>

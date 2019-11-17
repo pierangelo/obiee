@@ -68,7 +68,7 @@
     --></ul>
 
     <div class="botton-side">
-      <div class="">
+      <div>
         <img class="logo-enav-group" src="../../../assets/enavgroup_pos.png" />
       </div>
       <!--
@@ -81,7 +81,7 @@
     <!-- header -->
     <app-header [sidenav]="sidenav"></app-header>
     <!-- // header-->
-    <div class="container-reponsive" [@fadeInOutAnimation]="prepare(outlet)">
+    <div class="container-reponsive">
       <router-outlet #outlet="outlet"></router-outlet>
     </div>
     <!-- pages -->

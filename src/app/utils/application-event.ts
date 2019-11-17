@@ -1,6 +1,8 @@
 export class ApplicationEvent {
-  constructor() {}
-
   message: String = "";
   data: any;
+  constructor(message: String = "", data: any = {}) {
+    this.message = message;
+    this.data = data;
+  }
 }

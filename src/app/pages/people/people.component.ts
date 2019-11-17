@@ -2,10 +2,12 @@ import { Component, OnInit } from "@angular/core";
 import { FormControl } from "@angular/forms";
 import { MatDialog } from "@angular/material";
 import { DialogComponent } from "../componenti/dialog/dialog.component";
+import { EchartsController } from "src/app/controller/echarts.controller";
+import { PeopleService } from "./../../service/people.service";
+import { EchartsModel } from "src/app/utils/echarts.model";
 
 declare var echarts;
 declare var d3;
-declare var ApexCharts;
 declare var $;
 @Component({
   selector: "app-people",
@@ -17,7 +19,19 @@ export class PeopleComponent implements OnInit {
   name = "";
   animal = "";
   option: any;
-  constructor(public dialog: MatDialog) {}
+
+  myChart: any;
+  myChart2: any;
+
+  //valori del grafico d3.UominiDonne
+  myVar = {
+    groups: [
+      { name: "Donne", value: 50, total: "50%" },
+      { name: "Uomini", value: 50, total: "50%" }
+    ]
+  };
+
+  constructor(public dialog: MatDialog, public peopleService: PeopleService) {}
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogComponent, {
@@ -31,120 +45,35 @@ export class PeopleComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-    //primo grafico
-    var optHistMaschiFemmine = {
-      chart: {
-        type: "bar",
-        toolbar: {
-          show: false
-        }
-      },
-      plotOptions: {
-        bar: {
-          distributed: true,
-          horizontal: true,
-          dataLabels: {
-            position: "bottom",
-            formatter: function(val) {
-              return numberWithCommas(val);
-            }
-          }
-        }
-      },
-      colors: ["#d4526e", "#33b2df"],
-      dataLabels: {
-        enabled: true,
-        textAnchor: "start",
-        style: {
-          colors: ["#fff"]
-        },
-        formatter: function(val, opt) {
-          return (
-            opt.w.globals.labels[opt.dataPointIndex] +
-            ":  " +
-            numberWithCommas(val)
-          );
-        },
-        offsetX: 0,
-        dropShadow: {
-          enabled: true
-        }
-      },
-      series: [
-        {
-          data: [752, 2543]
-        }
-      ],
-      stroke: {
-        width: 1,
-        colors: ["#fff"]
-      },
-      xaxis: {
-        categories: ["Donne", "Uomini"],
-        labels: {
-          show: true,
-          formatter: function(val) {
-            return numberWithCommas(val);
-          }
-        }
-      },
-      yaxis: {
-        labels: {
-          show: false
-        }
-      },
-      tooltip: {
-        theme: "dark",
-        x: {
-          show: true,
-          formatter: function(val) {
-            return numberWithCommas(val);
-          }
-        },
-        y: {
-          title: {
-            formatter: function() {
-              return "";
-            }
-          }
-        }
-      }
-    };
+  ngOnInit() {} // ngOninit
 
-    /*
-    if (
-      document.getElementById("histogrammaMaschiFemmine").childNodes.length > 0
-    ) {
-      document
-        .getElementById("histogrammaMaschiFemmine")
-        .removeChild(
-          document.getElementById("histogrammaMaschiFemmine").childNodes[0]
-        );
-      chartHistMaschiFemmine.destroy();
-    } else {
-      var chartHistMaschiFemmine;
-    }
+  ngAfterViewInit() {
+    //dipendenti forza
+    this.myChart = echarts.init(document.getElementById("pie-chart"));
+    console.log(this.myChart);
+    var option = EchartsModel.optionPeopleDipendentiInForza();
+    this.peopleService.getDipendentiInForza(this.myChart, option);
 
-    chartHistMaschiFemmine = new ApexCharts(
-      document.querySelector("#histogrammaMaschiFemmine"),
-      optHistMaschiFemmine
-    );
-    chartHistMaschiFemmine.render();
-    */
-    function numberWithCommas(x) {
-      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-    }
-
+    //sindacati : secondo chart
+    var option2 = EchartsModel.optionPeopleSindacati();
+    this.myChart2 = echarts.init(document.getElementById("histoMashiFemmine"));
+    this.peopleService.getSindacati(this.myChart2, option2);
     //secondo grafico
+    this.drawGraficoUominiDonne(this.myVar);
 
-    var myVar = {
-      groups: [
-        { name: "Donne", value: 23, total: "23%" },
-        { name: "Uomini", value: 77, total: "77%" }
-      ]
-    };
+    //hanlder
+    $(window).on("resize", () => {
+      console.log("resize");
+      this.myChart.resize();
+      this.myChart2.resize();
+    });
+  } //ngAfterViewInit
 
+  //
+  // Private Methods
+  //
+
+  private drawGraficoUominiDonne(myVar: any) {
     var totalData = [
       {
         criterion: "Distribuzione di Genere",
@@ -503,9 +432,9 @@ export class PeopleComponent implements OnInit {
 
       //end of draw
     }
-  } // ngOninit
+  } //drawUominiDonne
 
-  responsivefy(svg) {
+  private responsivefy(svg) {
     // container will be the DOM element
     // that the svg is appended to
     // we then measure the container
@@ -541,118 +470,5 @@ export class PeopleComponent implements OnInit {
       svg.attr("width", w - 100);
       svg.attr("height", Math.round(w / aspect));
     }
-  }
-
-  myChart: any;
-  myChart2: any;
-  ngAfterViewInit() {
-    //echarts
-
-    this.myChart = echarts.init(document.getElementById("pie-chart"));
-    console.log(this.myChart);
-    var option = {
-      title: {
-        text: ""
-      },
-      grid: {
-        left: "3%",
-        right: "4%",
-        bottom: "3%",
-        containLabel: true
-      },
-      tooltip: {},
-      legend: {
-        show: false,
-        data: ["Sales"]
-      },
-      xAxis: {
-        data: ["UIL", "CGIL", "UGL", "CISL"]
-      },
-
-      yAxis: {},
-      series: [
-        {
-          name: "Sales",
-          type: "bar",
-          itemStyle: {
-            color: "#26a0fc"
-          },
-          data: [5, 20, 36, 10, 10]
-        }
-      ]
-    };
-    this.myChart.setOption(option);
-
-    //secondo chart
-
-    let option2 = {
-      tooltip: {},
-      legend: {
-        show: false,
-        data: ["存活", "死亡"]
-      },
-      grid: {
-        left: "3%",
-        right: "4%",
-        bottom: "3%",
-        containLabel: true
-      },
-      xAxis: {
-        type: "value"
-      },
-      yAxis: {
-        type: "category",
-        data: [""]
-      },
-      series: [
-        {
-          name: "Uomini",
-          type: "bar",
-
-          label: {
-            normal: {
-              formatter: function(d) {
-                return "Uomini: " + d.value;
-              },
-              fontSize: "12",
-              show: true,
-              position: "insideRight"
-            }
-          },
-          data: [14],
-          itemStyle: {
-            color: "#01579b"
-          }
-        },
-        {
-          name: "Donne",
-          type: "bar",
-          itemStyle: {
-            color: "#9b0157"
-          },
-          label: {
-            normal: {
-              formatter: function(d) {
-                return "Donne: " + d.value;
-              },
-              fontSize: "12",
-              show: true,
-              position: "insideRight"
-            }
-          },
-          data: [6]
-        }
-      ]
-    };
-
-    this.myChart2 = echarts.init(document.getElementById("histoMashiFemmine"));
-
-    this.myChart2.setOption(option2);
-
-    $(window).on("resize", () => {
-      console.log("resize");
-      this.myChart.resize();
-      this.myChart2.resize();
-    });
-  }
+  } //responsivefy
 }

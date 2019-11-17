@@ -4,6 +4,8 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA
 } from "@angular/material/dialog";
+import { EventDispatcherService } from "./../../../service/event-dispatcher.service";
+import { ApplicationEvent } from "./../../../utils/application-event";
 
 declare var $;
 
@@ -28,10 +30,16 @@ export class FilterComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<FilterComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    public eventDispatcher: EventDispatcherService
   ) {}
 
-  onNoClick(): void {
+  onSaveClick(event): void {
+    console.log("close...");
+    this.eventDispatcher.dispatchEvent(new ApplicationEvent());
+  }
+
+  onNoClick(event): void {
     this.dialogRef.close();
   }
 
