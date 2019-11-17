@@ -5,6 +5,9 @@ import { DialogComponent } from "../componenti/dialog/dialog.component";
 import { EchartsController } from "src/app/controller/echarts.controller";
 import { PeopleService } from "./../../service/people.service";
 import { EchartsModel } from "src/app/utils/echarts.model";
+import { ApplicationModelService } from "./../../service/application-model.service";
+import { EventDispatcherService } from "./../../service/event-dispatcher.service";
+import { empty } from "rxjs";
 
 declare var echarts;
 declare var d3;
@@ -19,6 +22,7 @@ export class PeopleComponent implements OnInit {
   name = "";
   animal = "";
   option: any;
+  option2: any;
 
   myChart: any;
   myChart2: any;
@@ -31,7 +35,18 @@ export class PeopleComponent implements OnInit {
     ]
   };
 
-  constructor(public dialog: MatDialog, public peopleService: PeopleService) {}
+  constructor(
+    public dialog: MatDialog,
+    public peopleService: PeopleService,
+    public applicationModel: ApplicationModelService,
+    public eventDispatcher: EventDispatcherService
+  ) {
+    eventDispatcher.broadcastListener.subscribe((event: any) => {
+      console.log(event);
+      this.resetData();
+      this.loadData();
+    });
+  }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogComponent, {
@@ -45,22 +60,38 @@ export class PeopleComponent implements OnInit {
     });
   }
 
+  loadData() {
+    this.option = EchartsModel.optionPeopleDipendentiInForza();
+    this.peopleService.getDipendentiInForza(this.myChart, this.option);
+
+    this.option2 = EchartsModel.optionPeopleSindacati();
+    this.peopleService.getSindacati(this.myChart2, this.option2);
+
+    //secondo grafico
+    var svg = $("#svganchor").empty();
+    this.drawGraficoUominiDonne(this.myVar);
+  }
+
+  resetData() {
+    this.option.series[0].data = [];
+    this.myChart.setOption(this.option);
+    this.option2.series[0].data = [];
+    this.option2.series[1].data = [];
+    this.myChart2.setOption(this.option2);
+  }
+
   ngOnInit() {} // ngOninit
 
   ngAfterViewInit() {
     //dipendenti forza
     this.myChart = echarts.init(document.getElementById("pie-chart"));
     console.log(this.myChart);
-    var option = EchartsModel.optionPeopleDipendentiInForza();
-    this.peopleService.getDipendentiInForza(this.myChart, option);
 
     //sindacati : secondo chart
-    var option2 = EchartsModel.optionPeopleSindacati();
-    this.myChart2 = echarts.init(document.getElementById("histoMashiFemmine"));
-    this.peopleService.getSindacati(this.myChart2, option2);
-    //secondo grafico
-    this.drawGraficoUominiDonne(this.myVar);
 
+    this.myChart2 = echarts.init(document.getElementById("histoMashiFemmine"));
+
+    this.loadData();
     //hanlder
     $(window).on("resize", () => {
       console.log("resize");

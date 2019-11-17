@@ -5,6 +5,7 @@ import { EchartsModel } from "./../../utils/echarts.model";
 import { EchartsController } from "src/app/controller/echarts.controller";
 import { DettaglioService } from "./../../service/dettaglio.service";
 import { EventDispatcherService } from "./../../service/event-dispatcher.service";
+import { ApplicationModelService } from "./../../service/application-model.service";
 
 declare var echarts;
 
@@ -19,10 +20,16 @@ export class DettaglioComponent implements OnInit {
   chartIstoQualifica: any;
   chartIstoDip: any;
   chartAnnuale: any;
+  private optionInstoCategoria;
+  private optionInstoPerQualifica;
+  private optionInstoPerTipoImpiego;
+  private optionAndamentoAnnualeOrganico;
+
   constructor(
     public dialog: MatDialog,
     public dettaglioService: DettaglioService,
-    public eventDispatcher: EventDispatcherService
+    public eventDispatcher: EventDispatcherService,
+    public applicationModel: ApplicationModelService
   ) {
     console.log("created listener...");
     eventDispatcher.broadcastListener.subscribe((event: any) => {
@@ -42,10 +49,6 @@ export class DettaglioComponent implements OnInit {
     });
   }
 
-  private optionInstoCategoria;
-  private optionInstoPerQualifica;
-  private optionInstoPerTipoImpiego;
-  private optionAndamentoAnnualeOrganico;
   ngOnInit() {
     //echarts
     let option;
@@ -138,7 +141,7 @@ export class DettaglioComponent implements OnInit {
     );
   }
 
-  resetData() {
+  private resetData() {
     this.optionInstoPerTipoImpiego.series[0].data = [];
     this.chartIstoDip.setOption(this.optionInstoPerTipoImpiego);
 

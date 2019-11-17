@@ -6,6 +6,7 @@ import {
 } from "@angular/material/dialog";
 import { EventDispatcherService } from "./../../../service/event-dispatcher.service";
 import { ApplicationEvent } from "./../../../utils/application-event";
+import { ApplicationModelService } from "src/app/service/application-model.service";
 
 declare var $;
 
@@ -31,11 +32,15 @@ export class FilterComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<FilterComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
-    public eventDispatcher: EventDispatcherService
+    public eventDispatcher: EventDispatcherService,
+    public applicationModel: ApplicationModelService
   ) {}
+
+  tempValue: any;
 
   onSaveClick(event): void {
     console.log("close...");
+    this.applicationModel.anno = this.tempValue;
     this.eventDispatcher.dispatchEvent(new ApplicationEvent());
   }
 
