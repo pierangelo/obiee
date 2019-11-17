@@ -1,3 +1,5 @@
+@import "../../../../styles-variables.scss";
+
 #chart-container {
   font-family: Arial;
   //height: 420px;
@@ -26,8 +28,19 @@
   background-image: none !important;
   display: block;
 }
+
+.title {
+  background-color: $menu-color-border-selected !important;
+}
+.content {
+  border: 1px solid $menu-color-border-selected !important;
+}
 .label-orgChart {
   margin-top: 5px;
+}
+.before::before,
+.after::after {
+  border: "1px solid #0b3766";
 }
 #chart-container {
   border: 2px dotted #c5c5c5;

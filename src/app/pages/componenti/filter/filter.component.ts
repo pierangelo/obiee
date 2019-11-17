@@ -28,7 +28,9 @@ export class FilterComponent implements OnInit {
     "2019",
     "2020"
   ];
-
+  checkedAnalisiPuntuale: any;
+  tempAnnoValue: any;
+  uot: any;
   constructor(
     public dialogRef: MatDialogRef<FilterComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
@@ -36,12 +38,24 @@ export class FilterComponent implements OnInit {
     public applicationModel: ApplicationModelService
   ) {}
 
-  tempValue: any;
-
+  onChange(event) {
+    console.log(event);
+    this.checkedAnalisiPuntuale = !this.checkedAnalisiPuntuale;
+  }
   onSaveClick(event): void {
     console.log("close...");
-    this.applicationModel.anno = this.tempValue;
-    this.eventDispatcher.dispatchEvent(new ApplicationEvent());
+    this.tempAnnoValue
+      ? (this.applicationModel.anno = this.tempAnnoValue)
+      : null;
+    this.uot ? (this.applicationModel.uot = this.uot) : null;
+
+    this.checkedAnalisiPuntuale
+      ? (this.applicationModel.checkedAnalisiPuntuale = "PUNTUALE")
+      : (this.applicationModel.checkedAnalisiPuntuale = "CONO");
+
+    this.eventDispatcher.dispatchEvent(
+      new ApplicationEvent(ApplicationEvent.FILTER_HEADER_SEND)
+    );
   }
 
   onNoClick(event): void {
@@ -49,7 +63,7 @@ export class FilterComponent implements OnInit {
   }
 
   ngOnInit() {
-    $(function() {
+    $(() => {
       var ds = {
         name: "ENAV S.P.A.",
         title: "general manager",
@@ -101,11 +115,12 @@ export class FilterComponent implements OnInit {
 
       $("#chart-container")
         .find(".node")
-        .on("click", function() {
-          //alert(JSON.stringify($(this).data("nodeData")));
-          console.log(JSON.stringify($(this).data("nodeData")));
+        .on("click", event => {
+          console.log(event);
+          console.log(JSON.stringify($(event.currentTarget).data("nodeData")));
+          this.uot = $(event.currentTarget).data("nodeData").name;
+          console.log(this.uot);
         });
-      $(".orgchart").css("background", "#fff");
     });
   }
 }
