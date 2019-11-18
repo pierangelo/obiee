@@ -35,4 +35,6 @@ export class TestComponent implements OnInit {
   //test6: docs: fifferenza
 
   //test7: standard version
+
+  //test8: standard version: new commit
 }
