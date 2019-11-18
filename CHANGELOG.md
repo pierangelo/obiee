@@ -1,0 +1,22 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## 0.1.0 (2019-11-18)
+
+
+### ⚠ BREAKING CHANGES
+
+* `extends` key in config file is now used for extending other config files
+
+### Features
+
+* allow provided config object to extend other configs ([471df41](https://github.com/pierangelo/obiee/commit/471df414d577fdf220217394d7d113dd82cb719a))
+
+
+### Bug Fixes
+
+* aggiunta la condizione per la quale il progetto collassa ([6c84c5c](https://github.com/pierangelo/obiee/commit/6c84c5c935546ad114f11ca6a0b4056c04edc06b))
+* aggiunta la condizione per la quale il progetto collassa ([82a8f04](https://github.com/pierangelo/obiee/commit/82a8f041ce9636b4b7a31b3f769f29784f2ad16f))
+* main.ts ([68a53dc](https://github.com/pierangelo/obiee/commit/68a53dcddeb797235e782a230700dfc05d0e936d))
+* test changelog ([41aedd4](https://github.com/pierangelo/obiee/commit/41aedd4590fe0ba8f85e6c72fe48cf79ff0d3897))
