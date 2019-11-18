@@ -1,6 +1,6 @@
 <div class="breadcrumb">
   <p class="indietro">
-    <button mat-mini-fab color="primary" routerLink="/people">
+    <button mat-mini-fab routerLink="/people">
       <mat-icon>keyboard_arrow_left</mat-icon>
     </button>
   </p>
@@ -50,14 +50,14 @@
                       -->
         <mat-card-title class="header-text"></mat-card-title>
         <mat-card-actions>
-          <span
-            class="btn-actions"
+          <button
+            mat-icon-button
             matTooltip="informazioni sul grafico"
             matTooltipShowDelay="1000"
             (click)="openDialog()"
           >
-            <i class="fa fa-info-circle" aria-hidden="true"></i>
-          </span>
+            <mat-icon>info</mat-icon>
+          </button>
 
           <button mat-icon-button [mat-menu-trigger-for]="menu">
             <mat-icon>more_vert</mat-icon>
@@ -103,19 +103,19 @@
 <div class="row">
   <div class="col-md-4">
     <mat-card class="custom-card">
-      <mat-card-header class="custon-header bk-blue">
+      <mat-card-header class="custon-header">
         <mat-card-title class="header-text"
           >Dipendenti per Categoria</mat-card-title
         >
         <mat-card-actions class="custom-actions">
-          <span
-            class="btn-actions"
+          <button
+            mat-icon-button
             matTooltip="informazioni sul grafico"
             matTooltipShowDelay="1000"
             (click)="openDialog()"
           >
-            <i class="fa fa-info-circle" aria-hidden="true"></i>
-          </span>
+            <mat-icon>info</mat-icon>
+          </button>
 
           <button mat-icon-button [mat-menu-trigger-for]="menu">
             <mat-icon>more_vert</mat-icon>
@@ -140,19 +140,19 @@
 
   <div class="col-md-4">
     <mat-card class="custom-card">
-      <mat-card-header class="custon-header bk-green  ">
+      <mat-card-header class="custon-header">
         <mat-card-title class="header-text"
           >Dipendenti per Qualifica</mat-card-title
         >
         <mat-card-actions class="custom-actions">
-          <span
-            class="btn-actions"
+          <button
+            mat-icon-button
             matTooltip="informazioni sul grafico"
             matTooltipShowDelay="1000"
             (click)="openDialog()"
           >
-            <i class="fa fa-info-circle" aria-hidden="true"></i>
-          </span>
+            <mat-icon>info</mat-icon>
+          </button>
 
           <button mat-icon-button [mat-menu-trigger-for]="menu">
             <mat-icon>more_vert</mat-icon>
@@ -177,19 +177,19 @@
 
   <div class="col-md-4">
     <mat-card class="custom-card">
-      <mat-card-header class="custon-header bk-ocra  ">
+      <mat-card-header class="custon-header ">
         <mat-card-title class="header-text"
           >Dipendenti per tipo Impiego</mat-card-title
         >
         <mat-card-actions class="custom-actions">
-          <span
-            class="btn-actions"
+          <button
+            mat-icon-button
             matTooltip="informazioni sul grafico"
             matTooltipShowDelay="1000"
             (click)="openDialog()"
           >
-            <i class="fa fa-info-circle" aria-hidden="true"></i>
-          </span>
+            <mat-icon>info</mat-icon>
+          </button>
 
           <button mat-icon-button [mat-menu-trigger-for]="menu">
             <mat-icon>more_vert</mat-icon>
@@ -226,14 +226,14 @@
           >Andamento annuale organico per Genere</mat-card-title
         >
         <mat-card-actions class="custom-actions">
-          <span
-            class="btn-actions"
+          <button
+            mat-icon-button
             matTooltip="informazioni sul grafico"
             matTooltipShowDelay="1000"
             (click)="openDialog()"
           >
-            <i class="fa fa-info-circle" aria-hidden="true"></i>
-          </span>
+            <mat-icon>info</mat-icon>
+          </button>
 
           <button mat-icon-button [mat-menu-trigger-for]="menu">
             <mat-icon>more_vert</mat-icon>

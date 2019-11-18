@@ -41,6 +41,7 @@ img {
 .menu-user {
   cursor: pointer;
   display: flex;
+  margin-right: 7px;
 }
 
 .menu-user-btn-icon {
@@ -49,11 +50,15 @@ img {
 }
 
 .menu-icon {
-  font-size: 17px;
-  margin-top: 7px;
+  font-size: 20px;
   margin-right: 0;
+  color: #fff;
 }
 
 .menu-icon-logout {
   color: red;
+}
+
+.mat-toolbar-single-row {
+  padding: 0px 10px;
 }

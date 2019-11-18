@@ -76,7 +76,8 @@ ul li a {
   border-left: 4px solid transparent;
   text-align: center;
   font-weight: bold;
-  font-size: 13px;
+  font-size: 12px;
+  line-height: 35px;
   color: $menu-color-border-selected;
 }
 a {
@@ -94,8 +95,8 @@ a i {
 
 a > img {
   display: flex;
-  left: 30%;
-  width: 45px;
+  left: 35%;
+  width: 35px;
   position: relative;
 }
 

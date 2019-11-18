@@ -1,9 +1,9 @@
 @import "../../../styles-variables.scss";
 
 .breadcrumb {
-  padding: 3px;
   background-color: transparent;
-  margin-bottom: -16px;
+  margin-bottom: -30px;
+  padding-left: 0;
 }
 .breadcrumb-img {
   width: 22px;
@@ -17,6 +17,9 @@
   button {
     background-color: $menu-color-border-selected;
     color: #fff;
+    mat-icon {
+      color: #fff;
+    }
   }
 }
 
