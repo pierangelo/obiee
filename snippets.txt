@@ -1,3 +1,4 @@
+angular type
 commit message Type (for changelog)
 Must be one of the following:
 
