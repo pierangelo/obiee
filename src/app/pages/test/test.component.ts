@@ -11,4 +11,5 @@ export class TestComponent implements OnInit {
   ngOnInit() {}
 
   //test1
+  //test2- fix: aggiunta la condizione per la quale il progetto collassa
 }
