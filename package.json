@@ -1,6 +1,6 @@
 {
   "name": "angular",
-  "version": "0.0.0",
+  "version": "0.0.4",
   "private": true,
   "dependencies": {
     "@angular/animations": "^8.2.13",
@@ -31,7 +31,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build-prod": "npm version patch && node ./replace.build.js && ng build --prod"
+    "build-prod": "npm version patch && node ./replace.build.js && ng build --prod",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.803.17",
