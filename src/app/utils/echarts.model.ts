@@ -1,7 +1,7 @@
 export class EchartsModel {
   constructor() {}
 
-  static optionPeopleDipendentiInForza() {
+  static optionPeopleSindacati() {
     var option = {
       title: {
         text: ""
@@ -36,7 +36,7 @@ export class EchartsModel {
     return option;
   } //optionPeopleDipendentiInForza
 
-  static optionPeopleSindacati() {
+  static optionPeopleDipendentiInForza() {
     let option = {
       tooltip: {},
       legend: {

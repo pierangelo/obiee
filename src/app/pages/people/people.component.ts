@@ -61,10 +61,10 @@ export class PeopleComponent implements OnInit {
   }
 
   loadData() {
-    this.option = EchartsModel.optionPeopleDipendentiInForza();
+    this.option =  EchartsModel.optionPeopleSindacati();
     this.peopleService.getDipendentiInForza(this.myChart, this.option);
 
-    this.option2 = EchartsModel.optionPeopleSindacati();
+    this.option2 =EchartsModel.optionPeopleDipendentiInForza();
     this.peopleService.getSindacati(this.myChart2, this.option2);
 
     //secondo grafico

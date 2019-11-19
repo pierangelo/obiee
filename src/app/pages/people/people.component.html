@@ -10,15 +10,23 @@
       <table class="table-b">
         <tr>
           <td><span class="field">Unità organizzativa:</span></td>
-          <td><span class="value">{{applicationModel.uot}}</span></td>
+          <td>
+            <span class="value">{{ applicationModel.uot }}</span>
+          </td>
         </tr>
         <tr>
           <td><span class="field">Tipo analisi:</span></td>
-          <td><span class="value">{{applicationModel.checkedAnalisiPuntuale}}</span></td>
+          <td>
+            <span class="value">{{
+              applicationModel.checkedAnalisiPuntuale
+            }}</span>
+          </td>
         </tr>
         <tr>
           <td><span class="field">Anno:</span></td>
-          <td><span class="value">{{applicationModel.anno}} </span></td>
+          <td>
+            <span class="value">{{ applicationModel.anno }} </span>
+          </td>
         </tr>
       </table>
     </div>
@@ -32,10 +40,12 @@
                   -->
         <mat-card-title class="header-text"></mat-card-title>
         <mat-card-actions>
-          
-          <button mat-icon-button matTooltip="informazioni sul grafico"
-          matTooltipShowDelay="1000"
-          (click)="openDialog()">
+          <button
+            mat-icon-button
+            matTooltip="informazioni sul grafico"
+            matTooltipShowDelay="1000"
+            (click)="openDialog()"
+          >
             <mat-icon>info</mat-icon>
           </button>
 
@@ -90,18 +100,23 @@
               -->
         <mat-card-title class="header-text">Dipendenti in forza</mat-card-title>
         <mat-card-actions>
-          <button mat-icon-button matTooltip="informazioni sul grafico"
-          matTooltipShowDelay="1000"
-          (click)="openDialog()">
+          <button
+            mat-icon-button
+            matTooltip="informazioni sul grafico"
+            matTooltipShowDelay="1000"
+            (click)="openDialog()"
+          >
             <mat-icon>info</mat-icon>
           </button>
 
-          <button mat-icon-button   matTooltip="visualizza dettaglio"
-          matTooltipShowDelay="1000"
-          routerLink="/dettaglio">
+          <button
+            mat-icon-button
+            matTooltip="visualizza dettaglio"
+            matTooltipShowDelay="1000"
+            routerLink="/dettaglio"
+          >
             <mat-icon>assessment</mat-icon>
           </button>
-
 
           <button mat-icon-button [mat-menu-trigger-for]="menu">
             <mat-icon>more_vert</mat-icon>
@@ -117,7 +132,7 @@
       <mat-card-content>
         <div id="Content" class="Content row">
           <div id="signupContent" class=" col-md-2">
-            <p class="text-dex">20</p>
+            <div class="text-dex"><p class="total-text">720</p></div>
           </div>
 
           <div id="loginContent" class="card-box col-md-9">
@@ -129,43 +144,52 @@
 
     <!--2eleent-->
     <mat-card class="example-card">
-      <mat-card-content>
-        <mat-card-header>
-          <!--avatar 
+      <mat-card-header>
+        <!--avatar 
                     <div mat-card-avatar class="example-header-image"></div>
                     -->
-          <mat-card-title class="header-text">Sindacati</mat-card-title>
-          <mat-card-actions>
-            <button mat-icon-button matTooltip="informazioni sul grafico"
+        <mat-card-title class="header-text"
+          >Iscrizioni Sindacali</mat-card-title
+        >
+        <mat-card-actions>
+          <button
+            mat-icon-button
+            matTooltip="informazioni sul grafico"
             matTooltipShowDelay="1000"
-            (click)="openDialog()">
-              <mat-icon>info</mat-icon>
-            </button>
-  
-            <button mat-icon-button   matTooltip="visualizza dettaglio"
+            (click)="openDialog()"
+          >
+            <mat-icon>info</mat-icon>
+          </button>
+
+          <button
+            mat-icon-button
+            matTooltip="visualizza dettaglio"
             matTooltipShowDelay="1000"
-            routerLink="/dettaglio">
-              <mat-icon>assessment</mat-icon>
-            </button>
-  
+            routerLink="/dettaglio"
+          >
+            <mat-icon>assessment</mat-icon>
+          </button>
 
-            <button mat-icon-button [mat-menu-trigger-for]="menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-          </mat-card-actions>
-        </mat-card-header>
+          <button mat-icon-button [mat-menu-trigger-for]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card-header>
 
-        <mat-menu x-position="before" #menu="matMenu">
-          <button mat-menu-item>salva come .png</button>
-          <button mat-menu-item>salva come .xls</button>
-        </mat-menu>
-        <mat-card-content>
-          <div id="Content" class="Content row">
-            <div id="loginContent" class="card-box col-md-10">
-              <div id="pie-chart" style="height: 290px;"></div>
-            </div>
+      <mat-menu x-position="before" #menu="matMenu">
+        <button mat-menu-item>salva come .png</button>
+        <button mat-menu-item>salva come .xls</button>
+      </mat-menu>
+      <mat-card-content>
+        <div id="Content" class="Content row">
+          <div id="signupContent" class=" col-md-2">
+            <div class="text-dex blue"><p class="total-text ">220</p></div>
           </div>
-        </mat-card-content>
+
+          <div id="loginContent" class="card-box col-md-9">
+            <div id="pie-chart" style="height: 290px;"></div>
+          </div>
+        </div>
       </mat-card-content>
     </mat-card>
   </div>
@@ -178,18 +202,23 @@
               -->
         <mat-card-title class="header-text">Dipendenti: genere</mat-card-title>
         <mat-card-actions>
-          <button mat-icon-button matTooltip="informazioni sul grafico"
-          matTooltipShowDelay="1000"
-          (click)="openDialog()">
+          <button
+            mat-icon-button
+            matTooltip="informazioni sul grafico"
+            matTooltipShowDelay="1000"
+            (click)="openDialog()"
+          >
             <mat-icon>info</mat-icon>
           </button>
 
-          <button mat-icon-button   matTooltip="visualizza dettaglio"
-          matTooltipShowDelay="1000"
-          routerLink="/dettaglio">
+          <button
+            mat-icon-button
+            matTooltip="visualizza dettaglio"
+            matTooltipShowDelay="1000"
+            routerLink="/dettaglio"
+          >
             <mat-icon>assessment</mat-icon>
           </button>
-
 
           <button mat-icon-button [mat-menu-trigger-for]="menu">
             <mat-icon>more_vert</mat-icon>
