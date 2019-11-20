@@ -38,5 +38,7 @@ export class TestComponent implements OnInit {
 
   //test8: standard version: new commit
 
-  //test9: fix: test fix
+  //test9: fix: test fix -->  ok
+
+  //test9: feat: test feat -->
 }
