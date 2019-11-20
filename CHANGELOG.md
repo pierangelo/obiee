@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.5](https://github.com/pierangelo/obiee/compare/v0.1.4...v0.1.5) (2019-11-20)
+
+
+### Bug Fixes
+
+* sistemati i vari layout ([72edb94](https://github.com/pierangelo/obiee/commit/72edb94caa5941503cad398fd7a98dd073fb93de))
+
 ### [0.1.4](https://github.com/pierangelo/obiee/compare/v0.1.3...v0.1.4) (2019-11-20)
 
 ### [0.1.3](https://github.com/pierangelo/obiee/compare/v0.1.2...v0.1.3) (2019-11-20)
