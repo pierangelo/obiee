@@ -4,7 +4,7 @@
   <div class="col-sm">
     <!-- dati complessivi-->
 
-    <div class="callout-elem-blue callout-elem-info">
+    <div class="callout-elem-blue callout-elem-info border-left">
       <p>Filtri selezionati</p>
 
       <table class="table-b">
@@ -33,7 +33,7 @@
   </div>
   <!--col-->
   <div class="col-sm ">
-    <mat-card class="example-card top">
+    <mat-card class="example-card top ">
       <mat-card-header>
         <!--avatar 
                   <div mat-card-avatar class="example-header-image"></div>
@@ -132,17 +132,61 @@
       <mat-card-content>
         <div id="Content" class="Content row">
           <div id="signupContent" class=" col-md-2">
-            <div class="text-dex"><p class="total-text">720</p></div>
+            <div class="text-dex circle">720</div>
           </div>
 
           <div id="loginContent" class="card-box col-md-9">
-            <div id="histoMashiFemmine" style="height: 250px;"></div>
+            <div
+              id="histoMashiFemmine"
+              style="height: 290px; margin-left: 10px;"
+            ></div>
           </div>
         </div>
       </mat-card-content>
     </mat-card>
+  </div>
 
-    <!--2eleent-->
+  <div class="col-md-6">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <!--avatar 
+              <div mat-card-avatar class="example-header-image"></div>
+              -->
+        <mat-card-title class="header-text">Dipendenti: genere</mat-card-title>
+        <mat-card-actions>
+          <button
+            mat-icon-button
+            matTooltip="informazioni sul grafico"
+            matTooltipShowDelay="1000"
+            (click)="openDialog()"
+          >
+            <mat-icon>info</mat-icon>
+          </button>
+
+          <button
+            mat-icon-button
+            matTooltip="visualizza dettaglio"
+            matTooltipShowDelay="1000"
+            routerLink="/dettaglio"
+          >
+            <mat-icon>assessment</mat-icon>
+          </button>
+
+          <button mat-icon-button [mat-menu-trigger-for]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card-header>
+
+      <mat-card-content>
+        <div id="svganchor" style="height: 307px;"></div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
     <mat-card class="example-card">
       <mat-card-header>
         <!--avatar 
@@ -183,11 +227,11 @@
       <mat-card-content>
         <div id="Content" class="Content row">
           <div id="signupContent" class=" col-md-2">
-            <div class="text-dex blue"><p class="total-text ">220</p></div>
+            <div class="text-dex circle blue">1.220</div>
           </div>
 
           <div id="loginContent" class="card-box col-md-9">
-            <div id="pie-chart" style="height: 290px;"></div>
+            <div id="pie-chart" style="height: 290px; margin-left: 10px;"></div>
           </div>
         </div>
       </mat-card-content>
@@ -198,9 +242,11 @@
     <mat-card class="example-card">
       <mat-card-header>
         <!--avatar 
-              <div mat-card-avatar class="example-header-image"></div>
-              -->
-        <mat-card-title class="header-text">Dipendenti: genere</mat-card-title>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    -->
+        <mat-card-title class="header-text"
+          >Rappresentanti Sindacali</mat-card-title
+        >
         <mat-card-actions>
           <button
             mat-icon-button
@@ -226,8 +272,23 @@
         </mat-card-actions>
       </mat-card-header>
 
+      <mat-menu x-position="before" #menu="matMenu">
+        <button mat-menu-item>salva come .png</button>
+        <button mat-menu-item>salva come .xls</button>
+      </mat-menu>
       <mat-card-content>
-        <div id="svganchor"></div>
+        <div id="Content" class="Content row">
+          <div id="signupContent" class=" col-md-2">
+            <div class="text-dex circle blue">401</div>
+          </div>
+
+          <div id="loginContent" class="card-box col-md-9">
+            <div
+              id="rapp-sind-chart"
+              style="height: 290px; margin-left: 10px;"
+            ></div>
+          </div>
+        </div>
       </mat-card-content>
     </mat-card>
   </div>

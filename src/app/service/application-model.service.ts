@@ -6,7 +6,7 @@ import { Injectable } from "@angular/core";
 export class ApplicationModelService {
   constructor() {}
 
-  public anno = "1111";
+  public anno = "2019";
   public uot = "ENAV S.P.A.";
   public checkedAnalisiPuntuale = "CONO";
 }

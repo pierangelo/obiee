@@ -22,10 +22,20 @@
 }
 
 .total-text {
-  font-size: 16px;
+  font-size: 25px;
   font-weight: bold;
-  position: relative;
-  top: 28%;
+  /* position: relative; */
+  /* margin-top: 3%; */
+  padding: 11px;
+}
+
+.circle {
+  border-radius: 50%;
+  text-align: center;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  font-size: 24px;
 }
 
 .blue {
@@ -70,21 +80,11 @@ p {
   }
 }
 .text-dex {
-  margin: 0;
   position: relative;
-  top: 50%;
-
-  font-size: 30px;
+  top: 45%;
   background-color: #63609b;
-  border-radius: 50%;
-  height: 60px;
-  padding: 1px;
-  width: 60px;
   color: #fff;
-  font-weight: bold;
-  font-size: 20px;
-  left: 50%;
-  vertical-align: middle;
+  left: 26%;
 }
 .dip-forza {
   //height: 260px;
@@ -179,7 +179,7 @@ a.bg-primary:hover {
     font-family: Enav !important;
   }
 
-  border-left: 6px solid #0b3766;
+  //border-left: 6px solid #0b3766;
   margin: 20px 0;
   padding: 20px;
   //background-color: #d0dbea;
@@ -196,7 +196,9 @@ ul.list-justified {
 .text-center {
   text-align: center;
 }
-
+.border-left {
+  border-left: 6px solid #0b3766 !important;
+}
 ul.list-justified > li {
   float: none;
   display: table-cell;

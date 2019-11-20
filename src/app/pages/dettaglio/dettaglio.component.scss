@@ -22,6 +22,15 @@
   }
 }
 
+.table-b {
+  table-layout: auto;
+  width: 100%;
+  font-size: 14px;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  height: 150px;
+  margin-left: 10px;
+}
 .callout-elem-blue {
   p {
     font-family: Enav !important;
@@ -81,7 +90,7 @@
 }
 
 .custom-table-b {
-  line-height: 32px;
+  line-height: 20px;
   margin-left: 20px;
 }
 .top {

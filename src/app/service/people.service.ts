@@ -21,4 +21,12 @@ export class PeopleService {
       EchartsController.refreshEcharts(myChart, option);
     }, 2000);
   } //getSindacati
+
+  getRappresentantiSindacati(myChart, option) {
+    EchartsController.echartsLoadingShow(myChart);
+
+    setTimeout(() => {
+      EchartsController.refreshEcharts(myChart, option);
+    }, 2000);
+  } //getSindacati
 }

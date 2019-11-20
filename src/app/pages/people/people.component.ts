@@ -23,9 +23,12 @@ export class PeopleComponent implements OnInit {
   animal = "";
   option: any;
   option2: any;
+  optionRappresentati:any;
 
   myChart: any;
   myChart2: any;
+
+  chartRappresentantiSindacali:any;
 
   //valori del grafico d3.UominiDonne
   myVar = {
@@ -61,11 +64,15 @@ export class PeopleComponent implements OnInit {
   }
 
   loadData() {
-    this.option =  EchartsModel.optionPeopleSindacati();
+    this.option = EchartsModel.optionPeopleSindacati();
     this.peopleService.getDipendentiInForza(this.myChart, this.option);
 
-    this.option2 =EchartsModel.optionPeopleDipendentiInForza();
+    this.option2 = EchartsModel.optionPeopleDipendentiInForza();
     this.peopleService.getSindacati(this.myChart2, this.option2);
+
+    this.optionRappresentati = EchartsModel.optionPeopleRappresentantiSindacati();
+    this.peopleService.getRappresentantiSindacati(this.chartRappresentantiSindacali, this.optionRappresentati);
+
 
     //secondo grafico
     var svg = $("#svganchor").empty();
@@ -87,9 +94,12 @@ export class PeopleComponent implements OnInit {
     this.myChart = echarts.init(document.getElementById("pie-chart"));
     console.log(this.myChart);
 
-    //sindacati : secondo chart
+    //iscritti sindacati : secondo chart
 
     this.myChart2 = echarts.init(document.getElementById("histoMashiFemmine"));
+
+    //rappesentanti
+    this.chartRappresentantiSindacali = echarts.init(document.getElementById("rapp-sind-chart"));
 
     this.loadData();
     //hanlder
@@ -97,6 +107,7 @@ export class PeopleComponent implements OnInit {
       console.log("resize");
       this.myChart.resize();
       this.myChart2.resize();
+      this.chartRappresentantiSindacali.resize();
     });
   } //ngAfterViewInit
 
@@ -149,7 +160,7 @@ export class PeopleComponent implements OnInit {
     criterionList.text(d => d);
 
     var width = 390,
-      height = 365;
+      height = 205;
 
     var svg = d3
       .select("#svganchor")
@@ -184,7 +195,7 @@ export class PeopleComponent implements OnInit {
       .forceSimulation()
       .force("collide", d3.forceCollide(12))
       .force("x", d3.forceX(d => d.xPosition).strength(0.2))
-      .force("y", d3.forceY(height / 2))
+      .force("y", d3.forceY(height / 3))
       .velocityDecay(0.7);
 
     //var preciseNumberTitle = svg.append("text")
@@ -238,11 +249,11 @@ export class PeopleComponent implements OnInit {
         .append("text")
         .attr("class", "nodesData")
         .attr("text-anchor", "middle")
-        .attr("y", 60)
+        .attr("y", 5)
         .attr("x", d => xScale(d.name))
         .text(d => d.name)
         .append("tspan")
-        .attr("y", 115)
+        .attr("y", 35)
         .attr("x", d => xScale(d.name) + 10)
         .attr("class", "nodesDataSpan")
         .text(d => d.total);
@@ -256,11 +267,11 @@ export class PeopleComponent implements OnInit {
 
       function tick() {
         nodes.attr("transform", d => {
-          if (d.y < 160) {
-            d.y = 160;
+          if (d.y < 60) {
+            d.y = 60;
           }
           if (d.y > 480) {
-            d.y = 480;
+            d.y = 280;
           }
           return "translate(" + d.x + "," + d.y + ")";
         });
@@ -302,7 +313,7 @@ export class PeopleComponent implements OnInit {
           .append("text")
           .attr("class", "nodesData")
           .attr("text-anchor", "middle")
-          .attr("y", 100)
+          .attr("y", 200)
           .attr("x", d => xScale(d.name))
           .text(d => d.name + ": ")
           .append("tspan")
@@ -325,7 +336,7 @@ export class PeopleComponent implements OnInit {
           .append("text")
           .attr("class", "nodesDataPrecise")
           .attr("text-anchor", "middle")
-          .attr("y", 440)
+          .attr("y", 70)
           .attr("x", d => xScale(d.name))
           .transition()
           .delay(750)
@@ -349,7 +360,7 @@ export class PeopleComponent implements OnInit {
           .attr("class", "bars")
           .attr("x", width - padding[1])
           .merge(bars)
-          .attr("y", 470)
+          .attr("y", 90)
           .attr("height", 20);
 
         barsEnter
@@ -383,13 +394,13 @@ export class PeopleComponent implements OnInit {
             "points",
             "" +
               width +
-              ",470 " +
+              ",270 " +
               width +
-              ",458 " +
+              ",258 " +
               width +
-              ",458 " +
+              ",258 " +
               width +
-              ",446"
+              ",246"
           )
           .remove();
 
@@ -401,13 +412,13 @@ export class PeopleComponent implements OnInit {
             "points",
             "" +
               width +
-              ",470 " +
+              ",270 " +
               width +
-              ",458 " +
+              ",258 " +
               width +
-              ",458 " +
+              ",258 " +
               width +
-              ",446"
+              ",246"
           )
           .merge(polylines)
           .transition()
@@ -418,13 +429,13 @@ export class PeopleComponent implements OnInit {
               return (
                 "" +
                 (barScale(0) + barScale(filteredData[0].groups[0].value) / 2) +
-                ",470 " +
+                ",270 " +
                 (barScale(0) + barScale(filteredData[0].groups[0].value) / 2) +
-                ",458 " +
+                ",258 " +
                 xScale(d.name) +
-                ",458 " +
+                ",258 " +
                 xScale(d.name) +
-                ",446"
+                ",246"
               );
             } else {
               var counter = 0;
@@ -435,13 +446,13 @@ export class PeopleComponent implements OnInit {
               return (
                 "" +
                 (thisWidth + (barScale(d.value) - padding[3]) / 2) +
-                ",470 " +
+                ",270 " +
                 (thisWidth + (barScale(d.value) - padding[3]) / 2) +
-                ",458 " +
+                ",258 " +
                 xScale(d.name) +
-                ",458 " +
+                ",258 " +
                 xScale(d.name) +
-                ",446"
+                ",246"
               );
             }
           })
