@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.6](https://github.com/pierangelo/obiee/compare/v0.1.5...v0.1.6) (2019-11-20)
+
+
+### Features
+
+* test feat ([94694b7](https://github.com/pierangelo/obiee/commit/94694b7ed485b2dfc278d86de17d81ae59f63b95))
+
 ### [0.1.5](https://github.com/pierangelo/obiee/compare/v0.1.4...v0.1.5) (2019-11-20)
 
 
