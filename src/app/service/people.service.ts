@@ -29,4 +29,13 @@ export class PeopleService {
       EchartsController.refreshEcharts(myChart, option);
     }, 2000);
   } //getSindacati
+
+
+  getScolarita(myChart, option) {
+    EchartsController.echartsLoadingShow(myChart);
+
+    setTimeout(() => {
+      EchartsController.refreshEcharts(myChart, option);
+    }, 3000);
+  } //getSindacati
 }

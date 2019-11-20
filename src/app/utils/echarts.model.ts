@@ -186,6 +186,50 @@ export class EchartsModel {
     return option;
   } //optionPeopleSindacati
 
+  static optionPeopleScolarita() {
+    let option = {
+      tooltip: {},
+      legend: {
+        show: false,
+        data: ["存活", "死亡"]
+      },
+      grid: {
+        left: "3%",
+        right: "4%",
+        bottom: "3%",
+        containLabel: true
+      },
+      xAxis: {
+        type: "value"
+      },
+      yAxis: {
+        data: ["CGIL", "UGL", "CISL", "UIL", "ASSIVOLO"]
+      },
+      series: [
+        {
+          name: "CGIL",
+          type: "bar",
+
+          label: {
+            normal: {
+              formatter: function(d) {
+                return d.value;
+              },
+              fontSize: "12",
+              show: true,
+              position: "insideRight"
+            }
+          },
+          data: [1, 4, 6, 8, 10],
+          itemStyle: {
+            color: "#26a0fc"
+          }
+        }
+      ]
+    };
+    return option;
+  } // optionPeopleRappresentantiSindacati
+
   static optionDettaglioIstoCategoria() {
     var option = {
       title: {

@@ -24,6 +24,8 @@ export class PeopleComponent implements OnInit {
   option: any;
   option2: any;
   optionRappresentati:any;
+  optionScolatirita:any;
+  chartScolarita:any;
 
   myChart: any;
   myChart2: any;
@@ -74,6 +76,9 @@ export class PeopleComponent implements OnInit {
     this.peopleService.getRappresentantiSindacati(this.chartRappresentantiSindacali, this.optionRappresentati);
 
 
+    this.optionScolatirita = EchartsModel.optionPeopleSindacati();
+    this.peopleService.getScolarita(this.chartScolarita, this.optionScolatirita);
+
     //secondo grafico
     var svg = $("#svganchor").empty();
     this.drawGraficoUominiDonne(this.myVar);
@@ -85,6 +90,10 @@ export class PeopleComponent implements OnInit {
     this.option2.series[0].data = [];
     this.option2.series[1].data = [];
     this.myChart2.setOption(this.option2);
+
+    this.optionScolatirita.series[0].data = [];
+    this.chartScolarita.setOption(this.optionScolatirita);
+
   }
 
   ngOnInit() {} // ngOninit
@@ -95,11 +104,14 @@ export class PeopleComponent implements OnInit {
     console.log(this.myChart);
 
     //iscritti sindacati : secondo chart
-
     this.myChart2 = echarts.init(document.getElementById("histoMashiFemmine"));
 
     //rappesentanti
     this.chartRappresentantiSindacali = echarts.init(document.getElementById("rapp-sind-chart"));
+
+    //scolarita
+    this.chartScolarita=echarts.init(document.getElementById("scolarita-chart"));
+
 
     this.loadData();
     //hanlder
@@ -108,6 +120,7 @@ export class PeopleComponent implements OnInit {
       this.myChart.resize();
       this.myChart2.resize();
       this.chartRappresentantiSindacali.resize();
+      this.chartScolarita.resize();
     });
   } //ngAfterViewInit
 

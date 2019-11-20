@@ -66,31 +66,50 @@ export class FilterComponent implements OnInit {
     $(() => {
       var ds = {
         name: "ENAV S.P.A.",
-        title: "general manager",
+        title: "Società",
         children: [
-          { name: "FTerritoriale1", title: "department manager" },
-          { name: "FTerritoriale0", title: "department manager" },
           {
-            name: "FTerritoriale2",
-            title: "department manager",
+            name: "A.D.",
+            title: "Area",
             children: [
-              { name: "FTerritoriale3", title: "senior engineer" },
               {
-                name: "FTerritoriale",
-                title: "senior engineer",
+                name: "OPERATIONS",
+                title: "Area",
                 children: [
-                  { name: "FTerritoriale5", title: "engineer" },
                   {
-                    name: "FTerritoriale6",
-                    title: "UE engineer",
+                    name: "OP.CENTER-SOUTH",
+                    title: "Funzione",
                     children: [
-                      { name: "FTerritoriale7", title: "engineer" },
+                      { name: "BRINDISI", title: "Funzione" },
                       {
-                        name: "FTerritoriale8",
-                        title: "engineer",
+                        name: "ACC BRINDISI",
+                        title: "Funzione",
+
                         children: [
-                          { name: "FTerritoriale9", title: "intern" },
-                          { name: "FTerritoriale10", title: "intern" }
+                          {
+                            name: "SUPPORT OFFICE",
+                            title: "Settore"
+                          },
+                          {
+                            name: "SAFETY",
+                            title: "Settore"
+                          },
+                          {
+                            name: "TRAINING",
+                            title: "Settore"
+                          },
+                          {
+                            name: "OPERATIONS",
+                            title: "Settore"
+                          },
+                          {
+                            name: "ROSTERING",
+                            title: "Settore"
+                          },
+                          {
+                            name: "AUTOMATION",
+                            title: "Settore"
+                          }
                         ]
                       }
                     ]
@@ -105,10 +124,12 @@ export class FilterComponent implements OnInit {
       var oc = $("#chart-container").orgchart({
         data: ds,
         nodeContent: "title",
-        verticalLevel: 3,
-        visibleLevel: 3,
-        exportButton: false,
+        verticalLevel: 7,
+        visibleLevel: 5,
+        //exportButton: false,
+        //direction: "t2b",
         direction: "l2r",
+        depth: 2,
         pan: true,
         zoom: true
       });

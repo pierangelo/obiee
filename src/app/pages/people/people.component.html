@@ -90,8 +90,9 @@
   </div>
 </div>
 
+<!-- genere -->
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-12 col-lg-6">
     <!--1element-->
     <mat-card class="example-card">
       <mat-card-header>
@@ -146,7 +147,7 @@
     </mat-card>
   </div>
 
-  <div class="col-md-6">
+  <div class="col-md-12 col-lg-6">
     <mat-card class="example-card">
       <mat-card-header>
         <!--avatar 
@@ -185,13 +186,124 @@
   </div>
 </div>
 
+<!-- scolarità -->
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-12">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <!--  avatar 
+                            <div mat-card-avatar class="example-header-image"></div>
+         -->
+        <mat-card-title class="header-text">Scolarità</mat-card-title>
+        <mat-card-actions>
+          <button
+            mat-icon-button
+            matTooltip="informazioni sul grafico"
+            matTooltipShowDelay="1000"
+            (click)="openDialog()"
+          >
+            <mat-icon>info</mat-icon>
+          </button>
+
+          <button
+            mat-icon-button
+            matTooltip="visualizza dettaglio"
+            matTooltipShowDelay="1000"
+            routerLink="/dettaglio"
+          >
+            <mat-icon>assessment</mat-icon>
+          </button>
+
+          <button mat-icon-button [mat-menu-trigger-for]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card-header>
+
+      <mat-menu x-position="before" #menu="matMenu">
+        <button mat-menu-item>salva come .png</button>
+        <button mat-menu-item>salva come .xls</button>
+      </mat-menu>
+      <mat-card-content>
+        <div id="Content" class="Content row">
+          <div id="signupContent" class=" col-md-2">
+            <div class="text-dex circle blue">605</div>
+          </div>
+
+          <div id="loginContent" class="card-box col-md-9">
+            <div
+              id="scolarita-chart"
+              style="height: 290px; margin-left: 10px;"
+            ></div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<!-- anzianità-->
+<div class="row">
+  <div class="col-md-12">
+    <mat-card class="example-card ">
+      <mat-card-header>
+        <!--avatar 
+                          <div mat-card-avatar class="example-header-image"></div>
+                          -->
+        <mat-card-title class="header-text"></mat-card-title>
+        <mat-card-actions>
+          <button
+            mat-icon-button
+            matTooltip="informazioni sul grafico"
+            matTooltipShowDelay="1000"
+            (click)="openDialog()"
+          >
+            <mat-icon>info</mat-icon>
+          </button>
+
+          <button mat-icon-button [mat-menu-trigger-for]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card-header>
+
+      <mat-menu x-position="before" #menu="matMenu">
+        <button mat-menu-item>salva come .png</button>
+        <button mat-menu-item>salva come .xls</button>
+      </mat-menu>
+
+      <mat-card-content>
+        <div id="Content" class="Content row">
+          <div class="list-justified-container" style="width:100%">
+            <ul class="list-justified text-center row">
+              <li class="col-md-4">
+                <p class="size-h3">Età Media</p>
+                <p class="text-muted">45,61</p>
+              </li>
+              <li class="col-md-4">
+                <p class="size-h3">Anzianità Aziendale Media</p>
+                <p class="text-muted">17,89</p>
+              </li>
+              <li class="col-md-4">
+                <p class="size-h3">In età pensionabile</p>
+                <p class="text-muted">200</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<!-- sindacato -->
+<div class="row">
+  <div class="col-md-12 col-lg-6">
     <mat-card class="example-card">
       <mat-card-header>
         <!--avatar 
                     <div mat-card-avatar class="example-header-image"></div>
-                    -->
+        -->
         <mat-card-title class="header-text"
           >Iscrizioni Sindacali</mat-card-title
         >
@@ -238,10 +350,10 @@
     </mat-card>
   </div>
 
-  <div class="col-md-6">
+  <div class="col-md-12 col-lg-6">
     <mat-card class="example-card">
       <mat-card-header>
-        <!--avatar 
+        <!-- avatar 
                     <div mat-card-avatar class="example-header-image"></div>
                     -->
         <mat-card-title class="header-text"
@@ -293,43 +405,3 @@
     </mat-card>
   </div>
 </div>
-
-<div class="row">
-  <div class="col-md-12">
-    <div class="callout-elem-blue callout-elem-info">
-      <div class="list-justified-container">
-        <ul class="list-justified text-center row">
-          <li class="col-md-4">
-            <p class="size-h3">Età Media</p>
-            <p class="text-muted">45,61</p>
-          </li>
-          <li class="col-md-4">
-            <p class="size-h3">Anzianità Aziendale Media</p>
-            <p class="text-muted">17,89</p>
-          </li>
-          <li class="col-md-4">
-            <p class="size-h3">In età pensionabile</p>
-            <p class="text-muted">200</p>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!--
-<div class="row">
-  <div class="col-md-12">
-    <section class="panel panel-box">
-      <div class="panel-top bg-danger">
-        <i class="fa fa-envelope text-large"></i>
-      </div>
-      <div class="panel-bottom bg-reverse">
-        <p class="size-h1">27</p>
-
-        <div id="histoMashiFemmine" style="height: 250px;"></div>
-      </div>
-    </section>
-  </div>
-</div>
--->

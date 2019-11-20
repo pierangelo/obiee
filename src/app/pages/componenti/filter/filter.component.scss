@@ -48,11 +48,18 @@
   position: relative;
   overflow: auto !important;
 
+  //in caso di visualizzazione orizzontale o verticoal del grafo...
   text-align: justify;
   .orgchart {
+    min-width: 600px;
     position: relative !important;
     background: transparent !important;
   }
+}
+.orgchart.l2r .node,
+.orgchart.r2l .node {
+  width: 67px !important;
+  height: 130px !important;
 }
 .orgchart-bk {
   background: #fff !important;
@@ -76,7 +83,7 @@
   position: sticky;
 }
 .btn-ok {
-  background-color: #0b3766; // #07fb00;
+  background-color: #0b3766; //#07fb00;
   color: #fff;
 }
 
