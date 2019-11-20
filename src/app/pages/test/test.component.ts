@@ -40,5 +40,7 @@ export class TestComponent implements OnInit {
 
   //test9: fix: test fix -->  ok
 
-  //test9: feat: test feat -->
+  //test9: feat: test feat -->  ok
+
+  
 }
