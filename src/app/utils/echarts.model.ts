@@ -230,6 +230,226 @@ export class EchartsModel {
     return option;
   } // optionPeopleRappresentantiSindacati
 
+  static optionDettaglioAnzianitaIstoCategoria() {
+    var option = {
+      title: {
+        text: ""
+      },
+      grid: {
+        width: "90%",
+        left: "4%",
+        right: "1%",
+        bottom: "4%",
+        containLabel: true
+      },
+      tooltip: {},
+      legend: {
+        show: false,
+        data: [""]
+      },
+      xAxis: {
+        splitLine: {
+          show: false
+        },
+        axisLine: {
+          lineStyle: {
+            width: 1
+          }
+        },
+        axisTick: {
+          show: true,
+          alignWithLabel: true,
+          lineStyle: {
+            width: 0
+          }
+        }
+      },
+      yAxis: {
+        data: ["CAT1", "CAT2", "CAT3", "CAT4"]
+      },
+      /*
+        xAxis: {
+          data: ["CAT1", "CAT2", "CAT3", "CAT4"]
+        },
+  
+        yAxis: {},
+        */
+      series: [
+        {
+          name: "",
+          type: "bar",
+          itemStyle: {
+            color: "#5fd3e6"
+          },
+
+          data: [5, 20, 36, 10, 10]
+        }
+      ]
+    };
+
+    return option;
+  }
+
+  static optionDettaglioAnzianitaAndamentoAnnuale() {
+    //andamento annuale organico
+    let options = {
+      legend: {
+        show: true,
+        data: ["Uomini", "Donne"]
+      },
+      title: {
+        text: ""
+      },
+      tooltip: {
+        trigger: "axis",
+        padding: [2, 10],
+        textStyle: {
+          fontSize: 16
+        }
+      },
+      xAxis: {
+        type: "category",
+        splitLine: {
+          show: false
+        },
+        axisLine: {
+          lineStyle: {
+            width: 1
+          }
+        },
+        axisTick: {
+          show: true,
+          alignWithLabel: true,
+          lineStyle: {
+            width: 1
+          }
+        },
+        axisLabel: {
+          fontWeight: "bold"
+        },
+        data: ["2013", "2014", "2015", "2016", "2017", "2018", "2019"]
+      },
+      grid: {
+        width: "90%",
+        left: "4%",
+        right: "1%",
+        bottom: "4%",
+        containLabel: true
+      },
+
+      yAxis: {
+        type: "value",
+        name: "M",
+        splitLine: {
+          show: false
+        },
+        axisLine: {
+          lineStyle: {
+            width: 1
+          }
+        },
+        axisTick: {
+          lineStyle: {
+            width: 1
+          }
+        },
+        axisLabel: {
+          //fontWeight: "bold",
+        }
+      },
+      series: [
+        {
+          name: "Uomini",
+          type: "line",
+          symbol: "circle",
+          symbolSize: 10,
+          smooth: true,
+          animationDuration: 2000,
+          itemStyle: {
+            normal: {
+              color: "#01579b"
+            }
+          },
+          lineStyle: {
+            normal: {
+              width: 3
+            }
+          },
+          data: [10, 40, 74, 83, 120, 146, 180]
+        },
+        {
+          name: "Donne",
+          type: "line",
+          symbol: "circle",
+          symbolSize: 10,
+          smooth: true,
+          animationDuration: 2000,
+          itemStyle: {
+            normal: {
+              color: "#9b0157"
+            }
+          },
+          lineStyle: {
+            normal: {
+              color: "#9b0157",
+              width: 3
+            }
+          },
+          data: [30, 25, 74, 143, 93, 100, 135]
+        }
+      ]
+    };
+    return options;
+  }
+
+  static dataDettaglioAnzianitaAndamentoAnnuale() {
+    //andamento annuale organico
+    let options = [
+      {
+        name: "Uomini",
+        type: "line",
+        symbol: "circle",
+        symbolSize: 10,
+        smooth: true,
+        animationDuration: 2000,
+        itemStyle: {
+          normal: {
+            color: "#01579b"
+          }
+        },
+        lineStyle: {
+          normal: {
+            width: 3
+          }
+        },
+        data: [10, 40, 74, 83, 120, 146, 180]
+      },
+      {
+        name: "Donne",
+        type: "line",
+        symbol: "circle",
+        symbolSize: 10,
+        smooth: true,
+        animationDuration: 2000,
+        itemStyle: {
+          normal: {
+            color: "#9b0157"
+          }
+        },
+        lineStyle: {
+          normal: {
+            color: "#9b0157",
+            width: 3
+          }
+        },
+        data: [30, 25, 74, 143, 93, 100, 135]
+      }
+    ];
+
+    return options;
+  }
+
+
   static optionDettaglioIstoCategoria() {
     var option = {
       title: {
@@ -448,4 +668,6 @@ export class EchartsModel {
 
     return options;
   }
+
+
 }

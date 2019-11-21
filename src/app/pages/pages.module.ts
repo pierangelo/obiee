@@ -13,6 +13,7 @@ import { DialogComponent } from "./componenti/dialog/dialog.component";
 import { DettaglioComponent } from "./dettaglio/dettaglio.component";
 import { FilterComponent } from "./componenti/filter/filter.component";
 import { DettaglioScolaritaComponent } from "./dettaglio-scolarita/dettaglio-scolarita.component";
+import { DettaglioAnzianitaComponent } from "./dettaglio-anzianita/dettaglio-anzianita.component";
 
 @NgModule({
   imports: [CommonModule, ReactiveFormsModule, MaterialModule],
@@ -31,6 +32,7 @@ export class PagesModule {
     DettaglioComponent,
     FilterComponent,
     DialogComponent,
-    DettaglioScolaritaComponent
+    DettaglioScolaritaComponent,
+    DettaglioAnzianitaComponent
   ];
 }

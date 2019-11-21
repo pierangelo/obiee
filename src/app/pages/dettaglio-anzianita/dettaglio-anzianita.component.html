@@ -1,0 +1,254 @@
+<div class="row">
+  <div class="breadcrumb col-md">
+    <p class="indietro">
+      <button mat-mini-fab routerLink="/people">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+      </button>
+    </p>
+    <span class="breadcrumb-text">
+      People / Dettaglio Anzianità
+    </span>
+  </div>
+</div>
+<div class="row">
+  <!--col -->
+  <div class="col-sm">
+    <!-- dati complessivi-->
+
+    <div class="callout-elem-blue callout-elem-info">
+      <p>Filtri selezionati</p>
+
+      <table class="table-b custom-table-b">
+        <tr>
+          <td><span class="field">Unità organizzativa:</span></td>
+          <td>
+            <span class="value">{{ applicationModel.uot }}</span>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="field">Tipo analisi:</span></td>
+          <td>
+            <span class="value">{{
+              applicationModel.checkedAnalisiPuntuale
+            }}</span>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="field">Anno:</span></td>
+          <td>
+            <span class="value">{{ applicationModel.anno }} </span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <!--col-->
+  <div class="col-sm ">
+    <mat-card class="example-card top">
+      <mat-card-header>
+        <!--avatar 
+                          <div mat-card-avatar class="example-header-image"></div>
+                          -->
+        <mat-card-title class="header-text"></mat-card-title>
+        <mat-card-actions>
+          <button
+            mat-icon-button
+            matTooltip="informazioni sul grafico"
+            matTooltipShowDelay="1000"
+            (click)="openDialog()"
+          >
+            <mat-icon>info</mat-icon>
+          </button>
+
+          <button mat-icon-button [mat-menu-trigger-for]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card-header>
+
+      <mat-menu x-position="before" #menu="matMenu">
+        <button mat-menu-item>salva come .png</button>
+        <button mat-menu-item>salva come .xls</button>
+      </mat-menu>
+
+      <mat-card-content>
+        <div id="Content" class="Content row">
+          <table class="table-b custom-table-b">
+            <tr>
+              <td><span class="field">ICAO CODE:</span></td>
+              <td><span class="value">LIBC</span></td>
+            </tr>
+            <tr>
+              <td><span class="field">Traffic Permitted:</span></td>
+              <td><span class="value">IFR/VFR</span></td>
+            </tr>
+            <tr>
+              <td><span class="field">ATS Service:</span></td>
+              <td><span class="value">AFIS</span></td>
+            </tr>
+            <tr>
+              <td><span class="field">ATS Operational Hours:</span></td>
+              <td><span class="value">07:00-19:00 (06:00-18:00)</span></td>
+            </tr>
+            <tr>
+              <td><span class="field">APP Service:</span></td>
+              <td><span class="value">LAMEZIA TERME</span></td>
+            </tr>
+          </table>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <mat-card class="custom-card">
+      <mat-card-header class="custon-header">
+        <mat-card-title class="header-text"
+          >Anzianità Aziendale Media per Categoria</mat-card-title
+        >
+        <mat-card-actions class="custom-actions">
+          <button
+            mat-icon-button
+            matTooltip="informazioni sul grafico"
+            matTooltipShowDelay="1000"
+            (click)="openDialog()"
+          >
+            <mat-icon>info</mat-icon>
+          </button>
+
+          <button mat-icon-button [mat-menu-trigger-for]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card-header>
+
+      <mat-menu x-position="before" #menu="matMenu">
+        <button mat-menu-item>salva come .png</button>
+        <button mat-menu-item>salva come .xls</button>
+      </mat-menu>
+
+      <mat-card-content>
+        <div id="Content" class="Content row">
+          <div id="loginContent" class="card-box col-md-12">
+            <div id="istoCategoria" style="height: 250px;"></div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="col-md-4">
+    <mat-card class="custom-card">
+      <mat-card-header class="custon-header">
+        <mat-card-title class="header-text"
+          >Anzianità Aziendale Media per Qualifica</mat-card-title
+        >
+        <mat-card-actions class="custom-actions">
+          <button
+            mat-icon-button
+            matTooltip="informazioni sul grafico"
+            matTooltipShowDelay="1000"
+            (click)="openDialog()"
+          >
+            <mat-icon>info</mat-icon>
+          </button>
+
+          <button mat-icon-button [mat-menu-trigger-for]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card-header>
+
+      <mat-menu x-position="before" #menu="matMenu">
+        <button mat-menu-item>salva come .png</button>
+        <button mat-menu-item>salva come .xls</button>
+      </mat-menu>
+
+      <mat-card-content>
+        <div id="Content" class="Content row">
+          <div id="loginContent" class="card-box col-md-12">
+            <div id="istoQualifica" style="height: 250px;"></div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="col-md-4">
+    <mat-card class="custom-card">
+      <mat-card-header class="custon-header ">
+        <mat-card-title class="header-text"
+          >Anzianità Aziendale Media per Tipo Impiego</mat-card-title
+        >
+        <mat-card-actions class="custom-actions">
+          <button
+            mat-icon-button
+            matTooltip="informazioni sul grafico"
+            matTooltipShowDelay="1000"
+            (click)="openDialog()"
+          >
+            <mat-icon>info</mat-icon>
+          </button>
+
+          <button mat-icon-button [mat-menu-trigger-for]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card-header>
+
+      <mat-menu x-position="before" #menu="matMenu">
+        <button mat-menu-item>salva come .png</button>
+        <button mat-menu-item>salva come .xls</button>
+      </mat-menu>
+
+      <mat-card-content>
+        <div id="Content" class="Content row">
+          <div id="loginContent" class="card-box col-md-12">
+            <div id="istoDip" style="height: 250px;"></div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <mat-card class="custom-card">
+      <mat-card-header class="custon-header  ">
+        <mat-card-title class="header-text"
+          >Andamento annuale età ed anzianità medie dell'organico</mat-card-title
+        >
+        <mat-card-actions class="custom-actions">
+          <button
+            mat-icon-button
+            matTooltip="informazioni sul grafico"
+            matTooltipShowDelay="1000"
+            (click)="openDialog()"
+          >
+            <mat-icon>info</mat-icon>
+          </button>
+
+          <button mat-icon-button [mat-menu-trigger-for]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card-header>
+
+      <mat-menu x-position="before" #menu="matMenu">
+        <button mat-menu-item>salva come .png</button>
+        <button mat-menu-item>salva come .xls</button>
+      </mat-menu>
+
+      <mat-card-content>
+        <div id="Content" class="Content row">
+          <div id="loginContent" class="card-box col-md-12">
+            <div id="istoAnnuale" style="height: 450px;"></div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
