@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
-import { Router } from "@angular/router";
+import { Router, NavigationEnd } from "@angular/router";
 import { fadeInOutAnimation } from "./controller/animation.controller";
+import { ViewportScroller } from "@angular/common";
 
 declare var $;
 @Component({
@@ -16,7 +17,11 @@ export class AppComponent {
 
   onResize(event) {}
 
-  constructor(router: Router, private myElement: ElementRef) {
+  constructor(
+    public router: Router,
+    private myElement: ElementRef,
+    public viewportScroller: ViewportScroller
+  ) {
     const appRootRef = this.myElement; // Necesarry because after setTimeout, 'this' becomes window
     //landing page...
     router.navigate(["/home"]);
@@ -28,5 +33,12 @@ export class AppComponent {
         $("#global-spinner").remove();
       });
     }, 2000);
+  } //constructor
+
+  ngOnInit() {
+    //trick
+    this.router.events.subscribe(evt => {
+      $(".mat-sidenav-content").scrollTop(0);
+    });
   }
 }

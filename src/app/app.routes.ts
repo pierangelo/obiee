@@ -7,6 +7,7 @@ import { OverviewComponent } from "./pages/overview/overview.component";
 import { PeopleComponent } from "./pages/people/people.component";
 import { Page403Component } from "./pages/page403/page403.component";
 import { DettaglioComponent } from "./pages/dettaglio/dettaglio.component";
+import { DettaglioScolaritaComponent } from "./pages/dettaglio-scolarita/dettaglio-scolarita.component";
 
 export const AppRoutes: Routes = [
   { path: "home", component: DashboardComponent },
@@ -14,5 +15,6 @@ export const AppRoutes: Routes = [
   { path: "people", component: PeopleComponent },
   { path: "componenti", component: ComponentiComponent },
   { path: "dettaglio", component: DettaglioComponent },
+  { path: "dettaglio-scolarita", component: DettaglioScolaritaComponent },
   { path: "**", component: Page403Component }
 ];

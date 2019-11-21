@@ -22,7 +22,7 @@ declare var $;
 @NgModule({
   imports: [
     BrowserModule,
-    RouterModule.forRoot(AppRoutes),
+    RouterModule.forRoot(AppRoutes, { scrollPositionRestoration: "top" }),
     FormsModule,
     BrowserAnimationsModule,
     MaterialModule,

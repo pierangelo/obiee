@@ -23,14 +23,14 @@ export class PeopleComponent implements OnInit {
   animal = "";
   option: any;
   option2: any;
-  optionRappresentati:any;
-  optionScolatirita:any;
-  chartScolarita:any;
+  optionRappresentati: any;
+  optionScolatirita: any;
+  chartScolarita: any;
 
   myChart: any;
   myChart2: any;
 
-  chartRappresentantiSindacali:any;
+  chartRappresentantiSindacali: any;
 
   //valori del grafico d3.UominiDonne
   myVar = {
@@ -73,11 +73,16 @@ export class PeopleComponent implements OnInit {
     this.peopleService.getSindacati(this.myChart2, this.option2);
 
     this.optionRappresentati = EchartsModel.optionPeopleRappresentantiSindacati();
-    this.peopleService.getRappresentantiSindacati(this.chartRappresentantiSindacali, this.optionRappresentati);
-
+    this.peopleService.getRappresentantiSindacati(
+      this.chartRappresentantiSindacali,
+      this.optionRappresentati
+    );
 
     this.optionScolatirita = EchartsModel.optionPeopleSindacati();
-    this.peopleService.getScolarita(this.chartScolarita, this.optionScolatirita);
+    this.peopleService.getScolarita(
+      this.chartScolarita,
+      this.optionScolatirita
+    );
 
     //secondo grafico
     var svg = $("#svganchor").empty();
@@ -93,7 +98,6 @@ export class PeopleComponent implements OnInit {
 
     this.optionScolatirita.series[0].data = [];
     this.chartScolarita.setOption(this.optionScolatirita);
-
   }
 
   ngOnInit() {} // ngOninit
@@ -107,11 +111,14 @@ export class PeopleComponent implements OnInit {
     this.myChart2 = echarts.init(document.getElementById("histoMashiFemmine"));
 
     //rappesentanti
-    this.chartRappresentantiSindacali = echarts.init(document.getElementById("rapp-sind-chart"));
+    this.chartRappresentantiSindacali = echarts.init(
+      document.getElementById("rapp-sind-chart")
+    );
 
     //scolarita
-    this.chartScolarita=echarts.init(document.getElementById("scolarita-chart"));
-
+    this.chartScolarita = echarts.init(
+      document.getElementById("scolarita-chart")
+    );
 
     this.loadData();
     //hanlder
@@ -262,11 +269,11 @@ export class PeopleComponent implements OnInit {
         .append("text")
         .attr("class", "nodesData")
         .attr("text-anchor", "middle")
-        .attr("y", 5)
+        .attr("y", 15)
         .attr("x", d => xScale(d.name))
         .text(d => d.name)
         .append("tspan")
-        .attr("y", 35)
+        .attr("y", 40)
         .attr("x", d => xScale(d.name) + 10)
         .attr("class", "nodesDataSpan")
         .text(d => d.total);
@@ -504,7 +511,7 @@ export class PeopleComponent implements OnInit {
     // resize svg on inital page load
     svg
       .attr("viewBox", `0 0 ${width} ${height}`)
-      .attr("preserveAspectRatio", "xMinYMid")
+     .attr("preserveAspectRatio", "xMinYMid")
       .call(resize);
 
     // add a listener so the chart will be resized
@@ -523,7 +530,7 @@ export class PeopleComponent implements OnInit {
     function resize() {
       const w = parseInt(container.style("width"));
       svg.attr("width", w - 100);
-      svg.attr("height", Math.round(w / aspect));
+      svg.attr("height", Math.round(w / aspect) - 50);
     }
   } //responsivefy
 }

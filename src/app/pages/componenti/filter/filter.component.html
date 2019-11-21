@@ -1,5 +1,12 @@
 <h2 mat-dialog-title>People: Seleziona i Filtri</h2>
 <mat-dialog-content class="mat-typography">
+  <!--tree -->
+  <div class="label-orgChart">
+    seleziona la UOT:
+  </div>
+
+  <div id="chart-container"></div>
+
   <div class="row">
     <div class="col-md-6">
       <mat-form-field>
@@ -20,11 +27,6 @@
       >
     </div>
   </div>
-  <!--tree -->
-  <div class="label-orgChart">
-    seleziona la UOT:
-  </div>
-  <div id="chart-container"></div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close (click)="onNoClick($event)">

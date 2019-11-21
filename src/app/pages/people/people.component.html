@@ -133,7 +133,7 @@
       <mat-card-content>
         <div id="Content" class="Content row">
           <div id="signupContent" class=" col-md-2">
-            <div class="text-dex circle">720</div>
+            <div class="text-dex circle total-genere">720</div>
           </div>
 
           <div id="loginContent" class="card-box col-md-9">
@@ -206,10 +206,11 @@
           </button>
 
           <button
+            
             mat-icon-button
             matTooltip="visualizza dettaglio"
             matTooltipShowDelay="1000"
-            routerLink="/dettaglio"
+            routerLink="/dettaglio-scolarita"
           >
             <mat-icon>assessment</mat-icon>
           </button>
@@ -227,7 +228,7 @@
       <mat-card-content>
         <div id="Content" class="Content row">
           <div id="signupContent" class=" col-md-2">
-            <div class="text-dex circle blue">605</div>
+            <div class="text-dex circle blue total-scolarita">605</div>
           </div>
 
           <div id="loginContent" class="card-box col-md-9">
@@ -261,6 +262,15 @@
             <mat-icon>info</mat-icon>
           </button>
 
+          <button
+            mat-icon-button
+            matTooltip="visualizza dettaglio"
+            matTooltipShowDelay="1000"
+            routerLink="/dettaglio-anzianita"
+          >
+            <mat-icon>assessment</mat-icon>
+          </button>
+
           <button mat-icon-button [mat-menu-trigger-for]="menu">
             <mat-icon>more_vert</mat-icon>
           </button>
@@ -275,18 +285,30 @@
       <mat-card-content>
         <div id="Content" class="Content row">
           <div class="list-justified-container" style="width:100%">
-            <ul class="list-justified text-center row">
+            <ul
+              class="list-justified text-center row"
+              style="height: 250px;
+            vertical-align: middle;
+            padding-top: 62px;
+            font-size: 16px;"
+            >
               <li class="col-md-4">
                 <p class="size-h3">Età Media</p>
-                <p class="text-muted">45,61</p>
+                <div>
+                  <p class="text-bold p-circle total-iscrizioni-sidacati">45,61</p>
+                </div>
               </li>
               <li class="col-md-4">
                 <p class="size-h3">Anzianità Aziendale Media</p>
-                <p class="text-muted">17,89</p>
+                <div>
+                  <p class="text-bold p-circle total-iscrizioni-sidacati">17,89</p>
+                </div>
               </li>
               <li class="col-md-4">
                 <p class="size-h3">In età pensionabile</p>
-                <p class="text-muted">200</p>
+                <div>
+                  <p class="text-bold p-circle total-iscrizioni-sidacati">200</p>
+                </div>
               </li>
             </ul>
           </div>
@@ -339,7 +361,7 @@
       <mat-card-content>
         <div id="Content" class="Content row">
           <div id="signupContent" class=" col-md-2">
-            <div class="text-dex circle blue">1.220</div>
+            <div class="text-dex circle blue total-iscrizioni-sidacati">1.220</div>
           </div>
 
           <div id="loginContent" class="card-box col-md-9">
@@ -373,7 +395,7 @@
             mat-icon-button
             matTooltip="visualizza dettaglio"
             matTooltipShowDelay="1000"
-            routerLink="/dettaglio"
+            routerLink="/dettaglio-sindacati"
           >
             <mat-icon>assessment</mat-icon>
           </button>
@@ -391,7 +413,7 @@
       <mat-card-content>
         <div id="Content" class="Content row">
           <div id="signupContent" class=" col-md-2">
-            <div class="text-dex circle blue">401</div>
+            <div class="text-dex circle blue total-rapp-sidacati">401</div>
           </div>
 
           <div id="loginContent" class="card-box col-md-9">
