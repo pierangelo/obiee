@@ -10,9 +10,9 @@ import { FilterComponent } from "src/app/pages/componenti/filter/filter.componen
 })
 export class HeaderComponent implements OnInit {
   @Input("sidenav") sidenav;
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   clickBtn() {
     this.sidenav.close();
@@ -31,7 +31,7 @@ export class HeaderComponent implements OnInit {
 
   openDialogFilter(): void {
     const dialogRef = this.dialog.open(FilterComponent, {
-      width: "850px",
+      width: "1050px",
       height: "600px"
       // data: {name:this.name, animal: this.animal}
     });

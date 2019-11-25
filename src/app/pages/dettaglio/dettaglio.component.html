@@ -6,7 +6,7 @@
       </button>
     </p>
     <span class="breadcrumb-text">
-      People / Dettaglio Dipendenti 
+      People / Dettaglio Dipendenti
     </span>
   </div>
 </div>
@@ -76,23 +76,43 @@
           <table class="table-b custom-table-b">
             <tr>
               <td><span class="field">ICAO CODE:</span></td>
-              <td><span class="value">LIBC</span></td>
+              <td>
+                <span class="value">{{
+                  applicationModel.uotInfo.icao_code
+                }}</span>
+              </td>
             </tr>
             <tr>
               <td><span class="field">Traffic Permitted:</span></td>
-              <td><span class="value">IFR/VFR</span></td>
+              <td>
+                <span class="value">{{
+                  applicationModel.uotInfo.traffic_permitted
+                }}</span>
+              </td>
             </tr>
             <tr>
               <td><span class="field">ATS Service:</span></td>
-              <td><span class="value">AFIS</span></td>
+              <td>
+                <span class="value">{{
+                  applicationModel.uotInfo.ats_service
+                }}</span>
+              </td>
             </tr>
             <tr>
               <td><span class="field">ATS Operational Hours:</span></td>
-              <td><span class="value">07:00-19:00 (06:00-18:00)</span></td>
+              <td>
+                <span class="value">{{
+                  applicationModel.uotInfo.ats_operational_hours
+                }}</span>
+              </td>
             </tr>
             <tr>
               <td><span class="field">APP Service:</span></td>
-              <td><span class="value">LAMEZIA TERME</span></td>
+              <td>
+                <span class="value">{{
+                  applicationModel.uotInfo.app_service
+                }}</span>
+              </td>
             </tr>
           </table>
         </div>

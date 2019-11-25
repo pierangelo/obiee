@@ -65,23 +65,43 @@
           <table class="table-b custom-table-b">
             <tr>
               <td><span class="field">ICAO CODE:</span></td>
-              <td><span class="value">LIBC</span></td>
+              <td>
+                <span class="value">{{
+                  applicationModel.uotInfo.icao_code
+                }}</span>
+              </td>
             </tr>
             <tr>
               <td><span class="field">Traffic Permitted:</span></td>
-              <td><span class="value">IFR/VFR</span></td>
+              <td>
+                <span class="value">{{
+                  applicationModel.uotInfo.traffic_permitted
+                }}</span>
+              </td>
             </tr>
             <tr>
               <td><span class="field">ATS Service:</span></td>
-              <td><span class="value">AFIS</span></td>
+              <td>
+                <span class="value">{{
+                  applicationModel.uotInfo.ats_service
+                }}</span>
+              </td>
             </tr>
             <tr>
               <td><span class="field">ATS Operational Hours:</span></td>
-              <td><span class="value">07:00-19:00 (06:00-18:00)</span></td>
+              <td>
+                <span class="value">{{
+                  applicationModel.uotInfo.ats_operational_hours
+                }}</span>
+              </td>
             </tr>
             <tr>
               <td><span class="field">APP Service:</span></td>
-              <td><span class="value">LAMEZIA TERME</span></td>
+              <td>
+                <span class="value">{{
+                  applicationModel.uotInfo.app_service
+                }}</span>
+              </td>
             </tr>
           </table>
         </div>
@@ -133,7 +153,9 @@
       <mat-card-content>
         <div id="Content" class="Content row">
           <div id="signupContent" class=" col-md-2">
-            <div class="text-dex circle total-genere">720</div>
+            <div class="text-dex circle total-genere">
+              {{ applicationModel.totaleUominiDonne }}
+            </div>
           </div>
 
           <div id="loginContent" class="card-box col-md-9">
@@ -206,7 +228,6 @@
           </button>
 
           <button
-            
             mat-icon-button
             matTooltip="visualizza dettaglio"
             matTooltipShowDelay="1000"
@@ -234,7 +255,7 @@
           <div id="loginContent" class="card-box col-md-9">
             <div
               id="scolarita-chart"
-              style="height: 290px; margin-left: 10px;"
+              style="min-height: 290px; margin-left: 10px;"
             ></div>
           </div>
         </div>
@@ -287,27 +308,33 @@
           <div class="list-justified-container" style="width:100%">
             <ul
               class="list-justified text-center row"
-              style="height: 250px;
+              style="height: 290px;
             vertical-align: middle;
             padding-top: 62px;
             font-size: 16px;"
             >
               <li class="col-md-4">
-                <p class="size-h3">Età Media</p>
+                <p class="size-h3 small-screen">Età Media</p>
                 <div>
-                  <p class="text-bold p-circle total-iscrizioni-sidacati">45,61</p>
+                  <p class="text-bold p-circle total-iscrizioni-sidacati">
+                    45,61
+                  </p>
                 </div>
               </li>
               <li class="col-md-4">
                 <p class="size-h3">Anzianità Aziendale Media</p>
                 <div>
-                  <p class="text-bold p-circle total-iscrizioni-sidacati">17,89</p>
+                  <p class="text-bold p-circle total-iscrizioni-sidacati">
+                    17,89
+                  </p>
                 </div>
               </li>
               <li class="col-md-4">
                 <p class="size-h3">In età pensionabile</p>
                 <div>
-                  <p class="text-bold p-circle total-iscrizioni-sidacati">200</p>
+                  <p class="text-bold p-circle total-iscrizioni-sidacati">
+                    200
+                  </p>
                 </div>
               </li>
             </ul>
@@ -361,7 +388,9 @@
       <mat-card-content>
         <div id="Content" class="Content row">
           <div id="signupContent" class=" col-md-2">
-            <div class="text-dex circle blue total-iscrizioni-sidacati">1.220</div>
+            <div class="text-dex circle blue total-iscrizioni-sidacati">
+              1.220
+            </div>
           </div>
 
           <div id="loginContent" class="card-box col-md-9">
@@ -419,7 +448,7 @@
           <div id="loginContent" class="card-box col-md-9">
             <div
               id="rapp-sind-chart"
-              style="height: 290px; margin-left: 10px;"
+              style="min-height: 290px; margin-left: 10px;"
             ></div>
           </div>
         </div>

@@ -67,7 +67,7 @@ export class DettaglioAnzianitaComponent implements OnInit {
     this.optionInstoPerQualifica = EchartsModel.optionDettaglioAnzianitaIstoCategoria();
     this.optionInstoPerTipoImpiego = EchartsModel.optionDettaglioAnzianitaIstoCategoria();
     this.optionAndamentoAnnualeOrganico = EchartsModel.optionDettaglioAndamentoAnnualeOrganico();
-    
+
 
     this.loadData();
 
@@ -89,7 +89,7 @@ export class DettaglioAnzianitaComponent implements OnInit {
         this.optionInstoCategoria.series[0].data = data[0].data;
         EchartsController.refreshEcharts(
           this.chartIstoCategoria,
-          this.optionInstoCategoria
+          this.optionInstoCategoria, ""
         );
       },
       error => {
@@ -104,7 +104,7 @@ export class DettaglioAnzianitaComponent implements OnInit {
         this.optionInstoPerQualifica.series[0].data = [10, 2, 16, 9];
         EchartsController.refreshEcharts(
           this.chartIstoQualifica,
-          this.optionInstoPerQualifica
+          this.optionInstoPerQualifica, ""
         );
       },
       error => {
@@ -119,7 +119,7 @@ export class DettaglioAnzianitaComponent implements OnInit {
         this.optionInstoPerTipoImpiego.series[0].data = [3, 22, 7, 14];
         EchartsController.refreshEcharts(
           this.chartIstoImpiego,
-          this.optionInstoPerTipoImpiego
+          this.optionInstoPerTipoImpiego, ""
         );
       },
       error => {
@@ -134,7 +134,7 @@ export class DettaglioAnzianitaComponent implements OnInit {
         this.optionAndamentoAnnualeOrganico.series[1].data = data[1].data;
         EchartsController.refreshEcharts(
           this.chartAnnuale,
-          this.optionAndamentoAnnualeOrganico
+          this.optionAndamentoAnnualeOrganico, ""
         );
       },
       error => {

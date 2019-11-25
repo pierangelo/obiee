@@ -17,16 +17,11 @@ declare var $;
 })
 export class FilterComponent implements OnInit {
   anni: any = [
-    "2010",
-    "2011",
-    "2012",
-    "2013",
-    "2014",
-    "2015",
-    "2016",
+
     "2017",
-    "2019",
-    "2020"
+    "2018",
+    "2019"
+
   ];
   checkedAnalisiPuntuale: any;
   tempAnnoValue: any;
@@ -36,13 +31,14 @@ export class FilterComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
     public eventDispatcher: EventDispatcherService,
     public applicationModel: ApplicationModelService
-  ) {}
+  ) { }
 
   onChange(event) {
     console.log(event);
     this.checkedAnalisiPuntuale = !this.checkedAnalisiPuntuale;
   }
   onSaveClick(event): void {
+    this.applicationModel.resetUotInfo();
     console.log("close...");
     this.tempAnnoValue
       ? (this.applicationModel.anno = this.tempAnnoValue)
@@ -139,7 +135,12 @@ export class FilterComponent implements OnInit {
         .on("click", event => {
           console.log(event);
           console.log(JSON.stringify($(event.currentTarget).data("nodeData")));
+
           this.uot = $(event.currentTarget).data("nodeData").name;
+
+          if (this.uot === 'OP.CENTER-SOUTH') {
+            this.uot = "OPERATIONS CENTER AND SOUTH";
+          }
           console.log(this.uot);
         });
     });

@@ -26,19 +26,14 @@ export class PeopleComponent implements OnInit {
   optionRappresentati: any;
   optionScolatirita: any;
   chartScolarita: any;
-
   myChart: any;
-  myChart2: any;
+  histoMashiFemmine: any;
 
   chartRappresentantiSindacali: any;
 
   //valori del grafico d3.UominiDonne
-  myVar = {
-    groups: [
-      { name: "Donne", value: 50, total: "50%" },
-      { name: "Uomini", value: 50, total: "50%" }
-    ]
-  };
+  myVar = {};
+
 
   constructor(
     public dialog: MatDialog,
@@ -46,8 +41,16 @@ export class PeopleComponent implements OnInit {
     public applicationModel: ApplicationModelService,
     public eventDispatcher: EventDispatcherService
   ) {
+    this.myVar = {
+      groups: [
+        { name: "Donne", value: applicationModel.totaleDonneGenere, total: applicationModel.totaleDonneGenere + "%" },
+        { name: "Uomini", value: applicationModel.totaleUominiGenere, total: applicationModel.totaleUominiGenere + "%" }
+
+      ]
+    };
     eventDispatcher.broadcastListener.subscribe((event: any) => {
       console.log(event);
+
       this.resetData();
       this.loadData();
     });
@@ -66,23 +69,24 @@ export class PeopleComponent implements OnInit {
   }
 
   loadData() {
+
+    this.peopleService.getUotInfo();
+
     this.option = EchartsModel.optionPeopleSindacati();
-    this.peopleService.getDipendentiInForza(this.myChart, this.option);
+    this.peopleService.getSindacati(this.myChart, this.option);
 
     this.option2 = EchartsModel.optionPeopleDipendentiInForza();
-    this.peopleService.getSindacati(this.myChart2, this.option2);
+    this.peopleService.getDipendentiInForza(this.histoMashiFemmine, this.option2);
+
+    this.peopleService.getDipendentiGenere();
+
+
 
     this.optionRappresentati = EchartsModel.optionPeopleRappresentantiSindacati();
-    this.peopleService.getRappresentantiSindacati(
-      this.chartRappresentantiSindacali,
-      this.optionRappresentati
-    );
+    this.peopleService.getRappresentantiSindacati(this.chartRappresentantiSindacali, this.optionRappresentati);
 
     this.optionScolatirita = EchartsModel.optionPeopleSindacati();
-    this.peopleService.getScolarita(
-      this.chartScolarita,
-      this.optionScolatirita
-    );
+    this.peopleService.getScolarita(this.chartScolarita, this.optionScolatirita);
 
     //secondo grafico
     var svg = $("#svganchor").empty();
@@ -94,13 +98,13 @@ export class PeopleComponent implements OnInit {
     this.myChart.setOption(this.option);
     this.option2.series[0].data = [];
     this.option2.series[1].data = [];
-    this.myChart2.setOption(this.option2);
+    this.histoMashiFemmine.setOption(this.option2);
 
     this.optionScolatirita.series[0].data = [];
     this.chartScolarita.setOption(this.optionScolatirita);
   }
 
-  ngOnInit() {} // ngOninit
+  ngOnInit() { } // ngOninit
 
   ngAfterViewInit() {
     //dipendenti forza
@@ -108,7 +112,7 @@ export class PeopleComponent implements OnInit {
     console.log(this.myChart);
 
     //iscritti sindacati : secondo chart
-    this.myChart2 = echarts.init(document.getElementById("histoMashiFemmine"));
+    this.histoMashiFemmine = echarts.init(document.getElementById("histoMashiFemmine"));
 
     //rappesentanti
     this.chartRappresentantiSindacali = echarts.init(
@@ -125,7 +129,7 @@ export class PeopleComponent implements OnInit {
     $(window).on("resize", () => {
       console.log("resize");
       this.myChart.resize();
-      this.myChart2.resize();
+      this.histoMashiFemmine.resize();
       this.chartRappresentantiSindacali.resize();
       this.chartScolarita.resize();
     });
@@ -153,6 +157,13 @@ export class PeopleComponent implements OnInit {
       }
     ];
 
+    myVar = {
+      groups: [
+        { name: "Donne", value: this.applicationModel.totaleDonneGenere, total: this.applicationModel.totaleDonneGenere + "%" },
+        { name: "Uomini", value: this.applicationModel.totaleUominiGenere, total: this.applicationModel.totaleUominiGenere + "%" }
+
+      ]
+    };
     for (var i = 0, len = myVar.groups.length; i < len; i++) {
       let d = myVar.groups[i];
       if (d.name == "F") d.name = "Donne";
@@ -413,14 +424,14 @@ export class PeopleComponent implements OnInit {
           .attr(
             "points",
             "" +
-              width +
-              ",270 " +
-              width +
-              ",258 " +
-              width +
-              ",258 " +
-              width +
-              ",246"
+            width +
+            ",270 " +
+            width +
+            ",258 " +
+            width +
+            ",258 " +
+            width +
+            ",246"
           )
           .remove();
 
@@ -431,14 +442,14 @@ export class PeopleComponent implements OnInit {
           .attr(
             "points",
             "" +
-              width +
-              ",270 " +
-              width +
-              ",258 " +
-              width +
-              ",258 " +
-              width +
-              ",246"
+            width +
+            ",270 " +
+            width +
+            ",258 " +
+            width +
+            ",258 " +
+            width +
+            ",246"
           )
           .merge(polylines)
           .transition()
@@ -480,7 +491,7 @@ export class PeopleComponent implements OnInit {
           .attr("fill", "none")
           .attr("stroke", "darkslategray");
 
-        setTimeout(function() {
+        setTimeout(function () {
           simulation.nodes(dataNodes);
           simulation.alpha(0.8).restart();
         }, 750);
@@ -488,7 +499,7 @@ export class PeopleComponent implements OnInit {
         //end of redraw
       }
 
-      d3.selectAll(".criterionList").on("click", function(d) {
+      d3.selectAll(".criterionList").on("click", function (d) {
         redraw(d);
       });
 
@@ -511,7 +522,7 @@ export class PeopleComponent implements OnInit {
     // resize svg on inital page load
     svg
       .attr("viewBox", `0 0 ${width} ${height}`)
-     .attr("preserveAspectRatio", "xMinYMid")
+      .attr("preserveAspectRatio", "xMinYMid")
       .call(resize);
 
     // add a listener so the chart will be resized
