@@ -140,79 +140,32 @@ export class MockData {
                             uomini: 77,
                             donne: 23
                         },
-                        scolarita: [
-                            {
-                                name: "DIPLOMA SCUOLA MEDIA SUPERIORE",
-                                value: 2726
-                            },
-                            {
-                                name: "LAUREA",
-                                value: 714
-                            }
-                        ],
+                        scolarita:
+                        {
+                            ///piccolo-->grande
+                            yAxis: ["LICENZA ELEMENTARE", "DIPLOMA DI SPECIALIZZAZIONE", "DIPLOMA PROFESSIONALE", "MASTER", "DIPLOMA SCUOLA MEDIA INFERIORE", "LAUREA", "DIPLOMA SCUOLA MEDIA SUPERIORE"],
+                            data: [2, 4, 7, 13, 75, 714, 2726]
+
+                        },
                         anzianita: {
                             eta_media: "45,61",
-                            anzianita_aziendale_media: "17,89"
+                            anzianita_aziendale_media: "17,89",
+                            in_eta_pensionabile: "200"
                         },
                         sindacato: {
                             iscritti: 2289,
                             rappresentanti: 383,
-                            iscrizioni_items: [
-                                {
-                                    name: "UN.I.CA.(EX-CILA-AV)",
-                                    value: 891
-                                },
-                                {
-                                    name: "UGL",
-                                    value: 509
-                                },
-                                {
-                                    name: "CISL",
-                                    value: 410
-                                },
-                                {
-                                    name: "CGIL",
-                                    value: 252
-                                },
-                                {
-                                    name: "UIL",
-                                    value: 204
-                                },
+                            iscrizioni_items:
+                            {  ///piccolo-->grande
+                                yAxis: ["SACTA", "CILA", "ASSIVOLO QUADRI", "UIL", "CGIL", "CISL", "UGL", "UN.I.CA.(EX-CILA-AV)"],
+                                data: [2, 6, 114, 204, 252, 410, 509, 891]
+                            },
+                            rappresentanti_items:
+                            {
+                                yAxis: ["ASSIVOLO QUADRI", "CGIL", "UIL", "CISL", "UGL", "UN.I.CA.(EX-CILA-AV)"],
+                                data: [22, 36, 42, 71, 95, 119]
+                            },
 
-                                {
-                                    name: "ASSIVOLO QUADRI",
-                                    value: 114
-                                },
-
-                                {
-                                    name: "CILA",
-                                    value: 6
-                                },
-                                {
-                                    name: "SACTA",
-                                    value: 2
-                                }
-                            ],
-                            rappresentanti_items: [
-                                {
-                                    name: "UIL",
-                                    value: 2
-                                },
-                                {
-                                    name: "UIL",
-                                    value: 1
-                                },
-
-                                {
-                                    name: "UGL",
-                                    value: 2
-                                },
-                                {
-                                    name: "UN.I.CA.(EX-CILA-AV)",
-                                    value: 1
-                                },
-
-                            ]
                         }
                     }
                 }]
@@ -228,68 +181,36 @@ export class MockData {
                             donne: 6
                         },
                         dipendentiGenere: {
-                            uomini: 60,
-                            donne: 40
+                            uomini: 70,
+                            donne: 30
                         },
-                        scolarita: [
-                            {
-                                name: "DIPLOMA SCUOLA MEDIA SUPERIORE",
-                                value: 26
-                            },
-                            {
-                                name: "LAUREA",
-                                value: 3
-                            }
-                        ],
+                        scolarita: {
+                            ///piccolo-->grande
+                            yAxis: ["LAUREA", "DIPLOMA SCUOLA MEDIA SUPERIORE"],
+                            data: [3, 26]
+
+                        },
+
                         anzianita: {
                             eta_media: "41,15",
-                            anzianita_aziendale_media: "15,25"
+                            anzianita_aziendale_media: "15,25",
+                            in_eta_pensionabile: "2"
                         },
                         sindacato: {
                             iscritti: 18,
                             rappresentanti: 5,
-                            iscrizioni_items: [
-                                {
-                                    name: "CISL",
-                                    value: 7
-                                },
-                                {
-                                    name: "UIL",
-                                    value: 5
-                                },
-                                {
-                                    name: "UN.I.CA.(EX-CILA-AV)",
-                                    value: 5
-                                },
-                                {
-                                    name: "UGL",
-                                    value: 2
-                                },
-                                {
-                                    name: "ASSIVOLO QUADRI",
-                                    value: 1
-                                }
-                            ],
-                            rappresentanti_items: [
-                                {
-                                    name: "UIL",
-                                    value: 2
-                                },
-                                {
-                                    name: "UIL",
-                                    value: 1
-                                },
+                            iscrizioni_items:
+                            {  ///piccolo-->grande
+                                yAxis: ["ASSIVOLO QUADRI", "UGL", "UN.I.CA.(EX-CILA-AV)", "UIL", "CISL"],
+                                data: [1, 2, 5, 5, 7]
+                            },
+                            rappresentanti_items:
+                            {
+                                yAxis: ["UN.I.CA.(EX-CILA-AV)", "UGL", "UIL", "CSIL"],
+                                data: [1, 1, 1, 2]
+                            },
 
-                                {
-                                    name: "UGL",
-                                    value: 2
-                                },
-                                {
-                                    name: "UN.I.CA.(EX-CILA-AV)",
-                                    value: 1
-                                },
 
-                            ]
                         }
                     }
                 },
@@ -301,68 +222,36 @@ export class MockData {
                             donne: 6
                         },
                         dipendentiGenere: {
-                            uomini: 70,
-                            donne: 30
+                            uomini: 67,
+                            donne: 33
                         },
-                        scolarita: [
-                            {
-                                name: "DIPLOMA SCUOLA MEDIA SUPERIORE",
-                                value: 26
-                            },
-                            {
-                                name: "LAUREA",
-                                value: 3
-                            }
-                        ],
+                        scolarita: {
+                            ///piccolo-->grande
+                            yAxis: ["LAUREA", "DIPLOMA SCUOLA MEDIA SUPERIORE"],
+                            data: [3, 26]
+
+                        },
+
                         anzianita: {
                             eta_media: "41,15",
-                            anzianita_aziendale_media: "15,25"
+                            anzianita_aziendale_media: "15,25",
+                            in_eta_pensionabile: "2"
                         },
                         sindacato: {
                             iscritti: 18,
                             rappresentanti: 5,
-                            iscrizioni_items: [
-                                {
-                                    name: "CISL",
-                                    value: 7
-                                },
-                                {
-                                    name: "UIL",
-                                    value: 5
-                                },
-                                {
-                                    name: "UN.I.CA.(EX-CILA-AV)",
-                                    value: 5
-                                },
-                                {
-                                    name: "UGL",
-                                    value: 2
-                                },
-                                {
-                                    name: "ASSIVOLO QUADRI",
-                                    value: 1
-                                }
-                            ],
-                            rappresentanti_items: [
-                                {
-                                    name: "UIL",
-                                    value: 2
-                                },
-                                {
-                                    name: "UIL",
-                                    value: 1
-                                },
+                            iscrizioni_items:
+                            {  ///piccolo-->grande
+                                yAxis: ["ASSIVOLO QUADRI", "UGL", "UN.I.CA.(EX-CILA-AV)", "UIL", "CISL"],
+                                data: [1, 2, 5, 5, 7]
+                            },
+                            rappresentanti_items:
+                            {
+                                yAxis: ["UN.I.CA.(EX-CILA-AV)", "UGL", "UIL", "CSIL"],
+                                data: [1, 1, 1, 2]
+                            },
 
-                                {
-                                    name: "UGL",
-                                    value: 2
-                                },
-                                {
-                                    name: "UN.I.CA.(EX-CILA-AV)",
-                                    value: 1
-                                },
 
-                            ]
                         }
                     }
                 }],
@@ -375,72 +264,40 @@ export class MockData {
                     data: "2019",
                     items: {
                         dipendentiInforza: {
-                            uomini: 14,
-                            donne: 6
+                            uomini: 102,
+                            donne: 25
                         },
                         dipendentiGenere: {
-                            uomini: 55,
-                            donne: 45
+                            uomini: 80,
+                            donne: 20
                         },
-                        scolarita: [
-                            {
-                                name: "DIPLOMA SCUOLA MEDIA SUPERIORE",
-                                value: 26
-                            },
-                            {
-                                name: "LAUREA",
-                                value: 3
-                            }
-                        ],
+                        scolarita: {
+                            ///piccolo-->grande
+                            yAxis: ["LICENZA ELEMENTARE", "LAUREA", "DIPLOMA SCUOLA MEDIA SUPERIORE"],
+                            data: [1, 36, 142]
+
+                        },
                         anzianita: {
-                            eta_media: "41,15",
-                            anzianita_aziendale_media: "15,25"
+                            eta_media: "45,08",
+                            anzianita_aziendale_media: "17,35",
+                            in_eta_pensionabile: "9"
+
                         },
                         sindacato: {
-                            iscritti: 18,
-                            rappresentanti: 5,
-                            iscrizioni_items: [
-                                {
-                                    name: "CISL",
-                                    value: 7
-                                },
-                                {
-                                    name: "UIL",
-                                    value: 5
-                                },
-                                {
-                                    name: "UN.I.CA.(EX-CILA-AV)",
-                                    value: 5
-                                },
-                                {
-                                    name: "UGL",
-                                    value: 2
-                                },
-                                {
-                                    name: "ASSIVOLO QUADRI",
-                                    value: 1
-                                }
-                            ],
-                            rappresentanti_items: [
-                                {
-                                    name: "UIL",
-                                    value: 2
-                                },
-                                {
-                                    name: "UIL",
-                                    value: 1
-                                },
+                            iscritti: 109,
+                            rappresentanti: 23,
+                            iscrizioni_items:
+                            {  ///piccolo-->grande
+                                yAxis: ["ASSIVOLO QUADRI", "CIGL", "UIL", "UGL", "CISL", "UN.I.CA.(EX-CILA-AV)"],
+                                data: [6, 10, 20, 20, 25, 33]
+                            },
+                            rappresentanti_items:
+                            {
+                                yAxis: ["ASSIVOLO QUADRI", "CIGL", "UN.I.CA.(EX-CILA-AV)", "UIL", "UGL", "CSIL"],
+                                data: [1, 2, 3, 4, 5, 8]
+                            },
 
-                                {
-                                    name: "UGL",
-                                    value: 2
-                                },
-                                {
-                                    name: "UN.I.CA.(EX-CILA-AV)",
-                                    value: 1
-                                },
 
-                            ]
                         }
                     }
                 },
@@ -448,72 +305,40 @@ export class MockData {
                     data: "2018",
                     items: {
                         dipendentiInforza: {
-                            uomini: 14,
-                            donne: 6
+                            uomini: 101,
+                            donne: 24
                         },
                         dipendentiGenere: {
                             uomini: 72,
                             donne: 28
                         },
-                        scolarita: [
-                            {
-                                name: "DIPLOMA SCUOLA MEDIA SUPERIORE",
-                                value: 26
-                            },
-                            {
-                                name: "LAUREA",
-                                value: 3
-                            }
-                        ],
+                        scolarita: {
+                            ///piccolo-->grande
+                            yAxis: ["LICENZA ELEMENTARE", "LAUREA", "DIPLOMA SCUOLA MEDIA SUPERIORE"],
+                            data: [1, 36, 142]
+
+                        },
                         anzianita: {
-                            eta_media: "41,15",
-                            anzianita_aziendale_media: "15,25"
+                            eta_media: "45,08",
+                            anzianita_aziendale_media: "17,35",
+                            in_eta_pensionabile: "9"
+
                         },
                         sindacato: {
-                            iscritti: 18,
-                            rappresentanti: 5,
-                            iscrizioni_items: [
-                                {
-                                    name: "CISL",
-                                    value: 7
-                                },
-                                {
-                                    name: "UIL",
-                                    value: 5
-                                },
-                                {
-                                    name: "UN.I.CA.(EX-CILA-AV)",
-                                    value: 5
-                                },
-                                {
-                                    name: "UGL",
-                                    value: 2
-                                },
-                                {
-                                    name: "ASSIVOLO QUADRI",
-                                    value: 1
-                                }
-                            ],
-                            rappresentanti_items: [
-                                {
-                                    name: "UIL",
-                                    value: 2
-                                },
-                                {
-                                    name: "UIL",
-                                    value: 1
-                                },
+                            iscritti: 109,
+                            rappresentanti: 23,
+                            iscrizioni_items:
+                            {  ///piccolo-->grande
+                                yAxis: ["ASSIVOLO QUADRI", "CIGL", "UIL", "UGL", "CISL", "UN.I.CA.(EX-CILA-AV)"],
+                                data: [6, 10, 20, 20, 25, 33]
+                            },
+                            rappresentanti_items:
+                            {
+                                yAxis: ["ASSIVOLO QUADRI", "CIGL", "UN.I.CA.(EX-CILA-AV)", "UIL", "UGL", "CSIL"],
+                                data: [1, 2, 3, 4, 5, 8]
+                            },
 
-                                {
-                                    name: "UGL",
-                                    value: 2
-                                },
-                                {
-                                    name: "UN.I.CA.(EX-CILA-AV)",
-                                    value: 1
-                                },
 
-                            ]
                         }
                     }
                 }],
@@ -543,7 +368,7 @@ export class MockData {
         this.dati.aggregati.forEach(element => {
             if (element.uot == filter.uot) {
                 element.anno.forEach(anno => {
-                    if (anno.data = filter.anno) {
+                    if (anno.data == filter.anno) {
                         dati = anno.items.dipendentiInforza;
                     }
                 });
@@ -562,7 +387,7 @@ export class MockData {
         this.dati.aggregati.forEach(element => {
             if (element.uot == filter.uot) {
                 element.anno.forEach(anno => {
-                    if (anno.data = filter.anno) {
+                    if (anno.data == filter.anno) {
                         dati = anno.items.dipendentiGenere;
                     }
                 });
@@ -572,6 +397,63 @@ export class MockData {
         return dati;
 
     }
+
+    //restituisce gli aggregati
+    public getScolarita(filter: any) {
+
+        let dati;
+        this.dati.aggregati.forEach(element => {
+            if (element.uot == filter.uot) {
+                element.anno.forEach(anno => {
+                    if (anno.data == filter.anno) {
+                        dati = anno.items.scolarita;
+                    }
+                });
+            }
+        });
+
+        return dati;
+
+    }
+
+
+    //restituisce gli aggregati
+    public getAnzianita(filter: any) {
+
+        let dati;
+        this.dati.aggregati.forEach(element => {
+            if (element.uot == filter.uot) {
+                element.anno.forEach(anno => {
+                    if (anno.data == filter.anno) {
+                        dati = anno.items.anzianita;
+                    }
+                });
+            }
+        });
+
+        return dati;
+
+    }
+
+    //restituisce gli aggregati
+    public getIscrizioni(filter: any) {
+
+        let dati;
+        this.dati.aggregati.forEach(element => {
+            if (element.uot == filter.uot) {
+                element.anno.forEach(anno => {
+                    if (anno.data == filter.anno) {
+                        dati = anno.items.sindacato;
+                    }
+                });
+            }
+        });
+
+        return dati;
+
+    }
+
+
 
 
     public getUotInfo(filter: any) {

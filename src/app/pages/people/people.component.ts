@@ -72,21 +72,24 @@ export class PeopleComponent implements OnInit {
 
     this.peopleService.getUotInfo();
 
-    this.option = EchartsModel.optionPeopleSindacati();
-    this.peopleService.getSindacati(this.myChart, this.option);
-
     this.option2 = EchartsModel.optionPeopleDipendentiInForza();
     this.peopleService.getDipendentiInForza(this.histoMashiFemmine, this.option2);
 
     this.peopleService.getDipendentiGenere();
 
 
+    this.optionScolatirita = EchartsModel.optionPeopleSindacati();
+    this.peopleService.getScolarita(this.chartScolarita, this.optionScolatirita);
+
+    this.peopleService.getAnzianita();
+
+
+    this.option = EchartsModel.optionPeopleSindacati();
+    this.peopleService.getSindacati(this.myChart, this.option);
+
 
     this.optionRappresentati = EchartsModel.optionPeopleRappresentantiSindacati();
     this.peopleService.getRappresentantiSindacati(this.chartRappresentantiSindacali, this.optionRappresentati);
-
-    this.optionScolatirita = EchartsModel.optionPeopleSindacati();
-    this.peopleService.getScolarita(this.chartScolarita, this.optionScolatirita);
 
     //secondo grafico
     var svg = $("#svganchor").empty();

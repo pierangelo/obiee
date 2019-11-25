@@ -51,13 +51,49 @@ export class PeopleService {
   } //getDipendentiInForza
 
 
+  getScolarita(myChart, option) {
+    $(".total-scolarita").hide();
+    EchartsController.echartsLoadingShow(myChart);
+    setTimeout(() => {
+      this.filter = this.getFilter();
+
+      let result = this.mockData.getScolarita(this.filter);
+      option.yAxis.data = result.yAxis;
+      option.series[0].data = [];
+      option.series[0].data = result.data;
+      EchartsController.refreshEcharts(myChart, option, "total-scolarita");
+
+    }, 3000);
+  } //getSindacati
+
+  getAnzianita() {
+    $(".total-anzianita").hide();
+    setTimeout(() => {
+      this.filter = this.getFilter();
+
+      let result = this.mockData.getAnzianita(this.filter);
+      this.applicationModel.anzianita = result;
+      $(".total-anzianita").fadeIn("8000");
+
+
+    }, 3000);
+  } //getSindacati
+
+
+
   getSindacati(myChart, option) {
     $(".total-iscrizioni-sidacati").hide();
     EchartsController.echartsLoadingShow(myChart);
     setTimeout(() => {
       this.filter = this.getFilter();
-      //$(".total-genere").addClass("bump-animation");
-      EchartsController.refreshEcharts(myChart, option, "total-iscrizioni-sidacati");
+      let result = this.mockData.getIscrizioni(this.filter);
+      option.yAxis.data = result.iscrizioni_items.yAxis;
+      option.series[0].data = [];
+      option.series[0].data = result.iscrizioni_items.data;
+
+      this.applicationModel.sindacato.iscritti = result.iscritti,
+        this.applicationModel.sindacato.rappresentanti = result.rappresentanti,
+        EchartsController.refreshEcharts(myChart, option, "total-iscrizioni-sidacati");
 
     }, 2000);
   } //getSindacati
@@ -67,23 +103,14 @@ export class PeopleService {
     EchartsController.echartsLoadingShow(myChart);
     setTimeout(() => {
       this.filter = this.getFilter();
-      //$(".total-genere").addClass("bump-animation");
+      let result = this.mockData.getIscrizioni(this.filter);
+      option.yAxis.data = result.rappresentanti_items.yAxis;
+      option.series[0].data = [];
+      option.series[0].data = result.rappresentanti_items.data;
       EchartsController.refreshEcharts(myChart, option, "total-rapp-sidacati");
 
     }, 2000);
   } //getSindacati
-
-  getScolarita(myChart, option) {
-    $(".total-scolarita").hide();
-    EchartsController.echartsLoadingShow(myChart);
-    setTimeout(() => {
-      this.filter = this.getFilter();
-      //$(".total-genere").addClass("bump-animation");
-      EchartsController.refreshEcharts(myChart, option, "total-scolarita");
-
-    }, 3000);
-  } //getSindacati
-
 
   private getFilter() {
     let filter = {

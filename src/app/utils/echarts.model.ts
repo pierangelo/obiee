@@ -1,5 +1,5 @@
 export class EchartsModel {
-  constructor() {}
+  constructor() { }
 
   static exampleChart() {
     var option = {
@@ -49,24 +49,28 @@ export class EchartsModel {
         containLabel: true
       },
       xAxis: {
-        type: "value"
+        type: "value",
+        scale: true
       },
       yAxis: {
+        axisLabel: {
+          fontSize: 10
+        },
         data: ["CGIL", "UGL", "CISL", "UIL", "ASSIVOLO"]
       },
       series: [
         {
-          name: "CGIL",
+          name: "",
           type: "bar",
 
           label: {
             normal: {
-              formatter: function(d) {
+              formatter: function (d) {
                 return d.value;
               },
               fontSize: "12",
               show: true,
-              position: "insideRight"
+              position: "right"
             }
           },
           data: [14, 31, 5, 8, 22],
@@ -105,7 +109,7 @@ export class EchartsModel {
 
           label: {
             normal: {
-              formatter: function(d) {
+              formatter: function (d) {
                 return d.value;
               },
               fontSize: "12",
@@ -150,7 +154,7 @@ export class EchartsModel {
 
           label: {
             normal: {
-              formatter: function(d) {
+              formatter: function (d) {
                 return "Uomini: " + d.value;
               },
               fontSize: "12",
@@ -171,7 +175,7 @@ export class EchartsModel {
           },
           label: {
             normal: {
-              formatter: function(d) {
+              formatter: function (d) {
                 return "Donne: " + d.value;
               },
               fontSize: "12",
@@ -212,7 +216,7 @@ export class EchartsModel {
 
           label: {
             normal: {
-              formatter: function(d) {
+              formatter: function (d) {
                 return d.value;
               },
               fontSize: "12",
