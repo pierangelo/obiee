@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.8](https://github.com/pierangelo/obiee/compare/v0.1.7...v0.1.8) (2019-11-27)
+
+
+### Features
+
+*  DATI AGIORNATI ([550a2f5](https://github.com/pierangelo/obiee/commit/550a2f549253af576149d6907742ba965cc42ecf))
+* demo ([5617d70](https://github.com/pierangelo/obiee/commit/5617d704713629d2a2fe097ff1e609ed5324ebf1))
+* wip dettaglio anzianità ([b668314](https://github.com/pierangelo/obiee/commit/b668314b92a4231c43b3f2c4c556539307d8eafd))
+
+
+### Bug Fixes
+
+* ad ogni cambio pagina viene rispristinato lo scroll iniziale ([bba8597](https://github.com/pierangelo/obiee/commit/bba859717ffb6102c983de03dde0ca73bdfb2991))
+* aggancio dati ([6a07db8](https://github.com/pierangelo/obiee/commit/6a07db8dab489c6343642d251dd1b8896558aec8))
+
 ### [0.1.7](https://github.com/pierangelo/obiee/compare/v0.1.6...v0.1.7) (2019-11-20)
 
 
