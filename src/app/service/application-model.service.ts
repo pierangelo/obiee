@@ -9,7 +9,8 @@ export class ApplicationModelService {
   public anno = "2019";
   public uot = "ENAV S.P.A.";
   public checkedAnalisiPuntuale = "CONO";
-
+  public categoria = "";
+  public sesso = "";
   totaleUominiGenere = 77;
   totaleDonneGenere = 23;
   public totaleUominiDonne = 0;

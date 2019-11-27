@@ -1,0 +1,30 @@
+[debug] [2019-11-27T03:48:05.066Z] ----------------------------------------------------------------------
+[debug] [2019-11-27T03:48:05.068Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\pmancusi\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2019-11-27T03:48:05.068Z] CLI Version:   7.7.0
+[debug] [2019-11-27T03:48:05.068Z] Platform:      win32
+[debug] [2019-11-27T03:48:05.068Z] Node Version:  v10.16.0
+[debug] [2019-11-27T03:48:05.072Z] Time:          Wed Nov 27 2019 04:48:05 GMT+0100 (GMT+01:00)
+[debug] [2019-11-27T03:48:05.072Z] ----------------------------------------------------------------------
+[debug] [2019-11-27T03:48:05.072Z] 
+[debug] [2019-11-27T03:48:05.084Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-27T03:48:05.085Z] > authorizing via signed-in user
+[debug] [2019-11-27T03:48:05.086Z] [iam] checking project angular-obiee for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2019-11-27T03:48:05.088Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/angular-obiee:testIamPermissions  
+
+[debug] [2019-11-27T03:48:06.383Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-27T03:48:06.387Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/angular-obiee  
+ 
+[debug] [2019-11-27T03:48:06.720Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'angular-obiee'...
+[info] 
+[info] i  deploying hosting
+[debug] [2019-11-27T03:48:06.724Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/angular-obiee/versions  
+
+[debug] [2019-11-27T03:48:08.463Z] <<< HTTP RESPONSE 200
+[info] i  hosting[angular-obiee]: beginning deploy...
+[info] i  hosting[angular-obiee]: found 44 files in dist/demo
+[debug] [2019-11-27T03:48:08.787Z] [hosting] hash cache [ZGlzdFxkZW1v] stored for 44 files
+[debug] [2019-11-27T03:48:08.787Z] [hosting][hash queue][FINAL]
+[debug] [2019-11-27T03:48:08.787Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/angular-obiee/versions/f97ac7d700553dc1:populateFiles  
+ <request body omitted>

@@ -17,14 +17,30 @@ declare var $;
 })
 export class FilterComponent implements OnInit {
   anni: any = [
-
-    "2017",
     "2018",
     "2019"
-
   ];
+  categorie: any = [
+    "",
+    "METEOROLOGI",
+    "OPERATORE RADIOMISURE",
+    "DIRIGENTE",
+    "INFORMATICI",
+    "TECNICI",
+    "ESPERTI ASSISTENTI AL VOLO",
+    "AMMINISTRATIVI",
+    "CONTROLLORI DEL TRAFFICO AEREO"
+  ].sort();
+  sesso = [
+    "",
+    "F",
+    "M"
+  ]
+  tempCategoria: any;
+
   checkedAnalisiPuntuale: any;
-  tempAnnoValue: any;
+  tempAnnoValue: any = "2019";
+  tempSesso: string;
   uot: any;
   constructor(
     public dialogRef: MatDialogRef<FilterComponent>,
@@ -39,6 +55,7 @@ export class FilterComponent implements OnInit {
   }
   onSaveClick(event): void {
     this.applicationModel.resetUotInfo();
+
     console.log("close...");
     this.tempAnnoValue
       ? (this.applicationModel.anno = this.tempAnnoValue)
@@ -48,6 +65,10 @@ export class FilterComponent implements OnInit {
     this.checkedAnalisiPuntuale
       ? (this.applicationModel.checkedAnalisiPuntuale = "PUNTUALE")
       : (this.applicationModel.checkedAnalisiPuntuale = "CONO");
+
+    this.tempSesso != "" && this.tempSesso != undefined ? this.applicationModel.sesso = this.tempSesso : this.applicationModel.sesso = "";
+
+    this.tempCategoria != "" && this.tempCategoria != undefined ? (this.applicationModel.categoria = this.tempCategoria) : this.applicationModel.categoria = "";
 
     this.eventDispatcher.dispatchEvent(
       new ApplicationEvent(ApplicationEvent.FILTER_HEADER_SEND)
@@ -144,6 +165,15 @@ export class FilterComponent implements OnInit {
           console.log(this.uot);
         });
     });
+
+    this.tempSesso = this.applicationModel.sesso;
+
+    this.tempCategoria = (this.applicationModel.categoria);
+
+
+
+
+
   }
 }
 

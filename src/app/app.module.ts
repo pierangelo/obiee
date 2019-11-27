@@ -12,10 +12,17 @@ import { LayoutModule } from "@angular/cdk/layout";
 
 import { AppRoutes } from "./app.routes";
 import { PagesModule } from "./pages/pages.module";
-import { APP_BASE_HREF } from "@angular/common";
+import { APP_BASE_HREF, registerLocaleData } from "@angular/common";
 import { AppLayoutModule } from "./layout/app-layout.module";
 import { DialogComponent } from "./pages/componenti/dialog/dialog.component";
 import { FilterComponent } from "./pages/componenti/filter/filter.component";
+import { LOCALE_ID } from '@angular/core';
+
+import it from '@angular/common/locales/it';
+
+//registeerd local ita
+registerLocaleData(it);
+
 
 declare var $;
 
@@ -39,9 +46,11 @@ declare var $;
     AppComponent
   ],
 
-  providers: [{ provide: APP_BASE_HREF, useValue: "/" }],
+  providers: [
+    { provide: APP_BASE_HREF, useValue: "/" },
+    { provide: LOCALE_ID, useValue: "it-IT" }],
   bootstrap: [AppComponent],
   //for runtime component
   entryComponents: [DialogComponent, FilterComponent]
 })
-export class AppModule {}
+export class AppModule { }

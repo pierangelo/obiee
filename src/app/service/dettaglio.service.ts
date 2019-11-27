@@ -4,58 +4,98 @@ import { Observable } from "rxjs";
 import { EchartsModel } from "src/app/utils/echarts.model";
 import { DataMockService } from "./data-mock.service";
 import { EventDispatcherService } from "./event-dispatcher.service";
+import { MockData } from './../controller/mock-data';
+import { EchartsController } from 'src/app/controller/echarts.controller';
 
 @Injectable({
   providedIn: "root"
 })
 export class DettaglioService {
+
+  filter;
   constructor(
     public applicationModel: ApplicationModelService,
-    public eventDispatcher: EventDispatcherService
-  ) {}
+    public eventDispatcher: EventDispatcherService,
+    public mockData: MockData
+  ) {
+    this.filter = this.getFilter();
+  }
 
-  getDipendentiPerCategoria() {
-    //array...
-    let series = DataMockService.dataDipendentiPerCategoria;
-    const ob = new Observable(observer => {
-      setTimeout(() => {
-        console.log("net latency...");
-        observer.next(series);
-      }, 2000);
-    });
+  getUotInfo() {
+    this.filter = this.getFilter();
+    this.mockData.getUotInfo(this.filter);
 
-    return ob;
-  } //getDipendentiPerCategoria
+  }
+  getDipendentiPerCategoria(myChart: any, option) {
 
-  getDipendentiPerQualifica() {
-    var optionInstoCategoria = EchartsModel.optionDettaglioIstoCategoria();
-    const ob = new Observable(observer => {
-      setTimeout(() => {
-        console.log("net latency...");
-        observer.next(optionInstoCategoria);
-      }, 1000);
-    });
+    EchartsController.echartsLoadingShow(myChart);
+    setTimeout(() => {
 
-    return ob;
-  } //getDipendentiPerQualifica
+      this.filter = this.getFilter();
+      let result = this.mockData.getDipendendiInForzaDettaglio(this.filter);
+      option.yAxis.data = result.yAxis;
+      option.series[0].data = [];
+      option.series[0].data = result.data;
+      EchartsController.refreshEcharts(myChart, option, "total-genere");
 
-  getDipendentiPerTipoImpiego() {
-    var optionInstoCategoria = EchartsModel.optionDettaglioIstoCategoria();
-    const ob = new Observable(observer => {
-      setTimeout(() => {
-        console.log("net latency...");
-        observer.next(optionInstoCategoria);
-      }, 2000);
-    });
+    }, 1000);
+  }
 
-    return ob;
-  } //getDipendentiPerTipoImpiego
+
+  getDipendentiPerQualifica(myChart: any, option) {
+
+    EchartsController.echartsLoadingShow(myChart);
+    setTimeout(() => {
+
+      this.filter = this.getFilter();
+      let result = this.mockData.getDipendendiQualificaDettaglio(this.filter);
+      option.yAxis.data = result.yAxis;
+      option.series[0].data = [];
+      option.series[0].data = result.data;
+      EchartsController.refreshEcharts(myChart, option, "total-genere");
+
+    }, 1000);
+  }
+
+
+
+  getDipendentiPerTipoImpiego(myChart: any, option) {
+
+    EchartsController.echartsLoadingShow(myChart);
+    setTimeout(() => {
+
+      this.filter = this.getFilter();
+      let result = this.mockData.getDipendendiTipoImpiegoDettaglio(this.filter);
+      option.yAxis.data = result.yAxis;
+      option.series[0].data = [];
+      option.series[0].data = result.data;
+      EchartsController.refreshEcharts(myChart, option, "total-genere");
+
+    }, 1000);
+  }
+
 
   getAndamentoAnnualeOrganico() {
     var optionAndamento = EchartsModel.dataDettaglioAndamentoAnnualeOrganico();
     const ob = new Observable(observer => {
       setTimeout(() => {
         console.log("net latency...");
+        let result = this.mockData.getAndamentoAnnualeOrganico(this.getFilter());
+
+        optionAndamento[0].data = [];
+        optionAndamento[1].data = [];
+
+        if (result[0].name == "M")
+          optionAndamento[0].data = result[0].data;
+
+        if (result[0].name == "F")
+          optionAndamento[1].data = result[0].data;
+
+        if (result.length > 1) {
+          optionAndamento[0].data = result[0].data;
+          optionAndamento[1].data = result[1].data;
+        }
+
         observer.next(optionAndamento);
       }, 1000);
     });
@@ -63,5 +103,26 @@ export class DettaglioService {
     return ob;
   } //getAndamentoAnnualeOrganico
 
-  getUotInfo() {} //getUotInfo
+  private getFilter() {
+    let filter = {
+      uot: this.applicationModel.uot,
+      anno: this.applicationModel.anno,
+      tipo: this.applicationModel.checkedAnalisiPuntuale,// "PUNTUALE" : "CONO"
+      sesso: this.applicationModel.sesso,
+      categoria: this.applicationModel.categoria
+    };
+
+    return filter;
+  }
+
+
+
+
+
+
+
+
+
+
+
 }

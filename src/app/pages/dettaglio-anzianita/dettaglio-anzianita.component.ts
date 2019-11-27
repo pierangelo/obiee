@@ -81,66 +81,30 @@ export class DettaglioAnzianitaComponent implements OnInit {
   }
 
   private loadData() {
-    EchartsController.echartsLoadingShow(this.chartIstoCategoria);
-    this.dettaglioService.getDipendentiPerCategoria().subscribe(
-      (data: any) => {
-        console.log(data);
+    this.dettaglioService.getUotInfo();
 
-        this.optionInstoCategoria.series[0].data = data[0].data;
-        EchartsController.refreshEcharts(
-          this.chartIstoCategoria,
-          this.optionInstoCategoria, ""
-        );
-      },
-      error => {
-        console.error(error);
-      }
-    );
+    this.dettaglioService.getDipendentiPerCategoria(this.chartIstoCategoria, this.optionInstoCategoria);
 
-    EchartsController.echartsLoadingShow(this.chartIstoQualifica);
-    this.dettaglioService.getDipendentiPerQualifica().subscribe(
-      (data: any) => {
-        this.optionInstoPerQualifica.series[0].itemStyle.color = "#5fe693";
-        this.optionInstoPerQualifica.series[0].data = [10, 2, 16, 9];
-        EchartsController.refreshEcharts(
-          this.chartIstoQualifica,
-          this.optionInstoPerQualifica, ""
-        );
-      },
-      error => {
-        console.error(error);
-      }
-    );
+    this.optionInstoPerQualifica.series[0].itemStyle.color = "#5fe693";
+    this.dettaglioService.getDipendentiPerQualifica(this.chartIstoQualifica, this.optionInstoPerQualifica);
 
-    EchartsController.echartsLoadingShow(this.chartIstoImpiego);
-    this.dettaglioService.getDipendentiPerTipoImpiego().subscribe(
-      (data: any) => {
-        this.optionInstoPerTipoImpiego.series[0].itemStyle.color = "#f2b53f";
-        this.optionInstoPerTipoImpiego.series[0].data = [3, 22, 7, 14];
-        EchartsController.refreshEcharts(
-          this.chartIstoImpiego,
-          this.optionInstoPerTipoImpiego, ""
-        );
-      },
-      error => {
-        console.error(error);
-      }
-    );
+    this.optionInstoPerTipoImpiego.series[0].itemStyle.color = "#f2b53f";
+    this.dettaglioService.getDipendentiPerTipoImpiego(this.chartIstoImpiego, this.optionInstoPerTipoImpiego);
+
 
     EchartsController.echartsLoadingShow(this.chartAnnuale);
     this.dettaglioService.getAndamentoAnnualeOrganico().subscribe(
       (data: any) => {
         this.optionAndamentoAnnualeOrganico.series[0].data = data[0].data;
         this.optionAndamentoAnnualeOrganico.series[1].data = data[1].data;
-        EchartsController.refreshEcharts(
-          this.chartAnnuale,
-          this.optionAndamentoAnnualeOrganico, ""
-        );
+        EchartsController.refreshEcharts(this.chartAnnuale, this.optionAndamentoAnnualeOrganico);
       },
       error => {
         console.error(error);
       }
     );
+
+
   }
 
   private resetData() {

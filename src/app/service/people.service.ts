@@ -29,6 +29,12 @@ export class PeopleService {
       let result = this.mockData.getDipendendiInForza(this.filter);
       option.series[0].data = [result.uomini];
       option.series[1].data = [result.donne];
+
+      let tot = result.uomini + result.donne;
+      let percUomini = result.uomini / tot;
+      let percDonne = result.donne / tot;
+
+
       this.applicationModel.totaleUominiDonne = result.uomini + result.donne;
       EchartsController.refreshEcharts(myChart, option, "total-genere");
 
@@ -59,9 +65,10 @@ export class PeopleService {
 
       let result = this.mockData.getScolarita(this.filter);
       option.yAxis.data = result.yAxis;
+
       option.series[0].data = [];
       option.series[0].data = result.data;
-      EchartsController.refreshEcharts(myChart, option, "total-scolarita");
+      EchartsController.refreshEcharts(myChart, option, "");
 
     }, 3000);
   } //getSindacati
@@ -108,6 +115,18 @@ export class PeopleService {
       option.series[0].data = [];
       option.series[0].data = result.rappresentanti_items.data;
       EchartsController.refreshEcharts(myChart, option, "total-rapp-sidacati");
+
+    }, 2000);
+  } //getSindacati
+
+  getPictionarBar(myChart, option) {
+
+    EchartsController.echartsLoadingShow(myChart);
+    setTimeout(() => {
+      this.filter = this.getFilter();
+
+
+      EchartsController.refreshEcharts(myChart, option, "");
 
     }, 2000);
   } //getSindacati

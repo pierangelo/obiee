@@ -53,6 +53,7 @@ export class DettaglioComponent implements OnInit {
     //echarts
     let option;
 
+
     this.chartIstoCategoria = echarts.init(
       document.getElementById("istoCategoria")
     );
@@ -63,8 +64,25 @@ export class DettaglioComponent implements OnInit {
     this.chartAnnuale = echarts.init(document.getElementById("istoAnnuale"));
 
     this.optionInstoCategoria = EchartsModel.optionDettaglioIstoCategoria();
+    this.optionInstoCategoria.series[0].tooltip = {
+      formatter: function (d) {
+        return d.name + '<br/><span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color: #5fd3e6"></span>' + d.value.toLocaleString("it-IT");
+      },
+    };
     this.optionInstoPerQualifica = EchartsModel.optionDettaglioIstoCategoria();
+    this.optionInstoPerQualifica.series[0].itemStyle.color = "#5fe693";
+    this.optionInstoPerQualifica.series[0].tooltip = {
+      formatter: function (d) {
+        return d.name + '<br/><span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color: #5fe693"></span>' + d.value.toLocaleString("it-IT");
+      },
+    };
     this.optionInstoPerTipoImpiego = EchartsModel.optionDettaglioIstoCategoria();
+    this.optionInstoPerTipoImpiego.series[0].itemStyle.color = "#f2b53f";
+    this.optionInstoPerTipoImpiego.series[0].tooltip = {
+      formatter: function (d) {
+        return d.name + '<br/><span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color: #f2b53f"></span>' + d.value.toLocaleString("it-IT");
+      },
+    };
     this.optionAndamentoAnnualeOrganico = EchartsModel.optionDettaglioAndamentoAnnualeOrganico();
 
     this.loadData();
@@ -79,66 +97,30 @@ export class DettaglioComponent implements OnInit {
   }
 
   private loadData() {
-    EchartsController.echartsLoadingShow(this.chartIstoCategoria);
-    this.dettaglioService.getDipendentiPerCategoria().subscribe(
-      (data: any) => {
-        console.log(data);
 
-        this.optionInstoCategoria.series[0].data = data[0].data;
-        EchartsController.refreshEcharts(
-          this.chartIstoCategoria,
-          this.optionInstoCategoria
-        );
-      },
-      error => {
-        console.error(error);
-      }
-    );
+    this.dettaglioService.getUotInfo();
 
-    EchartsController.echartsLoadingShow(this.chartIstoQualifica);
-    this.dettaglioService.getDipendentiPerQualifica().subscribe(
-      (data: any) => {
-        this.optionInstoPerQualifica.series[0].itemStyle.color = "#5fe693";
-        this.optionInstoPerQualifica.series[0].data = [10, 2, 16, 9];
-        EchartsController.refreshEcharts(
-          this.chartIstoQualifica,
-          this.optionInstoPerQualifica
-        );
-      },
-      error => {
-        console.error(error);
-      }
-    );
+    this.dettaglioService.getDipendentiPerCategoria(this.chartIstoCategoria, this.optionInstoCategoria);
 
-    EchartsController.echartsLoadingShow(this.chartIstoDip);
-    this.dettaglioService.getDipendentiPerTipoImpiego().subscribe(
-      (data: any) => {
-        this.optionInstoPerTipoImpiego.series[0].itemStyle.color = "#f2b53f";
-        this.optionInstoPerTipoImpiego.series[0].data = [3, 22, 7, 14];
-        EchartsController.refreshEcharts(
-          this.chartIstoDip,
-          this.optionInstoPerTipoImpiego
-        );
-      },
-      error => {
-        console.error(error);
-      }
-    );
+
+    this.dettaglioService.getDipendentiPerQualifica(this.chartIstoQualifica, this.optionInstoPerQualifica);
+
+
+    this.dettaglioService.getDipendentiPerTipoImpiego(this.chartIstoDip, this.optionInstoPerTipoImpiego);
+
 
     EchartsController.echartsLoadingShow(this.chartAnnuale);
     this.dettaglioService.getAndamentoAnnualeOrganico().subscribe(
       (data: any) => {
         this.optionAndamentoAnnualeOrganico.series[0].data = data[0].data;
         this.optionAndamentoAnnualeOrganico.series[1].data = data[1].data;
-        EchartsController.refreshEcharts(
-          this.chartAnnuale,
-          this.optionAndamentoAnnualeOrganico
-        );
+        EchartsController.refreshEcharts(this.chartAnnuale, this.optionAndamentoAnnualeOrganico);
       },
       error => {
         console.error(error);
       }
     );
+
   }
 
   private resetData() {

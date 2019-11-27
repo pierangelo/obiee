@@ -154,7 +154,7 @@
         <div id="Content" class="Content row">
           <div id="signupContent" class=" col-md-2">
             <div class="text-dex circle total-genere">
-              {{ applicationModel.totaleUominiDonne }}
+              {{ applicationModel.totaleUominiDonne | number }}
             </div>
           </div>
 
@@ -202,7 +202,15 @@
       </mat-card-header>
 
       <mat-card-content>
-        <div id="svganchor" style="height: 400px;"></div>
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div
+            id="pictiorialChart"
+            style="height: 400px;"
+            class="col-md-8"
+          ></div>
+          <div class="col-md-2"></div>
+        </div>
       </mat-card-content>
     </mat-card>
   </div>
@@ -395,8 +403,8 @@
       <mat-card-content>
         <div id="Content" class="Content row">
           <div id="signupContent" class=" col-md-2">
-            <div class="text-dex circle blue total-iscrizioni-sidacati">
-              {{ applicationModel.sindacato.iscritti }}
+            <div class="text-dex circle giallo total-iscrizioni-sidacati">
+              {{ applicationModel.sindacato.iscritti | number }}
             </div>
           </div>
 
@@ -449,8 +457,8 @@
       <mat-card-content>
         <div id="Content" class="Content row">
           <div id="signupContent" class=" col-md-2">
-            <div class="text-dex circle blue total-rapp-sidacati">
-              {{ applicationModel.sindacato.rappresentanti }}
+            <div class="text-dex circle verde total-rapp-sidacati">
+              {{ applicationModel.sindacato.rappresentanti | number }}
             </div>
           </div>
 

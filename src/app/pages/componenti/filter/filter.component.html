@@ -5,10 +5,10 @@
     selezionare la struttura Organizzativa:
   </div>
 
-  <div id="chart-container"></div>
+  <div id="chart-container" style="margin-bottom: 15px;"></div>
 
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-3">
       <mat-form-field>
         <mat-label>seleziona l'anno</mat-label>
         <mat-select [(value)]="tempAnnoValue">
@@ -18,7 +18,27 @@
         </mat-select>
       </mat-form-field>
     </div>
-    <div class="col-md-6 row-element">
+    <div class="col-md-3">
+      <mat-form-field>
+        <mat-label>seleziona la categoria</mat-label>
+        <mat-select [(value)]="tempCategoria">
+          <mat-option *ngFor="let categoria of categorie" [value]="categoria">
+            {{ categoria }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3">
+      <mat-form-field>
+        <mat-label>seleziona il genere</mat-label>
+        <mat-select [(value)]="tempSesso">
+          <mat-option *ngFor="let sex of sesso" [value]="sex">
+            {{ sex }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 row-element">
       <mat-label style="">Tipo di analisi: </mat-label>
       <mat-slide-toggle
         [checked]="checkedAnalisiPuntuale"

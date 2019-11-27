@@ -28,9 +28,10 @@ export class PeopleComponent implements OnInit {
   chartScolarita: any;
   myChart: any;
   histoMashiFemmine: any;
-
+  optionPictiorialChart: any;
   chartRappresentantiSindacali: any;
 
+  pictiorialChart: any;
   //valori del grafico d3.UominiDonne
   myVar = {};
 
@@ -78,22 +79,45 @@ export class PeopleComponent implements OnInit {
     this.peopleService.getDipendentiGenere();
 
 
-    this.optionScolatirita = EchartsModel.optionPeopleSindacati();
+    this.optionScolatirita = EchartsModel.optionPeopleRappresentantiSindacati();
+    this.optionScolatirita.series[0].name = "Scolarità";
+    this.optionScolatirita.series[0].tooltip = {
+      formatter: function (d) {
+        return d.name + '<br/><span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color: #26a0fc"></span>' + d.value.toLocaleString("it-IT");
+      },
+    };
     this.peopleService.getScolarita(this.chartScolarita, this.optionScolatirita);
 
     this.peopleService.getAnzianita();
 
 
-    this.option = EchartsModel.optionPeopleSindacati();
+    this.option = EchartsModel.optionPeopleRappresentantiSindacati();
+    this.option.series[0].itemStyle.color = "#f2b53f";
+    this.option.series[0].tooltip = {
+      formatter: function (d) {
+        return d.name + '<br/><span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color: #f2b53f"></span>' + d.value.toLocaleString("it-IT");
+      },
+    };
     this.peopleService.getSindacati(this.myChart, this.option);
 
 
     this.optionRappresentati = EchartsModel.optionPeopleRappresentantiSindacati();
-    this.peopleService.getRappresentantiSindacati(this.chartRappresentantiSindacali, this.optionRappresentati);
+    this.optionRappresentati.series[0].itemStyle.color = "#5fe693";
+    this.optionRappresentati.series[0].tooltip = {
+      formatter: function (d) {
+        return d.name + '<br/><span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color: #5fe693"></span>' + d.value.toLocaleString("it-IT");
+      },
+    },
+      this.peopleService.getRappresentantiSindacati(this.chartRappresentantiSindacali, this.optionRappresentati);
 
+    //carica cio che deve caricare per il grafico
+
+    this.optionPictiorialChart = EchartsModel.optionPictiorialChart();
+    //this.pictiorialChart.setOption(this.optionPictiorialChart);
+    this.peopleService.getPictionarBar(this.pictiorialChart, this.optionPictiorialChart);
     //secondo grafico
     var svg = $("#svganchor").empty();
-    this.drawGraficoUominiDonne(this.myVar);
+    //this.drawGraficoUominiDonne(this.myVar);
   }
 
   resetData() {
@@ -105,9 +129,14 @@ export class PeopleComponent implements OnInit {
 
     this.optionScolatirita.series[0].data = [];
     this.chartScolarita.setOption(this.optionScolatirita);
+
+    this.optionPictiorialChart.series[0].data = [];
+    this.pictiorialChart.setOption(this.optionPictiorialChart);
   }
 
-  ngOnInit() { } // ngOninit
+  ngOnInit() {
+
+  } // ngOninit
 
   ngAfterViewInit() {
     //dipendenti forza
@@ -123,9 +152,9 @@ export class PeopleComponent implements OnInit {
     );
 
     //scolarita
-    this.chartScolarita = echarts.init(
-      document.getElementById("scolarita-chart")
-    );
+    this.chartScolarita = echarts.init(document.getElementById("scolarita-chart"));
+
+    this.pictiorialChart = echarts.init(document.getElementById("pictiorialChart"));
 
     this.loadData();
     //hanlder
@@ -135,8 +164,24 @@ export class PeopleComponent implements OnInit {
       this.histoMashiFemmine.resize();
       this.chartRappresentantiSindacali.resize();
       this.chartScolarita.resize();
+      this.pictiorialChart.resize();
     });
   } //ngAfterViewInit
+
+
+
+
+
+
+  private createPictiorialBar() {
+
+
+
+  }
+
+
+
+
 
   //
   // Private Methods
@@ -547,4 +592,13 @@ export class PeopleComponent implements OnInit {
       svg.attr("height", Math.round(w / aspect) - 50);
     }
   } //responsivefy
+
+
+
+
+
+
+
 }
+
+

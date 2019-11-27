@@ -4,10 +4,11 @@ import { Injectable } from "@angular/core";
   providedIn: "root"
 })
 export class DataMockService {
-  constructor() {}
+  constructor() { }
 
   static dataDipendentiPerCategoria = [
     {
+
       data: [5, 20, 36, 10, 10]
     }
   ];

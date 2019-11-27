@@ -16,7 +16,7 @@ export const AppRoutes: Routes = [
   { path: "people", component: PeopleComponent },
   { path: "componenti", component: ComponentiComponent },
   { path: "dettaglio", component: DettaglioComponent },
-  { path: "dettaglio-scolarita", component: DettaglioScolaritaComponent },
-  { path: "dettaglio-anzianita", component: DettaglioAnzianitaComponent },
+  { path: "dettaglio-scolarita", component: Page403Component },
+  { path: "dettaglio-anzianita", component: Page403Component },
   { path: "**", component: Page403Component }
 ];
