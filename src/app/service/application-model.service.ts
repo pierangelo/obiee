@@ -14,7 +14,10 @@ export class ApplicationModelService {
   totaleUominiGenere = 77;
   totaleDonneGenere = 23;
   public totaleUominiDonne = 0;
+  public filtriVisibili = false;
 
+  public messageGeneric = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ";
+  public messageInfo = "I dati per la UOT richiesta non sono presenti.";
   public uotInfo = {
     icao_code: "",
     traffic_permitted: "",

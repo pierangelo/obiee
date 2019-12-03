@@ -152,17 +152,14 @@
 
       <mat-card-content>
         <div id="Content" class="Content row">
-          <div id="signupContent" class=" col-md-2">
+          <div id="signupContent" class="col-md-4 ">
             <div class="text-dex circle total-genere">
               {{ applicationModel.totaleUominiDonne | number }}
             </div>
           </div>
 
-          <div id="loginContent" class="card-box col-md-9">
-            <div
-              id="histoMashiFemmine"
-              style="height: 383px; margin-left: 10px;"
-            ></div>
+          <div id="loginContent" class="card-box col-sm-8">
+            <div id="histoMashiFemmine" style="min-height: 283px;"></div>
           </div>
         </div>
       </mat-card-content>
@@ -204,11 +201,10 @@
       <mat-card-content>
         <div class="row">
           <div class="col-md-2"></div>
-          <div
-            id="pictiorialChart"
-            style="height: 400px;"
-            class="col-md-8"
-          ></div>
+          <div class="col-md-8">
+            <div id="pictiorialChart" style="min-height: 300px" class=""></div>
+          </div>
+
           <div class="col-md-2"></div>
         </div>
       </mat-card-content>
@@ -313,45 +309,48 @@
       </mat-menu>
 
       <mat-card-content>
-        <div id="Content" class="Content row">
+        <div id="Content" class="Content">
           <div class="list-justified-container" style="width:100%">
             <ul
-              class="list-justified text-center row"
+              class="list-justified text-center"
               style="height: 290px;
             vertical-align: middle;
-            padding-top: 62px;
-            font-size: 16px;"
+            padding-top: 2px;
+            font-size: 16px;
+            margin: 0px auto;"
             >
-              <li class="col-md-4">
-                <p class="size-h3 small-screen">Età Media</p>
-                <div>
-                  <p
-                    class="text-bold p-circle total-iscrizioni-sidacati total-anzianita"
-                  >
-                    {{ applicationModel.anzianita.eta_media }}
-                  </p>
-                </div>
-              </li>
-              <li class="col-md-4">
-                <p class="size-h3">Anzianità Aziendale Media</p>
-                <div>
-                  <p
-                    class="text-bold p-circle total-iscrizioni-sidacati total-anzianita"
-                  >
-                    {{ applicationModel.anzianita.anzianita_aziendale_media }}
-                  </p>
-                </div>
-              </li>
-              <li class="col-md-4">
-                <p class="size-h3">In età pensionabile</p>
-                <div>
-                  <p
-                    class="text-bold p-circle total-iscrizioni-sidacati total-anzianita"
-                  >
-                    {{ applicationModel.anzianita.in_eta_pensionabile }}
-                  </p>
-                </div>
-              </li>
+              <div class="row">
+                <li class="col-sm-4 col-md-4">
+                  <p class="size-h3">Età Media</p>
+                  <div>
+                    <p
+                      class="text-bold p-circle total-iscrizioni-sidacati total-anzianita"
+                    >
+                      {{ applicationModel.anzianita.eta_media }}
+                    </p>
+                  </div>
+                </li>
+                <li class="col-sm-4 col-md-4">
+                  <p class="size-h3">Anzianità Aziendale Media</p>
+                  <div>
+                    <p
+                      class="text-bold p-circle total-iscrizioni-sidacati total-anzianita"
+                    >
+                      {{ applicationModel.anzianita.anzianita_aziendale_media }}
+                    </p>
+                  </div>
+                </li>
+                <li class="col-sm-4 col-md-4">
+                  <p class="size-h3">In età pensionabile</p>
+                  <div>
+                    <p
+                      class="text-bold p-circle total-iscrizioni-sidacati total-anzianita"
+                    >
+                      {{ applicationModel.anzianita.in_eta_pensionabile }}
+                    </p>
+                  </div>
+                </li>
+              </div>
             </ul>
           </div>
         </div>
@@ -408,7 +407,7 @@
             </div>
           </div>
 
-          <div id="loginContent" class="card-box col-md-9">
+          <div id="loginContent" class="card-box col-md-10">
             <div id="pie-chart" style="height: 290px; margin-left: 10px;"></div>
           </div>
         </div>
@@ -462,7 +461,7 @@
             </div>
           </div>
 
-          <div id="loginContent" class="card-box col-md-9">
+          <div id="loginContent" class="card-box col-md-10">
             <div
               id="rapp-sind-chart"
               style="min-height: 290px; margin-left: 10px;"

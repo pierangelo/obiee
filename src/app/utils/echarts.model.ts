@@ -148,6 +148,7 @@ export class EchartsModel {
 
       },
       grid: {
+        width: "90%",
         left: "3%",
         right: "4%",
         bottom: "3%",
@@ -657,6 +658,7 @@ export class EchartsModel {
           symbolSize: 10,
           smooth: true,
           animationDuration: 2000,
+          label: { normal: { show: true, position: 'top' } },
           itemStyle: {
             normal: {
               color: "#01579b"
@@ -676,6 +678,7 @@ export class EchartsModel {
           symbolSize: 10,
           smooth: true,
           animationDuration: 2000,
+          label: { normal: { show: true, position: 'top' } },
           itemStyle: {
             normal: {
               color: "#9b0157"
@@ -819,7 +822,7 @@ export class EchartsModel {
       grid: {
         left: '6%',
         right: '10%',
-        width: "90%",
+        width: "95%",
         top: '20%',
         bottom: '20%',
         containLabel: true
@@ -857,6 +860,7 @@ export class EchartsModel {
       series: [{
         name: 'typeA',
         type: 'pictorialBar',
+        barMaxWidth: "90%",
         symbolClip: true,
         symbolBoundingData: bodyMax,
         label: labelSetting,

@@ -115,3 +115,75 @@ a.bg-info:hover {
   margin: 20px 0;
   padding: 20px;
 }
+
+.font-Enav {
+  font-family: Enav;
+}
+
+//how many images we have
+$slides: 4;
+
+// how much we want each slide to show
+$time_per_slide: 4;
+
+// total time needed for full animation
+$total_animation_time: $time_per_slide * $slides;
+
+body {
+  background: #000;
+}
+.container-imgs {
+  margin: 0px 0px -56px 0px;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  border: 0px solid;
+  border-top-color: #856036;
+  border-left-color: #5d4426;
+  border-bottom-color: #856036;
+  border-right-color: #5d4426;
+  position: relative;
+}
+.photo {
+  position: absolute;
+  animation: round #{$total_animation_time}s infinite;
+  opacity: 0;
+}
+@keyframes round {
+  25% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0;
+  }
+}
+
+@for $index from 1 to $slides + 1 {
+  img:nth-child(#{$index}) {
+    animation-delay: #{$total_animation_time - $time_per_slide * $index}s;
+  }
+}
+
+.imgs {
+  display: grid;
+}
+
+.profile_info {
+  position: relative;
+  margin: 0 auto;
+  top: -200px;
+  color: #fff;
+  display: grid;
+  z-index: 4;
+  text-shadow: 2px 2px 10px #000;
+}
+
+.layer-ombra {
+  height: 300px;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  margin-top: -244px;
+  /* text-align: center; */
+  line-height: -38px;
+  z-index: 2;
+}

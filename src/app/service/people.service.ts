@@ -42,7 +42,7 @@ export class PeopleService {
 
 
   } //getDipendentiInForza
-  getDipendentiGenere() {
+  getDipendentiGenere(myChart, option) {
     let totaleUominiDonne = 0;
     $(".total-genere").hide();
 
@@ -50,9 +50,13 @@ export class PeopleService {
     this.filter = this.getFilter();
     let result = this.mockData.getDipendendiGenere(this.filter);
 
+    option.series[0].data[0].value = result.uomini;
+    option.series[0].data[2].value = result.donne;
+
     this.applicationModel.totaleUominiGenere = result.uomini;
     this.applicationModel.totaleDonneGenere = result.donne;
 
+    EchartsController.refreshEcharts(myChart, option, "");
 
   } //getDipendentiInForza
 

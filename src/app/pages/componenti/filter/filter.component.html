@@ -18,8 +18,8 @@
         </mat-select>
       </mat-form-field>
     </div>
-    <div class="col-md-3">
-      <mat-form-field>
+    <div class="col-md-3 ">
+      <mat-form-field class="filter-element">
         <mat-label>seleziona la categoria</mat-label>
         <mat-select [(value)]="tempCategoria">
           <mat-option *ngFor="let categoria of categorie" [value]="categoria">
@@ -28,8 +28,8 @@
         </mat-select>
       </mat-form-field>
     </div>
-    <div class="col-md-3">
-      <mat-form-field>
+    <div class="col-md-3 ">
+      <mat-form-field class="filter-element">
         <mat-label>seleziona il genere</mat-label>
         <mat-select [(value)]="tempSesso">
           <mat-option *ngFor="let sex of sesso" [value]="sex">

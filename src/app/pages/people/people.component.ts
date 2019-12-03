@@ -8,6 +8,7 @@ import { EchartsModel } from "src/app/utils/echarts.model";
 import { ApplicationModelService } from "./../../service/application-model.service";
 import { EventDispatcherService } from "./../../service/event-dispatcher.service";
 import { empty } from "rxjs";
+import { ApplicationEvent } from './../../utils/application-event';
 
 declare var echarts;
 declare var d3;
@@ -42,6 +43,8 @@ export class PeopleComponent implements OnInit {
     public applicationModel: ApplicationModelService,
     public eventDispatcher: EventDispatcherService
   ) {
+
+
     this.myVar = {
       groups: [
         { name: "Donne", value: applicationModel.totaleDonneGenere, total: applicationModel.totaleDonneGenere + "%" },
@@ -49,18 +52,21 @@ export class PeopleComponent implements OnInit {
 
       ]
     };
-    eventDispatcher.broadcastListener.subscribe((event: any) => {
+    eventDispatcher.broadcastListener.subscribe((event: ApplicationEvent) => {
       console.log(event);
 
-      this.resetData();
-      this.loadData();
+      if (event.message == ApplicationEvent.FILTER_HEADER_SEND) {
+        this.resetData();
+        this.loadData();
+      }
+
     });
   }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogComponent, {
-      width: "550px",
-      data: { name: this.name, animal: this.animal }
+      width: "850px",
+      data: { message: this.applicationModel.messageGeneric, titolo: "Informazione" }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -76,7 +82,6 @@ export class PeopleComponent implements OnInit {
     this.option2 = EchartsModel.optionPeopleDipendentiInForza();
     this.peopleService.getDipendentiInForza(this.histoMashiFemmine, this.option2);
 
-    this.peopleService.getDipendentiGenere();
 
 
     this.optionScolatirita = EchartsModel.optionPeopleRappresentantiSindacati();
@@ -114,7 +119,11 @@ export class PeopleComponent implements OnInit {
 
     this.optionPictiorialChart = EchartsModel.optionPictiorialChart();
     //this.pictiorialChart.setOption(this.optionPictiorialChart);
-    this.peopleService.getPictionarBar(this.pictiorialChart, this.optionPictiorialChart);
+    //this.peopleService.getPictionarBar(this.pictiorialChart, this.optionPictiorialChart);
+
+
+    this.peopleService.getDipendentiGenere(this.pictiorialChart, this.optionPictiorialChart);
+
     //secondo grafico
     var svg = $("#svganchor").empty();
     //this.drawGraficoUominiDonne(this.myVar);
@@ -135,6 +144,8 @@ export class PeopleComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.applicationModel.filtriVisibili = false;
+    $(".filter-element").hide();
 
   } // ngOninit
 
@@ -156,7 +167,6 @@ export class PeopleComponent implements OnInit {
 
     this.pictiorialChart = echarts.init(document.getElementById("pictiorialChart"));
 
-    this.loadData();
     //hanlder
     $(window).on("resize", () => {
       console.log("resize");
@@ -166,18 +176,12 @@ export class PeopleComponent implements OnInit {
       this.chartScolarita.resize();
       this.pictiorialChart.resize();
     });
+    if (this.applicationModel.uot == "ENAV S.P.A." || this.applicationModel.uot === 'BRINDISI' || this.applicationModel.uot === "ACC BRINDISI") {
+      this.loadData();
+    }
+
+
   } //ngAfterViewInit
-
-
-
-
-
-
-  private createPictiorialBar() {
-
-
-
-  }
 
 
 

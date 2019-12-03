@@ -6,6 +6,7 @@ import { EchartsController } from "src/app/controller/echarts.controller";
 import { DettaglioService } from "./../../service/dettaglio.service";
 import { EventDispatcherService } from "./../../service/event-dispatcher.service";
 import { ApplicationModelService } from "./../../service/application-model.service";
+import { ApplicationEvent } from 'src/app/utils/application-event';
 
 declare var echarts;
 
@@ -34,8 +35,13 @@ export class DettaglioComponent implements OnInit {
     console.log("created listener...");
     eventDispatcher.broadcastListener.subscribe((event: any) => {
       console.log(event);
-      this.resetData();
-      this.loadData();
+
+
+      if (event.message == ApplicationEvent.FILTER_HEADER_SEND) {
+        this.resetData();
+        this.loadData();
+      }
+
     });
   }
 
@@ -50,6 +56,8 @@ export class DettaglioComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.applicationModel.filtriVisibili = true;
+    $(".filter-element").show();
     //echarts
     let option;
 

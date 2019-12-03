@@ -170,6 +170,46 @@ export class MockData {
 
                         }
                     }
+                },
+                {
+                    data: "2018",
+                    items: {
+                        dipendentiInforza: {
+                            uomini: 2543,
+                            donne: 752
+                        },
+                        dipendentiGenere: {
+                            uomini: 77,
+                            donne: 23
+                        },
+                        scolarita:
+                        {
+                            ///piccolo-->grande
+                            yAxis: ["LICENZA ELEMENTARE", "DIPLOMA DI SPECIALIZZAZIONE", "DIPLOMA PROFESSIONALE", "MASTER", "DIPLOMA SCUOLA MEDIA INFERIORE", "LAUREA", "DIPLOMA SCUOLA MEDIA SUPERIORE"],
+                            data: [2, 4, 7, 13, 75, 714, 2726]
+
+                        },
+                        anzianita: {
+                            eta_media: "45,61",
+                            anzianita_aziendale_media: "17,89",
+                            in_eta_pensionabile: "200"
+                        },
+                        sindacato: {
+                            iscritti: 2289,
+                            rappresentanti: 383,
+                            iscrizioni_items:
+                            {  ///piccolo-->grande
+                                yAxis: ["SACTA", "CILA", "ASSIVOLO QUADRI", "UIL", "CGIL", "CISL", "UGL", "UN.I.CA.(EX-CILA-AV)"],
+                                data: [2, 6, 114, 204, 252, 410, 509, 891]
+                            },
+                            rappresentanti_items:
+                            {
+                                yAxis: ["ASSIVOLO QUADRI", "CGIL", "UIL", "CISL", "UGL", "UN.I.CA.(EX-CILA-AV)"],
+                                data: [22, 36, 42, 71, 95, 119]
+                            },
+
+                        }
+                    }
                 }]
             },
 
@@ -345,7 +385,7 @@ export class MockData {
                     }
                 }],
 
-            }, //BRINDISI
+            }, //ACC BRINDISI
 
 
 

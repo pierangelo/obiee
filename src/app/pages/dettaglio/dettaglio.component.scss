@@ -89,6 +89,10 @@
   }
 }
 
+.custom-table-c {
+  line-height: 17px;
+  margin-left: 20px;
+}
 .custom-table-b {
   line-height: 20px;
   margin-left: 20px;
@@ -98,9 +102,16 @@
 }
 
 .value {
-  margin-left: 30px;
+  //margin-left: 30px;
 }
 
 .header-text {
   font-family: Enav;
+}
+
+@media screen and (max-width: 770px) {
+  .header-text {
+    width: 200px !important;
+    text-align: left !important;
+  }
 }

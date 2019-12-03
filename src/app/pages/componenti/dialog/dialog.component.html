@@ -1,29 +1,9 @@
-<h2 mat-dialog-title>Informazioni sull'applicativo</h2>
+<h2 mat-dialog-title>{{ data.titolo }}</h2>
 <mat-dialog-content class="mat-typography">
   <ul>
     <li>
       <p>
-        Angular8
-      </p>
-    </li>
-    <li>
-      <p>
-        Material Design
-      </p>
-    </li>
-    <li>
-      <p>
-        Bootstrap
-      </p>
-    </li>
-    <li>
-      <p>
-        NodeJS
-      </p>
-    </li>
-    <li>
-      <p>
-        Introdotta latenza di rete
+        {{ data.message }}
       </p>
     </li>
   </ul>

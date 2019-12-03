@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from "@angular/core";
 import { MatDialog } from "@angular/material";
 import { DialogComponent } from "./../../pages/componenti/dialog/dialog.component";
 import { FilterComponent } from "src/app/pages/componenti/filter/filter.component";
+import { EventDispatcherService } from './../../service/event-dispatcher.service';
+import { ApplicationEvent } from 'src/app/utils/application-event';
 
 @Component({
   selector: "app-header",
@@ -10,7 +12,7 @@ import { FilterComponent } from "src/app/pages/componenti/filter/filter.componen
 })
 export class HeaderComponent implements OnInit {
   @Input("sidenav") sidenav;
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, public dispatcher: EventDispatcherService) { }
 
   ngOnInit() { }
 
@@ -30,14 +32,6 @@ export class HeaderComponent implements OnInit {
   }
 
   openDialogFilter(): void {
-    const dialogRef = this.dialog.open(FilterComponent, {
-      width: "1050px",
-      height: "600px"
-      // data: {name:this.name, animal: this.animal}
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log("The dialog was closed");
-    });
+    this.dispatcher.dispatchEvent(new ApplicationEvent(ApplicationEvent.FILTER_OPEN));
   }
 }

@@ -168,3 +168,9 @@ a {
   overflow: auto;
   //max-height: 410px;
 }
+
+@media screen and (max-height: 500px) {
+  .logo-enav-group {
+    display: none;
+  }
+}

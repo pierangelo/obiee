@@ -60,7 +60,7 @@ export class FilterComponent implements OnInit {
     this.tempAnnoValue
       ? (this.applicationModel.anno = this.tempAnnoValue)
       : null;
-    this.uot ? (this.applicationModel.uot = this.uot) : null;
+
 
     this.checkedAnalisiPuntuale
       ? (this.applicationModel.checkedAnalisiPuntuale = "PUNTUALE")
@@ -70,9 +70,27 @@ export class FilterComponent implements OnInit {
 
     this.tempCategoria != "" && this.tempCategoria != undefined ? (this.applicationModel.categoria = this.tempCategoria) : this.applicationModel.categoria = "";
 
-    this.eventDispatcher.dispatchEvent(
-      new ApplicationEvent(ApplicationEvent.FILTER_HEADER_SEND)
-    );
+
+
+    switch (this.uot) {
+      case "ENAV S.P.A.":
+      case "ACC BRINDISI":
+      case "BRINDISI":
+        this.uot ? (this.applicationModel.uot = this.uot) : null;
+        this.eventDispatcher.dispatchEvent(new ApplicationEvent(ApplicationEvent.FILTER_HEADER_SEND));
+
+        break;
+
+      default:
+        this.eventDispatcher.dispatchEvent(new ApplicationEvent(ApplicationEvent.FILTER_HEADER_SEND_ERROR, this.uot));
+
+        break;
+    }
+
+
+
+
+
   }
 
   onNoClick(event): void {
@@ -157,21 +175,29 @@ export class FilterComponent implements OnInit {
           console.log(event);
           console.log(JSON.stringify($(event.currentTarget).data("nodeData")));
 
+
           this.uot = $(event.currentTarget).data("nodeData").name;
+
 
           if (this.uot === 'OP.CENTER-SOUTH') {
             this.uot = "OPERATIONS CENTER AND SOUTH";
           }
+
           console.log(this.uot);
         });
     });
 
+    this.tempAnnoValue = this.applicationModel.anno;
     this.tempSesso = this.applicationModel.sesso;
 
     this.tempCategoria = (this.applicationModel.categoria);
 
 
-
+    if (this.applicationModel.filtriVisibili) {
+      $(".filter-element").show();
+    } else {
+      $(".filter-element").hide();
+    }
 
 
   }

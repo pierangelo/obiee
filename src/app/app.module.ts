@@ -17,6 +17,7 @@ import { AppLayoutModule } from "./layout/app-layout.module";
 import { DialogComponent } from "./pages/componenti/dialog/dialog.component";
 import { FilterComponent } from "./pages/componenti/filter/filter.component";
 import { LOCALE_ID } from '@angular/core';
+import { ModalController } from './controller/ModalController';
 
 import it from '@angular/common/locales/it';
 
@@ -43,14 +44,20 @@ declare var $;
     //trick ;)
     AppLayoutModule.COMPONENTS,
     PagesModule.PAGES,
-    AppComponent
+    AppComponent,
+
   ],
 
   providers: [
     { provide: APP_BASE_HREF, useValue: "/" },
-    { provide: LOCALE_ID, useValue: "it-IT" }],
+    { provide: LOCALE_ID, useValue: "it-IT" },
+    ModalController
+  ],
+
   bootstrap: [AppComponent],
   //for runtime component
   entryComponents: [DialogComponent, FilterComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private modal: ModalController) { }
+}
