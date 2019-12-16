@@ -18,6 +18,9 @@ export class ApplicationModelService {
 
   public messageGeneric = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ";
   public messageInfo = "I dati per la UOT richiesta non sono presenti.";
+  public messageUOTselect = "Devi selezionare una UOT.";
+
+
   public uotInfo = {
     icao_code: "",
     traffic_permitted: "",

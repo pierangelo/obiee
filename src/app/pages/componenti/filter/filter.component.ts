@@ -81,8 +81,16 @@ export class FilterComponent implements OnInit {
 
         break;
 
+      //non è stata selezionata nessuna UOT....
+      case undefined:
+
+        this.eventDispatcher.dispatchEvent(new ApplicationEvent(ApplicationEvent.FILTER_HEADER_UOT_ERROR));
+
+        break;
       default:
+
         this.eventDispatcher.dispatchEvent(new ApplicationEvent(ApplicationEvent.FILTER_HEADER_SEND_ERROR, this.uot));
+
 
         break;
     }

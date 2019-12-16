@@ -47,7 +47,8 @@ export class DettaglioComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogComponent, {
-      width: "550px"
+      width: "850px",
+      data: { message: this.applicationModel.messageGeneric, titolo: "Informazione" }
     });
 
     dialogRef.afterClosed().subscribe(result => {

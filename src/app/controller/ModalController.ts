@@ -29,16 +29,21 @@ export class ModalController {
                 this.openFilterDialog();
             }
 
+            if (event.message == ApplicationEvent.FILTER_HEADER_UOT_ERROR) {
+
+                this.openGenericDialog(this.applicationModel.messageUOTselect);
+            }
+
         });
     }
 
+    private openGenericDialog(message: any = null) {
 
-
-    private openGenericDialog() {
+        message == null ? message = this.applicationModel.messageInfo : null;
 
         const dialogRef = this.dialog.open(DialogComponent, {
             width: "850px",
-            data: { message: this.applicationModel.messageInfo, titolo: "Attenzione: " }
+            data: { message: message, titolo: "Attenzione: " }
         });
 
         dialogRef.afterClosed().subscribe(result => {
@@ -46,6 +51,7 @@ export class ModalController {
 
         });
     }
+
 
 
     private openFilterDialog() {

@@ -6,7 +6,7 @@
 
 .utente {
   font-size: 12px;
-  margin-right: 6px;
+  margin-right: 18px;
 }
 
 img.img30_30 {
@@ -23,18 +23,24 @@ img.img30_30 {
   margin-right: 9px;
 }
 .fa-user-circle {
-  margin-top: 5px;
+  margin-right: 12px;
+  margin-top: 7px;
+  font-size: 17px;
 }
 .btn-screenshot {
   cursor: pointer;
   margin-left: 15px;
 }
-img {
-  -webkit-border-radius: 100%;
-  -moz-border-radius: 100%;
-  -ms-border-radius: 100%;
-  -o-border-radius: 100%;
-  border-radius: 100%;
+
+.logo-bar {
+  width: 137px;
+  margin-right: 47px;
+}
+
+.menu-user-btn {
+  // background-color: #3d5e82;
+  border-radius: 22px;
+  padding: 0px;
 }
 
 .menu-user-btn,
@@ -50,6 +56,8 @@ img {
 .menu-user-btn-icon {
   margin-top: 4px;
   margin-right: 4px;
+  color: #f8f9fa;
+  margin-left: 10px;
 }
 
 .menu-icon {
@@ -64,4 +72,11 @@ img {
 
 .mat-toolbar-single-row {
   padding: 0px 10px;
+}
+
+@media screen and (max-width: 500px) {
+  .menu-user-btn-icon,
+  .utente {
+    display: none;
+  }
 }
