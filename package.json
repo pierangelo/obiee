@@ -32,7 +32,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build-prod": "npm version patch && node ./replace.build.js && ng build --prod",
-    "version": "standard-version"
+    "version": "standard-version",
+    "build:azure":"ng build --prod"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.803.17",
