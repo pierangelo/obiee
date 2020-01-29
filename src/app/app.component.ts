@@ -3,6 +3,7 @@ import { Router, NavigationEnd } from "@angular/router";
 import { fadeInOutAnimation } from "./controller/animation.controller";
 import { ViewportScroller } from "@angular/common";
 import { ModalController } from './controller/ModalController';
+import { ApplicationModelService } from './service/application-model.service';
 
 declare var $;
 @Component({
@@ -16,17 +17,27 @@ export class AppComponent {
   @ViewChild("global-spinner", { static: true }) spinner;
 
   name = "Angular";
-
+  hostname: String = "";
   onResize(event) { }
 
   constructor(
-    public router: Router, private myElement: ElementRef, public viewportScroller: ViewportScroller) {
+    public router: Router, private myElement: ElementRef, public viewportScroller: ViewportScroller, public applicationModel: ApplicationModelService) {
 
 
     const appRootRef = this.myElement;
+
+    //chech local or remote...
+
+    this.hostname = window.location.href;
+
+    if (this.hostname.includes("oraclecloud.com")) {
+      this.applicationModel.baseUrl = "analytics/saw.dll?downloadFile&Path=/shared/custom/js/assets/"
+    } else {
+      this.applicationModel.baseUrl = "../../../assets/";
+    }
+    console.log("baseUrl: " + this.applicationModel.baseUrl);
     //landing page...
     router.navigate(["/home"]);
-    //appRootRef.nativeElement.previousElementSibling.remove();
 
     //low level code :)
     setTimeout(function () {
