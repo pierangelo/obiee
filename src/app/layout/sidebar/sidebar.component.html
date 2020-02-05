@@ -3,18 +3,15 @@
   <mat-sidenav #sidenav [mode]="mode.value" class="sidenav">
     <div class="sidebar-header align-items-center">
       <div class="logo" routerLink="/home" (click)="clickMenu($event)">
-        <img
-          src="../../../assets/logo-horizon.png"
-          alt="..."
-          class="img-fluid"
-        />
+        <img src="{{applicationModel.baseUrl}}logo-horizon.png" alt="..." class="img-fluid" />
       </div>
       <!-- 
       <div class="title">
         <h1 class="h4">Mark Stephen</h1>
         <p>Web Designer</p>
       </div>
-    --></div>
+    -->
+    </div>
 
     <!-- elementi del menu -->
 
@@ -22,26 +19,22 @@
       <li>
         <a routerLink="/overview" class="overview" (click)="clickMenu($event)">
           <!--<i class="material-icons">accessible_forward</i>-->
-          <img src="../../../assets/menu_overview.png" />
-          Overview</a
-        >
+          <img src="{{applicationModel.baseUrl}}menu_overview.png" />
+          Overview</a>
       </li>
       <li>
         <a routerLink="/people" (click)="clickMenu($event)">
-          <img src="../../../assets/clienti.svg" />People</a
-        >
+          <img src="{{applicationModel.baseUrl}}clienti.png" />People</a>
       </li>
 
       <li>
         <a routerLink="/workforce" (click)="clickMenu($event)">
-          <img src="../../../assets/clienti.svg" />WorkForce</a
-        >
+          <img src="{{applicationModel.baseUrl}}clienti.png" />WorkForce</a>
       </li>
 
       <li>
         <a routerLink="/test3" (click)="clickMenu($event)" disabled>
-          <img src="../../../assets/Job Perf.svg" />Job Performance</a
-        >
+          <img src="{{applicationModel.baseUrl}}Job Perf.png" />Job Performance</a>
       </li>
       <!--
       <li>
@@ -65,11 +58,12 @@
           <i class="material-icons">snooze</i>Example</a
         >
       </li>
-    --></ul>
+    -->
+    </ul>
 
     <div class="botton-side ">
       <div>
-        <img class="logo-enav-group" src="../../../assets/enavgroup_pos.png" />
+        <img class="logo-enav-group" src="{{applicationModel.baseUrl}}enavgroup_pos.png" />
       </div>
       <!--
       <div class="version">{{ name }} v{{ version }}</div>

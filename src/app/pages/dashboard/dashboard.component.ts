@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ApplicationModelService } from './../../service/application-model.service';
 
 declare var $;
+
 @Component({
   selector: "app-dashboard",
   templateUrl: "./dashboard.component.html",
@@ -18,7 +19,7 @@ export class DashboardComponent implements OnInit {
     //initi ajax
     $.ajax({
       method: "GET",
-      url: "analytics/saw.dll?Go",
+      url: "saw.dll?Go",
       data: {
         path: "/shared/prove/Dashboard-Test/source_anno",
         Format: "xml",
@@ -31,8 +32,6 @@ export class DashboardComponent implements OnInit {
       },
       success: function (data) {
         console.log(data);
-
-
       }
     }
     );

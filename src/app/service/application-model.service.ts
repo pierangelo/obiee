@@ -7,6 +7,12 @@ export class ApplicationModelService {
   constructor() { }
 
   public baseUrl: String = "";
+
+
+  public baseUrlOracleCloud = "/analytics/saw.dll?downloadFile&Path=/shared/custom/js/assets/";
+  public baseUrlStandard = "../../../assets/";
+
+
   public anno = "2019";
   public uot = "ENAV S.P.A.";
   public checkedAnalisiPuntuale = "CONO";

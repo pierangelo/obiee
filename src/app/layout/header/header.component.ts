@@ -4,6 +4,7 @@ import { DialogComponent } from "./../../pages/componenti/dialog/dialog.componen
 import { FilterComponent } from "src/app/pages/componenti/filter/filter.component";
 import { EventDispatcherService } from './../../service/event-dispatcher.service';
 import { ApplicationEvent } from 'src/app/utils/application-event';
+import { ApplicationModelService } from 'src/app/service/application-model.service';
 
 @Component({
   selector: "app-header",
@@ -12,7 +13,7 @@ import { ApplicationEvent } from 'src/app/utils/application-event';
 })
 export class HeaderComponent implements OnInit {
   @Input("sidenav") sidenav;
-  constructor(public dialog: MatDialog, public dispatcher: EventDispatcherService) { }
+  constructor(public dialog: MatDialog, public dispatcher: EventDispatcherService, public appliactionModel: ApplicationModelService) { }
 
   ngOnInit() { }
 

@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
 import { EchartsController } from "src/app/controller/echarts.controller";
-import { MockData } from './../controller/mock-data';
-import { ApplicationModelService } from './application-model.service';
-import { AppLayoutModule } from './../layout/app-layout.module';
+import { MockData } from '../../controller/mock-data';
+import { ApplicationModelService } from '../../service/application-model.service';
+import { AppLayoutModule } from '../../layout/app-layout.module';
 
 declare var $;
 @Injectable({

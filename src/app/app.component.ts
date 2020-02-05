@@ -28,13 +28,10 @@ export class AppComponent {
 
     //chech local or remote...
 
-    this.hostname = window.location.href;
+    //change APP_BASE_HREF
 
-    if (this.hostname.includes("oraclecloud.com")) {
-      this.applicationModel.baseUrl = "analytics/saw.dll?downloadFile&Path=/shared/custom/js/assets/"
-    } else {
-      this.applicationModel.baseUrl = "../../../assets/";
-    }
+
+
     console.log("baseUrl: " + this.applicationModel.baseUrl);
     //landing page...
     router.navigate(["/home"]);

@@ -9,6 +9,7 @@ import { environment } from "../../../enviroments/environment.";
 import { ViewChild, Component, OnInit, Renderer2 } from "@angular/core";
 import { findLast } from "@angular/compiler/src/directive_resolver";
 import { RouterOutlet } from "@angular/router";
+import { ApplicationModelService } from './../../service/application-model.service';
 
 declare var $;
 @Component({
@@ -28,7 +29,8 @@ export class SidebarComponent implements OnInit {
 
   constructor(
     public breakpointObserver: BreakpointObserver,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    public applicationModel: ApplicationModelService
   ) {
     this.version = environment.version;
     this.name = environment.name;
