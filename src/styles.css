@@ -114,3 +114,72 @@ BugFix: angular doesn'tcatch this class on the relative scss compoenent's file
 .mat-slide-toggle.mat-checked .mat-ripple-element {
   background-color: #0b3766 !important;
 }
+
+
+/** 
+ *   custom style over OBIEE
+ **/
+
+
+ 
+.topLayer{
+    opacity:0.8;
+    background-color:#fff;
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+    z-index:1000;
+}
+
+
+ 
+.masterBrandingArea, ComponentHeaderContainerDiv{
+display:none;
+}
+
+.OACHeaderPageTitleBar{
+display:none;
+}
+
+.OACMasterGlobalLaye{
+display:none;
+}
+
+
+mat-card-actions {
+    position: absolute;
+    right: 20px !important;
+    padding: 0!important;
+    margin-right: 0!important;
+    margin-top: -9px;
+}
+
+.mat-toolbar.mat-primary {
+    background: #0b3766 !important;
+    color: #fff;
+}
+.mat-menu-item {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer !important;
+    outline: 0;
+    border: none !important;
+    -webkit-tap-highlight-color: transparent;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block !important;
+    line-height: 48px !important;
+    height: 48px;
+    padding: 0 16px !important;
+    text-align: left !important;
+    text-decoration: none;
+    max-width: 100%;
+    position: relative;
+    background: 0 0 !important;
+    color: rgba(0,0,0,.87) !important;
+}

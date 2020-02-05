@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
-import { ApplicationModelService } from 'src/app/service/application-model.service';
-import { EventDispatcherService } from './event-dispatcher.service';
-import { DataMockService } from './data-mock.service';
-import { Observable } from 'rxjs';
-import { EchartsModel } from 'src/app/utils/echarts.model';
+import { Injectable } from "@angular/core";
+import { ApplicationModelService } from "src/app/model/application-model";
+import { EventDispatcherService } from "./event-dispatcher.service";
+import { DataMockService } from "./data-mock.service";
+import { Observable } from "rxjs";
+import { EchartsModel } from "src/app/model/echarts.model";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class DettaglioAnzianitaService {
   constructor(

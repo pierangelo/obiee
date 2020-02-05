@@ -1,0 +1,366 @@
+<!-- riga1-->
+<div class="row">
+  <!--col -->
+  <div class="col-sm">
+    <!-- dati complessivi-->
+
+    <div class="callout-elem-blue callout-elem-info border-left">
+      <p>Filtri selezionati</p>
+
+      <table class="table-b">
+        <tr>
+          <td><span class="field">Unità organizzativa:</span></td>
+          <td>
+            <span class="value">{{ applicationModel.uot }}</span>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="field">Tipo analisi:</span></td>
+          <td>
+            <span class="value">{{
+              applicationModel.checkedAnalisiPuntuale
+            }}</span>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="field">Anno:</span></td>
+          <td>
+            <span class="value">{{ applicationModel.anno }} </span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <!--col-->
+  <div class="col-sm ">
+    <mat-card class="example-card top ">
+      <mat-card-header>
+        <!--avatar 
+                  <div mat-card-avatar class="example-header-image"></div>
+                  -->
+        <mat-card-title class="header-text"></mat-card-title>
+        <mat-card-actions>
+          <button mat-icon-button matTooltip="informazioni sul grafico" matTooltipShowDelay="1000"
+            (click)="openDialog()">
+            <mat-icon>info</mat-icon>
+          </button>
+
+          <button mat-icon-button [mat-menu-trigger-for]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card-header>
+
+      <mat-menu x-position="before" #menu="matMenu">
+        <button mat-menu-item>salva come .png</button>
+        <button mat-menu-item>salva come .xls</button>
+      </mat-menu>
+
+      <mat-card-content>
+        <div id="Content" class="Content row">
+          <table class="table-b custom-table-b">
+            <tr>
+              <td><span class="field">ICAO CODE:</span></td>
+              <td>
+                <span class="value">{{
+                  applicationModel.uotInfo.icao_code
+                }}</span>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="field">Traffic Permitted:</span></td>
+              <td>
+                <span class="value">{{
+                  applicationModel.uotInfo.traffic_permitted
+                }}</span>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="field">ATS Service:</span></td>
+              <td>
+                <span class="value">{{
+                  applicationModel.uotInfo.ats_service
+                }}</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td><span class="field">ATS Operational Hours:</span></td>
+              <td>
+                <span class="value">{{
+                  applicationModel.uotInfo.ats_operational_hours
+                }}</span>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="field">APP Service:</span></td>
+              <td>
+                <span class="value">{{
+                  applicationModel.uotInfo.app_service
+                }}</span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<!-- genere -->
+<div class="row">
+  <div class="col-md-12 col-lg-6">
+    <!--1element-->
+    <mat-card class="example-card">
+      <mat-card-header>
+        <!--avatar 
+              <div mat-card-avatar class="example-header-image"></div>
+              -->
+        <mat-card-title class="header-text">Dipendenti in forza</mat-card-title>
+        <mat-card-actions>
+          <button mat-icon-button matTooltip="informazioni sul grafico" matTooltipShowDelay="1000"
+            (click)="openDialog()">
+            <mat-icon>info</mat-icon>
+          </button>
+
+          <button mat-icon-button matTooltip="visualizza dettaglio" matTooltipShowDelay="1000" routerLink="/dettaglio">
+            <mat-icon>assessment</mat-icon>
+          </button>
+
+          <button mat-icon-button [mat-menu-trigger-for]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card-header>
+
+      <mat-menu x-position="before" #menu="matMenu">
+        <button mat-menu-item>salva come .png</button>
+        <button mat-menu-item>salva come .xls</button>
+      </mat-menu>
+
+      <mat-card-content>
+        <div id="Content" class="Content row">
+          <div id="signupContent" class="col-md-3 ">
+            <div class="text-dex circle total-genere">
+              {{ applicationModel.totaleUominiDonne | number }}
+            </div>
+          </div>
+
+          <div id="loginContent" class="card-box col-sm-9">
+            <div id="histoMashiFemmine" style="min-height: 283px;"></div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="col-md-12 col-lg-6">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <!--avatar 
+              <div mat-card-avatar class="example-header-image"></div>
+              -->
+        <mat-card-title class="header-text">Dipendenti: genere</mat-card-title>
+        <mat-card-actions>
+          <button mat-icon-button matTooltip="informazioni sul grafico" matTooltipShowDelay="1000"
+            (click)="openDialog()">
+            <mat-icon>info</mat-icon>
+          </button>
+
+          <button mat-icon-button matTooltip="visualizza dettaglio" matTooltipShowDelay="1000" routerLink="/dettaglio">
+            <mat-icon>assessment</mat-icon>
+          </button>
+
+          <button mat-icon-button [mat-menu-trigger-for]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card-header>
+
+      <mat-card-content>
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <div class="pictiorial-wrapper">
+              <div id="pictiorialChart" style="min-height: 300px" class=""></div>
+            </div>
+          </div>
+
+          <div class="col-md-2"></div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<!-- scolarità -->
+<div class="row">
+  <div class="col-md-12">
+
+    <scolarita></scolarita>
+
+  </div>
+</div>
+
+<!-- anzianità-->
+<div class="row">
+  <div class="col-md-12">
+    <mat-card class="example-card ">
+      <mat-card-header>
+        <!--avatar 
+                          <div mat-card-avatar class="example-header-image"></div>
+                          -->
+        <mat-card-title class="header-text"></mat-card-title>
+        <mat-card-actions>
+          <button mat-icon-button matTooltip="informazioni sul grafico" matTooltipShowDelay="1000"
+            (click)="openDialog()">
+            <mat-icon>info</mat-icon>
+          </button>
+
+          <button mat-icon-button matTooltip="visualizza dettaglio" matTooltipShowDelay="1000"
+            routerLink="/dettaglio-anzianita">
+            <mat-icon>assessment</mat-icon>
+          </button>
+
+          <button mat-icon-button [mat-menu-trigger-for]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card-header>
+
+      <mat-menu x-position="before" #menu="matMenu">
+        <button mat-menu-item>salva come .png</button>
+        <button mat-menu-item>salva come .xls</button>
+      </mat-menu>
+
+      <mat-card-content>
+        <div id="Content" class="Content">
+          <div class="list-justified-container" style="width:100%">
+            <ul class="list-justified text-center" style="height: 290px;
+            vertical-align: middle;
+            padding-top: 2px;
+            font-size: 16px;
+            margin: 0px auto;">
+              <div class="row">
+                <li class="col-sm-4 col-md-4">
+                  <p class="size-h3">Età Media</p>
+                  <div>
+                    <p class="text-bold p-circle total-iscrizioni-sidacati total-anzianita">
+                      {{ applicationModel.anzianita.eta_media }}
+                    </p>
+                  </div>
+                </li>
+                <li class="col-sm-4 col-md-4">
+                  <p class="size-h3">Anzianità Aziendale Media</p>
+                  <div>
+                    <p class="text-bold p-circle total-iscrizioni-sidacati total-anzianita">
+                      {{ applicationModel.anzianita.anzianita_aziendale_media }}
+                    </p>
+                  </div>
+                </li>
+                <li class="col-sm-4 col-md-4">
+                  <p class="size-h3">In età pensionabile</p>
+                  <div>
+                    <p class="text-bold p-circle total-iscrizioni-sidacati total-anzianita">
+                      {{ applicationModel.anzianita.in_eta_pensionabile }}
+                    </p>
+                  </div>
+                </li>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<!-- sindacato -->
+<div class="row">
+  <div class="col-md-12 col-lg-6">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <!--avatar 
+                    <div mat-card-avatar class="example-header-image"></div>
+        -->
+        <mat-card-title class="header-text">Iscrizioni Sindacali</mat-card-title>
+        <mat-card-actions>
+          <button mat-icon-button matTooltip="informazioni sul grafico" matTooltipShowDelay="1000"
+            (click)="openDialog()">
+            <mat-icon>info</mat-icon>
+          </button>
+
+          <button mat-icon-button matTooltip="visualizza dettaglio" matTooltipShowDelay="1000" routerLink="/dettaglio">
+            <mat-icon>assessment</mat-icon>
+          </button>
+
+          <button mat-icon-button [mat-menu-trigger-for]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card-header>
+
+      <mat-menu x-position="before" #menu="matMenu">
+        <button mat-menu-item>salva come .png</button>
+        <button mat-menu-item>salva come .xls</button>
+      </mat-menu>
+      <mat-card-content>
+        <div id="Content" class="Content row">
+          <div id="signupContent" class=" col-md-3">
+            <div class="text-dex circle giallo total-iscrizioni-sidacati">
+              {{ applicationModel.sindacato.iscritti | number }}
+            </div>
+          </div>
+
+          <div id="loginContent" class="card-box col-md-9">
+            <div id="pie-chart" style="height: 290px; margin-left: 10px;"></div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="col-md-12 col-lg-6">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <!-- avatar 
+                    <div mat-card-avatar class="example-header-image"></div>
+                    -->
+        <mat-card-title class="header-text">Rappresentanti Sindacali</mat-card-title>
+        <mat-card-actions>
+          <button mat-icon-button matTooltip="informazioni sul grafico" matTooltipShowDelay="1000"
+            (click)="openDialog()">
+            <mat-icon>info</mat-icon>
+          </button>
+
+          <button mat-icon-button matTooltip="visualizza dettaglio" matTooltipShowDelay="1000"
+            routerLink="/dettaglio-sindacati">
+            <mat-icon>assessment</mat-icon>
+          </button>
+
+          <button mat-icon-button [mat-menu-trigger-for]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card-header>
+
+      <mat-menu x-position="before" #menu="matMenu">
+        <button mat-menu-item>salva come .png</button>
+        <button mat-menu-item>salva come .xls</button>
+      </mat-menu>
+      <mat-card-content>
+        <div id="Content" class="Content row">
+          <div id="signupContent" class=" col-md-3">
+            <div class="text-dex circle verde total-rapp-sidacati">
+              {{ applicationModel.sindacato.rappresentanti | number }}
+            </div>
+          </div>
+
+          <div id="loginContent" class="card-box col-md-9">
+            <div id="rapp-sind-chart" style="min-height: 290px; margin-left: 10px;"></div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

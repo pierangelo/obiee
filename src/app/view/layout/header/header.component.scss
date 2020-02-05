@@ -1,0 +1,82 @@
+@import "../../../../styles-variables.scss";
+
+.mat-toolbar {
+  background: $menu-color-border-selected;
+}
+
+.utente {
+  font-size: 12px;
+  margin-right: 18px;
+}
+
+img.img30_30 {
+  width: 30px;
+  height: 30px;
+}
+
+.btn-filter {
+  cursor: pointer;
+}
+
+.header-command {
+  margin-left: 15px;
+  margin-right: 9px;
+}
+.fa-user-circle {
+  margin-right: 12px;
+  margin-top: 7px;
+  font-size: 17px;
+}
+.btn-screenshot {
+  cursor: pointer;
+  margin-left: 15px;
+}
+
+.logo-bar {
+  width: 137px;
+  margin-right: 47px;
+}
+
+.menu-user-btn {
+  // background-color: #3d5e82;
+  border-radius: 22px;
+  padding: 0px;
+}
+
+.menu-user-btn,
+.menu-user {
+  cursor: pointer;
+  display: flex;
+  margin-right: 7px;
+}
+
+.color-grey {
+  color: rgba(0, 0, 0, 0.54) !important;
+}
+.menu-user-btn-icon {
+  margin-top: 4px;
+  margin-right: 4px;
+  color: #f8f9fa;
+  margin-left: 10px;
+}
+
+.menu-icon {
+  font-size: 20px;
+  margin-right: 0;
+  color: #fff;
+}
+
+.menu-icon-logout {
+  color: red;
+}
+
+.mat-toolbar-single-row {
+  padding: 0px 10px;
+}
+
+@media screen and (max-width: 500px) {
+  .menu-user-btn-icon,
+  .utente {
+    display: none;
+  }
+}

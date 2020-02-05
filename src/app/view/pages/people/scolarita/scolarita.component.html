@@ -1,0 +1,39 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <!--  avatar 
+                            <div mat-card-avatar class="example-header-image"></div>
+         -->
+    <mat-card-title class="header-text">Scolarità</mat-card-title>
+    <mat-card-actions>
+      <button mat-icon-button matTooltip="informazioni sul grafico" matTooltipShowDelay="1000" (click)="openDialog()">
+        <mat-icon>info</mat-icon>
+      </button>
+
+      <button mat-icon-button matTooltip="visualizza dettaglio" matTooltipShowDelay="1000"
+        routerLink="/dettaglio-scolarita">
+        <mat-icon>assessment</mat-icon>
+      </button>
+
+      <button mat-icon-button [mat-menu-trigger-for]="menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card-header>
+
+  <mat-menu x-position="before" #menu="matMenu">
+    <button mat-menu-item>salva come .png</button>
+    <button mat-menu-item>salva come .xls</button>
+  </mat-menu>
+  <mat-card-content>
+    <div id="Content" class="Content row">
+      <!--
+          <div id="signupContent" class=" col-md-2">
+            <div class="text-dex circle blue total-scolarita">605</div>
+          </div>
+        -->
+      <div id="loginContent" class="card-box col-md-11">
+        <div id="scolarita-chart" style="min-height: 330px; margin-left: 10px;"></div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

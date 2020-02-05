@@ -9,7 +9,12 @@ export class EventDispatcherService {
   private _broadcastListener: Subject<any> = new Subject<any>();
   broadcastListener = this._broadcastListener.asObservable();
 
-  constructor() {}
+  constructor() { }
+
+  /**
+   * distribuisce l'evento 
+   * @param event 
+   */
   dispatchEvent(event: ApplicationEvent): void {
     this._broadcastListener.next(event);
     console.log(

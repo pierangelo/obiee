@@ -1,43 +1,42 @@
 import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 import { Router, NavigationEnd } from "@angular/router";
-import { fadeInOutAnimation } from "./controller/animation.controller";
+import { fadeInOutAnimation } from "./delegate/animation.controller";
 import { ViewportScroller } from "@angular/common";
-import { ModalController } from './controller/ModalController';
-import { ApplicationModelService } from './service/application-model.service';
+import { ModalController } from "./delegate/ModalController";
+import { ApplicationModelService } from "./model/application-model";
 
 declare var $;
 @Component({
   selector: "app-main",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.scss"],
-  animations: [fadeInOutAnimation],
-
+  animations: [fadeInOutAnimation]
 })
 export class AppComponent {
   @ViewChild("global-spinner", { static: true }) spinner;
 
   name = "Angular";
   hostname: String = "";
-  onResize(event) { }
+  onResize(event) {}
 
   constructor(
-    public router: Router, private myElement: ElementRef, public viewportScroller: ViewportScroller, public applicationModel: ApplicationModelService) {
-
-
+    public router: Router,
+    private myElement: ElementRef,
+    public viewportScroller: ViewportScroller,
+    public applicationModel: ApplicationModelService
+  ) {
     const appRootRef = this.myElement;
 
     //chech local or remote...
 
     //change APP_BASE_HREF
 
-
-
     console.log("baseUrl: " + this.applicationModel.baseUrl);
     //landing page...
     router.navigate(["/home"]);
 
     //low level code :)
-    setTimeout(function () {
+    setTimeout(function() {
       $("#global-spinner").fadeOut("", () => {
         $("#global-spinner").remove();
       });
@@ -48,7 +47,7 @@ export class AppComponent {
     $(".filter-element").hide();
     //trick
     this.router.events.subscribe(evt => {
-      $('.container-reponsive').fadeIn("slow");
+      $(".container-reponsive").fadeIn("slow");
       $(".mat-sidenav-content").scrollTop(0);
     });
   }

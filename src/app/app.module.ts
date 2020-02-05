@@ -1,3 +1,5 @@
+import { AppLayoutModule } from "./view/layout/app-layout.module";
+
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
@@ -11,30 +13,26 @@ import { AppComponent } from "./app.component";
 import { LayoutModule } from "@angular/cdk/layout";
 
 import { AppRoutes } from "./app.routes";
-import { PagesModule } from "./pages/pages.module";
+import { PagesModule } from "./view/pages/pages.module";
 import { APP_BASE_HREF, registerLocaleData } from "@angular/common";
-import { AppLayoutModule } from "./layout/app-layout.module";
-import { DialogComponent } from "./pages/componenti/dialog/dialog.component";
-import { FilterComponent } from "./pages/componenti/filter/filter.component";
-import { LOCALE_ID } from '@angular/core';
-import { ModalController } from './controller/ModalController';
-import { ApplicationModelService } from './service/application-model.service';
+import { DialogComponent } from "./view/componenti/dialog/dialog.component";
+import { FilterComponent } from "./view/componenti/filter/filter.component";
+import { LOCALE_ID } from "@angular/core";
+import { ModalController } from "./delegate/ModalController";
+import { ApplicationModelService } from "./model/application-model";
 
-import it from '@angular/common/locales/it';
+import it from "@angular/common/locales/it";
 
 //registeerd local ita
 registerLocaleData(it);
 
-
-function getBaseUrl() {
+export function getBaseUrl() {
   let hostname = window.location.href;
-
   console.log("valutazione APP_BASE_HREF | hostname: " + hostname);
-
   let APP_BASE_HREF = "/";
-
   if (hostname.includes("oraclecloud.com")) {
-    APP_BASE_HREF = "/analytics/saw.dll?Dashboard&PortalPath=%2Fshared%2Fprove%2F_portal%2Ftest_integrazione_angular&pag=/";
+    APP_BASE_HREF =
+      "/analytics/saw.dll?Dashboard&PortalPath=%2Fshared%2Fprove%2F_portal%2Ftest_integrazione_angular&pag=/";
   }
   return APP_BASE_HREF;
 }
@@ -55,14 +53,13 @@ declare var $;
   ],
   declarations: [
     //trick ;)
-    AppLayoutModule.COMPONENTS,
+    //AppLayoutModule.COMPONENTS,
     PagesModule.PAGES,
-    AppComponent,
-
+    AppComponent
   ],
 
   providers: [
-    { provide: APP_BASE_HREF, useFactory: getBaseUrl },//useValue: "/analytics/saw.dll?Dashboard&PortalPath=%2Fshared%2Fprove%2F_portal%2Ftest_integrazione_angular&pag=/" },
+    { provide: APP_BASE_HREF, useFactory: getBaseUrl },
     { provide: LOCALE_ID, useValue: "it-IT" },
     ModalController
   ],
@@ -71,27 +68,20 @@ declare var $;
   //for runtime component
   entryComponents: [DialogComponent, FilterComponent]
 })
-
-
 export class AppModule {
-
   hostname = "";
-  constructor(private modal: ModalController, private applicationModel: ApplicationModelService) {
+  constructor(
+    private modal: ModalController,
+    private applicationModel: ApplicationModelService
+  ) {
     this.hostname = window.location.href;
 
     console.log("checking baseUrl...");
 
     if (this.hostname.includes("oraclecloud.com")) {
       this.applicationModel.baseUrl = applicationModel.baseUrlOracleCloud;
-
     } else {
       this.applicationModel.baseUrl = applicationModel.baseUrlStandard;
     }
-
   }
-
-
-
 }
-
-
